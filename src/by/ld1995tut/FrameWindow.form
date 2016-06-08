@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="by.ld1995tut.FrameWindow">
+  <grid id="27dc6" binding="rootPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="515" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="31494" binding="systemBoard" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="2">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="a8970" class="javax.swing.JButton" binding="turn">
+            <constraints/>
+            <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="Turn"/>
+            </properties>
+          </component>
+          <component id="36fef" class="javax.swing.JButton" binding="exit">
+            <constraints/>
+            <properties>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <text value="Exit"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="19902" binding="inputPanel" layout-manager="GridBagLayout">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <minimumSize width="120" height="119"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+    </children>
+  </grid>
+</form>
