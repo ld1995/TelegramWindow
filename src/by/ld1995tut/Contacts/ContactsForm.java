@@ -37,13 +37,7 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
                                                   boolean selected, boolean hasFocus)
     {
         this.person = person;
-        setPreferredSize(new Dimension(0, 50));
         this.nameLabel.setText(person.getFirstName() + " " + person.getLastName());
-        if (selected)
-            setBackground(Color.white);
-        else {
-            setBackground(Color.lightGray);
-        }
         this.hasFocus = hasFocus;
         return this;
     }

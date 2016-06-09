@@ -15,7 +15,7 @@ public class FrameNumber {
     private JFormattedTextField numberField;
 
     public FrameNumber() {
-        //numberField.setValue();
+        numberField.setValue("+375");
     }
 
     //=======================================================
