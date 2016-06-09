@@ -34,9 +34,9 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     @Override
     public Component getListCellRendererComponent(JList<? extends Person> jList,
                                                   Person person, int index,
-                                                  boolean selected, boolean hasFocus) {
+                                                  boolean selected, boolean hasFocus)
+    {
         this.person = person;
-        jList.getModel();
         setPreferredSize(new Dimension(0, 50));
         this.nameLabel.setText(person.getFirstName() + " " + person.getLastName());
         if (selected)

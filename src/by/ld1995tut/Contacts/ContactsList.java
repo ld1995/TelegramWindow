@@ -1,21 +1,29 @@
 package by.ld1995tut.Contacts;
 
+import org.javagram.dao.Contact;
 import org.javagram.dao.Person;
 import org.javagram.dao.proxy.TelegramProxy;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class ContactsList extends JPanel {
     private JPanel contactsPanel;
     private JList<Person> list;
-    TelegramProxy telegramProxy;
 
-    public ContactsList() {
-        list.setCellRenderer(new ContactsForm());
+    public ContactsList()
+    {
+
     }
-       // list.setListData();
+
+    public void getContacts()
+    {
+        list.setCellRenderer(new ContactsForm());
+        list.setListData(new ContactsForm().get);
+    }
 
     public JPanel getContactsPanel() {
         return contactsPanel;

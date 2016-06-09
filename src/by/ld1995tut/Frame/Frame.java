@@ -64,7 +64,6 @@ public class Frame extends JFrame
             public void valueChanged(ListSelectionEvent e)
             {
 
-
             }
         });
         reg.addActionListenerForConfirm(new ActionListener()
@@ -122,7 +121,7 @@ public class Frame extends JFrame
             if (telegramDAO.canSignIn())
             {
                 telegramDAO.signIn(smsCod());
-                changeContentPanel(mainForm.getRootPanel());
+                switchContacts();
             }
             else if (telegramDAO.canSignUp())
             {
@@ -143,7 +142,7 @@ public class Frame extends JFrame
             telegramDAO.signUp(smsCod(),
                     reg.getPerson().getLastName().trim().replaceAll("[^A-ZА-ЯЁa-zа-яё]",""),
                     reg.getPerson().getFastName().trim().replaceAll("[^A-ZА-ЯЁa-zа-яё]",""));
-            changeContentPanel(mainForm.getRootPanel());
+            switchContacts();
         }
         catch (IOException e)
         {
@@ -155,6 +154,12 @@ public class Frame extends JFrame
     private String smsCod()
     {
        return new String(sms.getPerson().getCode());
+    }
+
+    private void switchContacts()
+    {
+        changeContentPanel(mainForm.getRootPanel());
+        contacts.getContacts();
     }
 
     private void changeContentPanel(Container contentPanel)

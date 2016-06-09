@@ -3,16 +3,19 @@ package by.ld1995tut.Frame;
 import by.ld1995tut.Person;
 
 import javax.swing.*;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 
 public class FrameNumber {
     private JButton numberButton;
     private JPanel numberPanel;
-    private JTextField numberField;
+    private JFormattedTextField numberField;
 
     public FrameNumber() {
-
+        //numberField.setValue();
     }
 
     //=======================================================
@@ -87,16 +90,6 @@ public class FrameNumber {
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.WEST;
         numberPanel.add(label2, gbc);
-        numberField = new JTextField();
-        numberField.setFocusCycleRoot(false);
-        numberField.setFocusTraversalPolicyProvider(false);
-        numberField.setFocusable(true);
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        numberPanel.add(numberField, gbc);
         final JPanel spacer1 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -109,6 +102,14 @@ public class FrameNumber {
         gbc.gridy = 4;
         gbc.fill = GridBagConstraints.VERTICAL;
         numberPanel.add(spacer2, gbc);
+        numberField = new JFormattedTextField();
+        numberField.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        numberPanel.add(numberField, gbc);
     }
 
     /**
