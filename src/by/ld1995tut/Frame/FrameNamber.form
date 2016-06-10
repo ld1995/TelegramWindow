@@ -61,6 +61,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
+          <focusCycleRoot value="true"/>
           <text value=""/>
         </properties>
       </component>

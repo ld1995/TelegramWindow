@@ -36,7 +36,7 @@
         <constraints border-constraint="West"/>
         <properties>
           <minimumSize width="350" height="0"/>
-          <preferredSize width="250" height="250"/>
+          <preferredSize width="250" height="500"/>
         </properties>
         <border type="none"/>
         <children/>

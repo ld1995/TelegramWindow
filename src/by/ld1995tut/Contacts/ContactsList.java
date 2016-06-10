@@ -1,6 +1,8 @@
 package by.ld1995tut.Contacts;
 
 import org.javagram.dao.Person;
+import org.javagram.dao.proxy.TelegramProxy;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
@@ -8,13 +10,22 @@ import java.awt.*;
 public class ContactsList extends JPanel {
     private JPanel contactsPanel;
     private JList<Person> list;
+    TelegramProxy telegramProxy;
 
     public ContactsList() {
 
     }
 
-    public void getContacts() {
-        list.setCellRenderer(new ContactsForm());
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        contactsPanel = this;
+    }
+
+    public void getContacts(TelegramProxy telegramProxy) {
+        this.telegramProxy = telegramProxy;
+        java.util.List<Person> dialogs = telegramProxy.getPersons();
+        list.setCellRenderer(new ContactsForm(telegramProxy));
+        list.setListData(dialogs.toArray(new Person[dialogs.size()]));
     }
 
     public JPanel getContactsPanel() {
@@ -44,7 +55,7 @@ public class ContactsList extends JPanel {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        contactsPanel = new JPanel();
+        createUIComponents();
         contactsPanel.setLayout(new BorderLayout(0, 0));
         final JScrollPane scrollPane1 = new JScrollPane();
         contactsPanel.add(scrollPane1, BorderLayout.CENTER);

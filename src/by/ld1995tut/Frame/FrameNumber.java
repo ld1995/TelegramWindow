@@ -103,6 +103,7 @@ public class FrameNumber {
         gbc.fill = GridBagConstraints.VERTICAL;
         numberPanel.add(spacer2, gbc);
         numberField = new JFormattedTextField();
+        numberField.setFocusCycleRoot(true);
         numberField.setText("");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;

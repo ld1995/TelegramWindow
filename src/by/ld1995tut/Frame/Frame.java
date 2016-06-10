@@ -14,6 +14,7 @@ import java.io.IOException;
 public class Frame extends JFrame
 {
     private TelegramDAO telegramDAO;
+    private TelegramProxy telegramProxy;
 
     private FrameWindow frameWindow = new FrameWindow();
     private FrameNumber number = new FrameNumber();
@@ -158,8 +159,9 @@ public class Frame extends JFrame
 
     private void switchContacts()
     {
+        telegramProxy = new TelegramProxy(telegramDAO);
+        contacts.getContacts(telegramProxy);
         changeContentPanel(mainForm.getRootPanel());
-        contacts.getContacts();
     }
 
     private void changeContentPanel(Container contentPanel)

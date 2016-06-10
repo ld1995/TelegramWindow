@@ -1,6 +1,7 @@
 package by.ld1995tut.Contacts;
 
 import org.javagram.dao.*;
+import org.javagram.dao.Dialog;
 import org.javagram.dao.proxy.TelegramProxy;
 
 import javax.swing.*;
@@ -11,12 +12,18 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     private JLabel nameLabel;
     private JPanel fotoPanel;
     private JPanel rootPanel;
+    TelegramProxy telegramProxy;
 
     private Person person;
     private boolean hasFocus;
 
-    public ContactsForm() {
+    public ContactsForm(TelegramProxy telegramProxy) {
+        this.telegramProxy = telegramProxy;
 
+    }
+
+    private void createUIComponents() {
+        rootPanel = this;
     }
 
     public JLabel getNameLabel() {
@@ -34,10 +41,10 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     @Override
     public Component getListCellRendererComponent(JList<? extends Person> jList,
                                                   Person person, int index,
-                                                  boolean selected, boolean hasFocus)
-    {
+                                                  boolean selected, boolean hasFocus) {
         this.person = person;
         this.nameLabel.setText(person.getFirstName() + " " + person.getLastName());
+        setPreferredSize(new Dimension(0, 50));
         this.hasFocus = hasFocus;
         return this;
     }
@@ -57,7 +64,7 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
      * @noinspection ALL
      */
     private void $$$setupUI$$$() {
-        rootPanel = new JPanel();
+        createUIComponents();
         rootPanel.setLayout(new GridBagLayout());
         rootPanel.setPreferredSize(new Dimension(50, 200));
         fotoPanel = new JPanel();
