@@ -7,7 +7,10 @@ import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.logging.SimpleFormatter;
 
 public class FrameNumber {
     private JButton numberButton;
@@ -15,7 +18,14 @@ public class FrameNumber {
     private JFormattedTextField numberField;
 
     public FrameNumber() {
-        numberField.setValue("+375");
+        try {
+            MaskFormatter maskFormatter = new MaskFormatter("+### (##) ###-##-##");
+            maskFormatter.setPlaceholder(null);
+            maskFormatter.setPlaceholderCharacter('.');
+            numberField.setFormatterFactory(new DefaultFormatterFactory(maskFormatter));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     //=======================================================

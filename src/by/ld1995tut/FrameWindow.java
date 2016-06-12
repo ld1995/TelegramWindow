@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class FrameWindow {
+public class FrameWindow
+{
     private JPanel rootPanel;
     private JButton turn;
     private JButton exit;

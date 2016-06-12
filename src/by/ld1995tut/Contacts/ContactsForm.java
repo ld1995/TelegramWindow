@@ -43,7 +43,14 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
                                                   Person person, int index,
                                                   boolean selected, boolean hasFocus) {
         this.person = person;
+        Dialog dialog = telegramProxy.getDialog(person);
         this.nameLabel.setText(person.getFirstName() + " " + person.getLastName());
+        if (dialog != null) {
+            this.lastMessage.setText(dialog.getLastMessage().getText());
+        } else {
+            this.lastMessage.setText("");
+        }
+
         setPreferredSize(new Dimension(0, 50));
         this.hasFocus = hasFocus;
         return this;
@@ -84,6 +91,15 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         rootPanel.add(spacer1, gbc);
+        nameLabel = new JLabel();
+        nameLabel.setMinimumSize(new Dimension(150, 24));
+        nameLabel.setPreferredSize(new Dimension(150, 24));
+        nameLabel.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        rootPanel.add(nameLabel, gbc);
         lastMessage = new JTextField();
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
@@ -91,15 +107,12 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         gbc.anchor = GridBagConstraints.SOUTHWEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         rootPanel.add(lastMessage, gbc);
-        nameLabel = new JLabel();
-        nameLabel.setMinimumSize(new Dimension(150, 16));
-        nameLabel.setPreferredSize(new Dimension(150, 16));
-        nameLabel.setText("Label");
+        final JPanel spacer2 = new JPanel();
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.WEST;
-        rootPanel.add(nameLabel, gbc);
+        gbc.gridy = 2;
+        gbc.fill = GridBagConstraints.VERTICAL;
+        rootPanel.add(spacer2, gbc);
     }
 
     /**

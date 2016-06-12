@@ -3,6 +3,7 @@ package by.ld1995tut.Frame;
 import by.ld1995tut.Person;
 
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -12,7 +13,9 @@ public class FrameSms {
     private JLabel number;
     private JPanel smsPanel;
 
-    public FrameSms() {
+    public FrameSms()
+    {
+
     }
 
     //=============================================================
