@@ -17,10 +17,6 @@ public class MainForm extends JPanel {
         return rootPanel;
     }
 
-    public void setRootPanel(JPanel rootPanel) {
-        this.rootPanel.add(rootPanel);
-    }
-
     public JPanel getTitlePanel() {
         return titlePanel;
     }

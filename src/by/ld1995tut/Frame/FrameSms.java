@@ -1,6 +1,7 @@
 package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
+import by.ld1995tut.mics.Pass;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
@@ -15,7 +16,8 @@ public class FrameSms {
 
     public FrameSms()
     {
-
+        if (passwordField.getDocument() instanceof AbstractDocument)
+            ((AbstractDocument) passwordField.getDocument()).setDocumentFilter(new Pass(5));
     }
 
     //=============================================================
@@ -24,12 +26,9 @@ public class FrameSms {
         return smsPanel;
     }
 
-    public JPasswordField getPasswordField() {
-        return passwordField;
-    }
-
-    public JButton getSmsButton() {
-        return smsButton;
+    public String getPasswordField()
+    {
+        return new String(passwordField.getPassword());
     }
 
     public void setNamber(String number) {
@@ -38,13 +37,6 @@ public class FrameSms {
 
     public void setPerson(Person person) {
         setNamber(person.getNamber());
-    }
-
-    //=============================================================
-
-    public Person getPerson() {
-        Person person = new Person(getPasswordField().getPassword());
-        return person;
     }
 
     public void addActionListenerForConfirm(ActionListener actionListener) {

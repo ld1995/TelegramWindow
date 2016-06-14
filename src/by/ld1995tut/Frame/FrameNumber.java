@@ -7,10 +7,7 @@ import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.logging.SimpleFormatter;
 
 public class FrameNumber {
     private JButton numberButton;
@@ -29,21 +26,23 @@ public class FrameNumber {
     }
 
     //=======================================================
-    public JButton getNumberButton() {
-        return numberButton;
-    }
 
     public JPanel getNumberPanel() {
         return numberPanel;
     }
 
-    public JTextField getNumberField() {
-        return numberField;
-    }
+    public String getNumberField()
+    {
+        try
+        {
+            numberField.commitEdit();
+            return numberField.getValue().toString();
+        }
+        catch (ParseException e)
+        {
+            return null;
+        }
 
-    public Person getPerson() {
-        Person person = new Person(getNumberField().getText());
-        return person;
     }
 
     public void addActionListenerForConfirm(ActionListener actionListener) {

@@ -35,7 +35,7 @@ public class FrameWindow
     public void setInputPanel(Component inputPanel) {
         this.inputPanel.removeAll();
         this.inputPanel.add(inputPanel);
-        this.inputPanel.validate();
+        this.inputPanel.revalidate();
         this.inputPanel.repaint();
     }
 

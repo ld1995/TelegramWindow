@@ -36,7 +36,7 @@ public class Frame extends JFrame
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent windowEvent) {
-                exitMessage(panel);
+                exitMessage();
             }
         });
         number.addActionListenerForConfirm(new ActionListener()
@@ -44,10 +44,7 @@ public class Frame extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                if (number.getPerson().hasControlNumber())
-                {
-                    switchPhonToCod();
-                }
+                switchPhonToCod();
             }
         });
         sms.addActionListenerForConfirm(new ActionListener()
@@ -76,7 +73,7 @@ public class Frame extends JFrame
                     registration();
                 }
                 else
-                    errorMessage(panel);
+                    errorMessage();
             }
         });
         frameWindow.addActionListenerForClose(new ActionListener()
@@ -84,7 +81,7 @@ public class Frame extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                exitMessage(panel);
+                exitMessage();
             }
         });
         frameWindow.addActionListenerForMinimize(new ActionListener()
@@ -101,16 +98,16 @@ public class Frame extends JFrame
     {
         try
         {
-            telegramDAO.acceptNumber(number.getPerson().getNamber().trim().replaceAll("[\\D()-]+",""));
+            telegramDAO.acceptNumber(number.getNumberField().trim().replaceAll("[\\D()-]+",""));
             telegramDAO.sendCode();
-            sms.setPerson(number.getPerson());
+            sms.setNamber(number.getNumberField());
             changeContentPanel(sms.getSmsPanel());
         }
         catch (IOException e)
         {
             e.printStackTrace();
             changeContentPanel(number.getNumberPanel());
-            errorMessage(panel);
+            errorMessage();
             return;
         }
     }
@@ -121,7 +118,7 @@ public class Frame extends JFrame
         {
             if (telegramDAO.canSignIn())
             {
-                telegramDAO.signIn(smsCod());
+                telegramDAO.signIn(sms.getPasswordField());
                 switchContacts();
             }
             else if (telegramDAO.canSignUp())
@@ -132,7 +129,7 @@ public class Frame extends JFrame
         catch (IOException e)
         {
             e.printStackTrace();
-            errorMessage(panel);
+            errorMessage();
         }
     }
 
@@ -140,21 +137,16 @@ public class Frame extends JFrame
     {
         try
         {
-            telegramDAO.signUp(smsCod(),
-                    reg.getPerson().getLastName().trim().replaceAll("[^A-ZА-ЯЁa-zа-яё]",""),
-                    reg.getPerson().getFastName().trim().replaceAll("[^A-ZА-ЯЁa-zа-яё]",""));
+            telegramDAO.signUp(sms.getPasswordField(),
+                    reg.getPerson().getLastName(),
+                    reg.getPerson().getFastName());
             switchContacts();
         }
         catch (IOException e)
         {
             e.printStackTrace();
-            errorMessage(panel);
+            errorMessage();
         }
-    }
-
-    private String smsCod()
-    {
-       return new String(sms.getPerson().getCode());
     }
 
     private void switchContacts()
@@ -169,7 +161,7 @@ public class Frame extends JFrame
         frameWindow.setInputPanel(contentPanel);
     }
 
-    private void errorMessage(JPanel panel)
+    private void errorMessage()
     {
         JOptionPane.showMessageDialog(panel,
                 "Поле заполнено неверно",
@@ -177,7 +169,7 @@ public class Frame extends JFrame
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void exitMessage(JPanel panel)
+    private void exitMessage()
     {
         int option = JOptionPane.showConfirmDialog(panel,
                 "Вы точно хотети выйти?",

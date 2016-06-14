@@ -1,8 +1,10 @@
 package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
+import by.ld1995tut.mics.Reg;
 
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -11,6 +13,13 @@ public class Registration {
     private JTextField lastName;
     private JButton nextReg;
     private JTextField fastName;
+
+    public Registration() {
+        if (lastName.getDocument() instanceof AbstractDocument)
+            ((AbstractDocument) lastName.getDocument()).setDocumentFilter(new Reg());
+        else if (fastName.getDocument() instanceof AbstractDocument)
+            ((AbstractDocument) lastName.getDocument()).setDocumentFilter(new Reg());
+    }
 
     //=============================================================
 

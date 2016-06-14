@@ -26,18 +26,6 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         rootPanel = this;
     }
 
-    public JLabel getNameLabel() {
-        return nameLabel;
-    }
-
-    public JPanel getFotoPanel() {
-        return fotoPanel;
-    }
-
-    public void setFotoPanel(JPanel fotoPanel) {
-        this.fotoPanel.add(fotoPanel);
-    }
-
     @Override
     public Component getListCellRendererComponent(JList<? extends Person> jList,
                                                   Person person, int index,
