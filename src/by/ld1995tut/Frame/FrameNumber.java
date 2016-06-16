@@ -1,8 +1,11 @@
 package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
+import by.ld1995tut.mics.Number;
+import by.ld1995tut.mics.Reg;
 
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
@@ -23,6 +26,8 @@ public class FrameNumber {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        if (numberField.getDocument() instanceof AbstractDocument)
+            ((AbstractDocument) numberField.getDocument()).setDocumentFilter(new Number());
     }
 
     //=======================================================

@@ -24,13 +24,14 @@ public class Frame extends JFrame
     private MainForm mainForm = new MainForm();
 
     private JPanel panel = frameWindow.getRootPanel();
+    private JPanel numberPanel = number.getNumberPanel();
 
     public Frame(TelegramDAO telegramDAO) throws Exception
     {
         setSize(800,600);
         setUndecorated(true);
         setContentPane(panel);
-        changeContentPanel(number.getNumberPanel());
+        changeContentPanel(numberPanel);
         this.telegramDAO = telegramDAO;
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
@@ -61,19 +62,13 @@ public class Frame extends JFrame
             @Override
             public void valueChanged(ListSelectionEvent e)
             {
-
             }
         });
         reg.addActionListenerForConfirm(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (reg.getPerson().hasControlReg())
-                {
-                    registration();
-                }
-                else
-                    errorMessage();
+                registration();
             }
         });
         frameWindow.addActionListenerForClose(new ActionListener()
@@ -98,7 +93,7 @@ public class Frame extends JFrame
     {
         try
         {
-            telegramDAO.acceptNumber(number.getNumberField().trim().replaceAll("[\\D()-]+",""));
+            telegramDAO.acceptNumber(number.getNumberField());
             telegramDAO.sendCode();
             sms.setNamber(number.getNumberField());
             changeContentPanel(sms.getSmsPanel());
@@ -106,7 +101,7 @@ public class Frame extends JFrame
         catch (IOException e)
         {
             e.printStackTrace();
-            changeContentPanel(number.getNumberPanel());
+            changeContentPanel(numberPanel);
             errorMessage();
             return;
         }
