@@ -93,7 +93,7 @@ public class Frame extends JFrame
     {
         try
         {
-            telegramDAO.acceptNumber(number.getNumberField());
+            telegramDAO.acceptNumber(number.getNumberField().replace("[\\D]+",""));
             telegramDAO.sendCode();
             sms.setNamber(number.getNumberField());
             changeContentPanel(sms.getSmsPanel());
