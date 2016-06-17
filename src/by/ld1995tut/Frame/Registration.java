@@ -18,7 +18,7 @@ public class Registration {
         if (lastName.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) lastName.getDocument()).setDocumentFilter(new Reg());
         if (fastName.getDocument() instanceof AbstractDocument)
-            ((AbstractDocument) lastName.getDocument()).setDocumentFilter(new Reg());
+            ((AbstractDocument) fastName.getDocument()).setDocumentFilter(new Reg());
     }
 
     //=============================================================
