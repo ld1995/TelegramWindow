@@ -147,4 +147,6 @@ public class FrameSms {
     public JComponent $$$getRootComponent$$$() {
         return smsPanel;
     }
+
+
 }

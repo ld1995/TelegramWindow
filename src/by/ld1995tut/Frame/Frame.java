@@ -2,6 +2,7 @@ package by.ld1995tut.Frame;
 
 import by.ld1995tut.Contacts.ContactsList;
 import by.ld1995tut.FrameWindow;
+import by.ld1995tut.resurces.Images;
 import org.javagram.dao.*;
 import org.javagram.dao.proxy.TelegramProxy;
 
@@ -87,6 +88,10 @@ public class Frame extends JFrame
                 setState(JFrame.ICONIFIED);
             }
         });
+
+        number.setBackgroundImage(Images.getBackground());
+
+        number.setLogoImage(Images.getLogo());
     }
 
     private void switchPhonToCod()

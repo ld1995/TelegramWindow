@@ -12,12 +12,12 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="a8970" class="javax.swing.JButton" binding="turn">
+          <component id="a8970" class="javax.swing.JButton" binding="turn" custom-create="true">
             <constraints/>
             <properties>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="Turn"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="36fef" class="javax.swing.JButton" binding="exit">
@@ -25,7 +25,7 @@
             <properties>
               <focusPainted value="false"/>
               <focusable value="false"/>
-              <text value="Exit"/>
+              <text value=""/>
             </properties>
           </component>
         </children>
