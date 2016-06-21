@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class FrameWindow {
+public class FrameWindow extends JPanel {
     private JPanel rootPanel;
     private JButton turn;
     private JButton exit;
@@ -16,11 +16,13 @@ public class FrameWindow {
     private JPanel inputPanel;
 
     private BufferedImage iconHide;
+    private BufferedImage iconClose;
 
     public FrameWindow() {
         $$$setupUI$$$();
         try {
             this.iconHide = ImageIO.read(new File("resources/images/icon-hide.png"));
+            this.iconClose = ImageIO.read(new File("resources/images/icon-close.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -79,6 +81,14 @@ public class FrameWindow {
                 g.drawImage(iconHide, 0, 0, null);
             }
         };
+        exit = new JButton() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(iconClose, 0, 0, null);
+            }
+        };
+        systemBoard = this;
     }
 
     /**
@@ -92,20 +102,28 @@ public class FrameWindow {
         createUIComponents();
         rootPanel = new JPanel();
         rootPanel.setLayout(new BorderLayout(0, 0));
-        systemBoard = new JPanel();
         systemBoard.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
+        systemBoard.setBackground(new Color(-1710619));
+        systemBoard.setForeground(new Color(-1710619));
         rootPanel.add(systemBoard, BorderLayout.NORTH);
+        turn.setBackground(new Color(-1710619));
         turn.setFocusPainted(false);
         turn.setFocusable(false);
+        turn.setForeground(new Color(-1710619));
+        turn.setPreferredSize(new Dimension(20, 20));
         turn.setText("");
         systemBoard.add(turn);
-        exit = new JButton();
+        exit.setBackground(new Color(-1710619));
         exit.setFocusPainted(false);
         exit.setFocusable(false);
+        exit.setForeground(new Color(-1710619));
+        exit.setPreferredSize(new Dimension(20, 20));
         exit.setText("");
         systemBoard.add(exit);
         inputPanel = new JPanel();
         inputPanel.setLayout(new GridBagLayout());
+        inputPanel.setBackground(new Color(-4516864));
+        inputPanel.setForeground(new Color(-4516864));
         inputPanel.setMinimumSize(new Dimension(120, 119));
         rootPanel.add(inputPanel, BorderLayout.CENTER);
     }

@@ -13,12 +13,11 @@ import java.text.ParseException;
 
 public class FrameNumber extends JPanel {
     private JButton numberButton;
-    private JPanel numberPanel;
+    private JPanel rootPanel;
     private JFormattedTextField numberField;
-    private JPanel logoPanel;
+    private JTextPane text;
 
-    private BufferedImage backgroundImage;
-    private BufferedImage logoImage;
+    private BufferedImage background;
 
     public FrameNumber() {
         $$$setupUI$$$();
@@ -30,13 +29,17 @@ public class FrameNumber extends JPanel {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        this.logoPanel.setBorder(BorderFactory.createEmptyBorder());
+        try {
+            background = ImageIO.read(new File("resources/images/background.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //=======================================================
 
-    public JPanel getNumberPanel() {
-        return numberPanel;
+    public JPanel getRootPanel() {
+        return rootPanel;
     }
 
     public String getNumberField() {
@@ -59,31 +62,21 @@ public class FrameNumber extends JPanel {
         numberField.removeActionListener(actionListener);
     }
 
-    public BufferedImage getLogoImage() {
-        return logoImage;
-    }
-
-    public void setLogoImage(BufferedImage logoImage) {
-        this.logoImage = logoImage;
-    }
-
-    public BufferedImage getBackgroundImage() {
-        return backgroundImage;
-    }
-
-    public void setBackgroundImage(BufferedImage backgroundImage) {
-        this.backgroundImage = backgroundImage;
-    }
 
     private void createUIComponents() {
-        numberPanel = this;
-        logoPanel = new JPanel() {
+        // TODO: place custom component creation code here
+        rootPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.drawImage(logoImage, 0, 0, this.getWidth(), this.getHeight(), null);
+                g.drawImage(background, 0, 0, null);
             }
         };
+        text = new JTextPane();
+        text.setEditable(false);
+        text.setHighlighter(null);
+        numberField = new JFormattedTextField();
+        numberField.setOpaque(false);
 
     }
 
@@ -96,19 +89,20 @@ public class FrameNumber extends JPanel {
      */
     private void $$$setupUI$$$() {
         createUIComponents();
-        numberPanel.setLayout(new GridBagLayout());
-        numberPanel.setBackground(new Color(-12828863));
-        numberPanel.setMinimumSize(new Dimension(300, 320));
-        numberPanel.setPreferredSize(new Dimension(300, 320));
-        final JLabel label1 = new JLabel();
-        label1.setHorizontalAlignment(0);
-        label1.setHorizontalTextPosition(0);
-        label1.setText("Введите код страны и номер ");
+        rootPanel.setLayout(new GridBagLayout());
+        rootPanel.setBackground(new Color(-12828863));
+        rootPanel.setMinimumSize(new Dimension(300, 320));
+        rootPanel.setOpaque(true);
+        rootPanel.setPreferredSize(new Dimension(780, 580));
+        text.setForeground(new Color(-1710619));
+        text.setOpaque(false);
+        text.setText("Введите код страны и номер\nвашего мобильного телефона");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 1;
-        numberPanel.add(label1, gbc);
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.BOTH;
+        rootPanel.add(text, gbc);
         numberButton = new JButton();
         numberButton.setHorizontalTextPosition(0);
         numberButton.setMaximumSize(new Dimension(150, 32));
@@ -118,48 +112,22 @@ public class FrameNumber extends JPanel {
         numberButton.setText("Продолжить");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 6;
-        numberPanel.add(numberButton, gbc);
-        final JLabel label2 = new JLabel();
-        label2.setText("вашего мобильного телефона");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
         gbc.gridy = 2;
-        gbc.anchor = GridBagConstraints.WEST;
-        numberPanel.add(label2, gbc);
-        final JPanel spacer1 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        numberPanel.add(spacer1, gbc);
-        final JPanel spacer2 = new JPanel();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        numberPanel.add(spacer2, gbc);
+        rootPanel.add(numberButton, gbc);
         numberField = new JFormattedTextField();
-        numberField.setFocusCycleRoot(true);
-        numberField.setText("");
+        numberField.setOpaque(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 4;
+        gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        numberPanel.add(numberField, gbc);
-        logoPanel.setPreferredSize(new Dimension(180, 180));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.BOTH;
-        numberPanel.add(logoPanel, gbc);
+        rootPanel.add(numberField, gbc);
     }
 
     /**
      * @noinspection ALL
      */
     public JComponent $$$getRootComponent$$$() {
-        return numberPanel;
+        return rootPanel;
     }
 }

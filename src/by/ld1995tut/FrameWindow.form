@@ -7,24 +7,33 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="31494" binding="systemBoard" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="2">
+      <grid id="31494" binding="systemBoard" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="2">
         <constraints border-constraint="North"/>
-        <properties/>
+        <properties>
+          <background color="-1710619"/>
+          <foreground color="-1710619"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="a8970" class="javax.swing.JButton" binding="turn" custom-create="true">
             <constraints/>
             <properties>
+              <background color="-1710619"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
+              <foreground color="-1710619"/>
+              <preferredSize width="20" height="20"/>
               <text value=""/>
             </properties>
           </component>
-          <component id="36fef" class="javax.swing.JButton" binding="exit">
+          <component id="36fef" class="javax.swing.JButton" binding="exit" custom-create="true">
             <constraints/>
             <properties>
+              <background color="-1710619"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
+              <foreground color="-1710619"/>
+              <preferredSize width="20" height="20"/>
               <text value=""/>
             </properties>
           </component>
@@ -33,6 +42,8 @@
       <grid id="19902" binding="inputPanel" layout-manager="GridBagLayout">
         <constraints border-constraint="Center"/>
         <properties>
+          <background color="-4516864"/>
+          <foreground color="-4516864"/>
           <minimumSize width="120" height="119"/>
         </properties>
         <border type="none"/>
