@@ -19,9 +19,12 @@
             <constraints/>
             <properties>
               <background color="-1710619"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
               <foreground color="-1710619"/>
+              <opaque value="false"/>
               <preferredSize width="20" height="20"/>
               <text value=""/>
             </properties>
@@ -30,9 +33,12 @@
             <constraints/>
             <properties>
               <background color="-1710619"/>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <focusable value="false"/>
               <foreground color="-1710619"/>
+              <opaque value="false"/>
               <preferredSize width="20" height="20"/>
               <text value=""/>
             </properties>

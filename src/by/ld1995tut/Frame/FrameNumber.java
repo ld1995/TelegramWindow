@@ -4,6 +4,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -16,21 +18,32 @@ public class FrameNumber extends JPanel {
     private JPanel rootPanel;
     private JFormattedTextField numberField;
     private JTextPane text;
+    private JPanel logoPanel;
+    private JPanel numberPanel;
+    private JPanel phonePanel;
 
-    private BufferedImage background;
+    private BufferedImage mainImage;
+    private BufferedImage logo;
+    private BufferedImage phone;
 
     public FrameNumber() {
         $$$setupUI$$$();
+        SimpleAttributeSet attributeSet = new SimpleAttributeSet();
+        StyleConstants.setAlignment(attributeSet, StyleConstants.ALIGN_CENTER);
+        text.setParagraphAttributes(attributeSet, false);
+        text.setHighlighter(null);
+        numberField.setBorder(BorderFactory.createEmptyBorder());
         try {
             MaskFormatter maskFormatter = new MaskFormatter("+### (##) ###-##-##");
             maskFormatter.setPlaceholder(null);
             maskFormatter.setPlaceholderCharacter('.');
             numberField.setFormatterFactory(new DefaultFormatterFactory(maskFormatter));
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
         try {
-            background = ImageIO.read(new File("resources/images/background.png"));
+            phone = ImageIO.read(new File("resources/images/icon-phone.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,7 +62,6 @@ public class FrameNumber extends JPanel {
         } catch (ParseException e) {
             return null;
         }
-
     }
 
     public void addActionListenerForConfirm(ActionListener actionListener) {
@@ -62,22 +74,51 @@ public class FrameNumber extends JPanel {
         numberField.removeActionListener(actionListener);
     }
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        if (mainImage == null) {
+            return;
+        }
+        g.drawImage(mainImage, 0, 0, this.getWidth(), this.getHeight(), null);
+    }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        rootPanel = new JPanel() {
+        rootPanel = this;
+        logoPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.drawImage(background, 0, 0, null);
+                if (logo == null) {
+                    return;
+                }
+                g.drawImage(logo, 0, 0, null);
             }
         };
-        text = new JTextPane();
-        text.setEditable(false);
-        text.setHighlighter(null);
-        numberField = new JFormattedTextField();
-        numberField.setOpaque(false);
 
+        phonePanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (phone == null) {
+                    return;
+                }
+                g.drawImage(phone, 0, 0, null);
+            }
+        };
+
+    }
+
+    public void setMainImage(BufferedImage mainImage) {
+        this.mainImage = mainImage;
+        repaint();
+    }
+
+    public void setLogoImage(BufferedImage logo) {
+        this.logo = logo;
+        repaint();
     }
 
     /**
@@ -90,38 +131,85 @@ public class FrameNumber extends JPanel {
     private void $$$setupUI$$$() {
         createUIComponents();
         rootPanel.setLayout(new GridBagLayout());
-        rootPanel.setBackground(new Color(-12828863));
-        rootPanel.setMinimumSize(new Dimension(300, 320));
-        rootPanel.setOpaque(true);
-        rootPanel.setPreferredSize(new Dimension(780, 580));
-        text.setForeground(new Color(-1710619));
-        text.setOpaque(false);
-        text.setText("Введите код страны и номер\nвашего мобильного телефона");
+        rootPanel.setBackground(new Color(-262374));
+        rootPanel.setFont(new Font(rootPanel.getFont().getName(), rootPanel.getFont().getStyle(), rootPanel.getFont().getSize()));
+        rootPanel.setMinimumSize(new Dimension(800, 600));
+        rootPanel.setOpaque(false);
+        rootPanel.setPreferredSize(new Dimension(800, 600));
+        numberButton = new JButton();
+        numberButton.setAlignmentX(0.0f);
+        numberButton.setAlignmentY(0.5f);
+        numberButton.setForeground(new Color(-1115905));
+        numberButton.setHorizontalTextPosition(0);
+        numberButton.setIcon(new ImageIcon(getClass().getResource("/images/button-background.png")));
+        numberButton.setLabel("ПРОДОЛЖИТЬ");
+        numberButton.setMargin(new Insets(0, 0, 0, 0));
+        numberButton.setMaximumSize(new Dimension(150, 32));
+        numberButton.setMinimumSize(new Dimension(150, 32));
+        numberButton.setOpaque(false);
+        numberButton.setPreferredSize(new Dimension(230, 40));
+        numberButton.setText("ПРОДОЛЖИТЬ");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.fill = GridBagConstraints.BOTH;
-        rootPanel.add(text, gbc);
-        numberButton = new JButton();
-        numberButton.setHorizontalTextPosition(0);
-        numberButton.setMaximumSize(new Dimension(150, 32));
-        numberButton.setMinimumSize(new Dimension(150, 32));
-        numberButton.setOpaque(true);
-        numberButton.setPreferredSize(new Dimension(150, 32));
-        numberButton.setText("Продолжить");
+        gbc.gridy = 3;
+        gbc.gridheight = 2;
+        gbc.weighty = 0.4;
+        gbc.insets = new Insets(0, 0, 60, 0);
+        rootPanel.add(numberButton, gbc);
+        logoPanel.setOpaque(false);
+        logoPanel.setPreferredSize(new Dimension(180, 180));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 2;
-        rootPanel.add(numberButton, gbc);
-        numberField = new JFormattedTextField();
-        numberField.setOpaque(false);
+        gbc.gridy = 0;
+        gbc.weighty = 0.4;
+        rootPanel.add(logoPanel, gbc);
+        text = new JTextPane();
+        text.setEditable(false);
+        text.setEnabled(true);
+        text.setFont(new Font(text.getFont().getName(), text.getFont().getStyle(), text.getFont().getSize()));
+        text.setForeground(new Color(-1115905));
+        text.setMargin(new Insets(0, 0, 0, 0));
+        text.setOpaque(false);
+        text.setText("Введите код страны и номер \nвашего мобильного телефона");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        rootPanel.add(numberField, gbc);
+        gbc.weighty = 0.1;
+        rootPanel.add(text, gbc);
+        numberPanel = new JPanel();
+        numberPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        numberPanel.setOpaque(false);
+        numberPanel.setPreferredSize(new Dimension(300, 50));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(10, 0, 0, 0);
+        rootPanel.add(numberPanel, gbc);
+        phonePanel.setMinimumSize(new Dimension(22, 36));
+        phonePanel.setOpaque(false);
+        phonePanel.setPreferredSize(new Dimension(22, 36));
+        numberPanel.add(phonePanel);
+        numberField = new JFormattedTextField();
+        numberField.setBackground(new Color(-1115905));
+        numberField.setFont(new Font(numberField.getFont().getName(), numberField.getFont().getStyle(), 14));
+        numberField.setForeground(new Color(-1115905));
+        numberField.setHorizontalAlignment(2);
+        numberField.setOpaque(false);
+        numberField.setPreferredSize(new Dimension(240, 24));
+        numberField.setSelectedTextColor(new Color(-1115905));
+        numberField.setSelectionColor(new Color(-1115905));
+        numberField.setText("");
+        numberField.setToolTipText("");
+        numberField.setVisible(true);
+        numberPanel.add(numberField);
+        final JSeparator separator1 = new JSeparator();
+        separator1.setForeground(new Color(-1115905));
+        separator1.setOpaque(true);
+        separator1.setOrientation(0);
+        separator1.setPreferredSize(new Dimension(270, 1));
+        numberPanel.add(separator1);
     }
 
     /**

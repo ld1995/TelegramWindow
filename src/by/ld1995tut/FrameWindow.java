@@ -89,6 +89,7 @@ public class FrameWindow extends JPanel {
             }
         };
         systemBoard = this;
+
     }
 
     /**
@@ -107,16 +108,22 @@ public class FrameWindow extends JPanel {
         systemBoard.setForeground(new Color(-1710619));
         rootPanel.add(systemBoard, BorderLayout.NORTH);
         turn.setBackground(new Color(-1710619));
+        turn.setBorderPainted(false);
+        turn.setContentAreaFilled(false);
         turn.setFocusPainted(false);
         turn.setFocusable(false);
         turn.setForeground(new Color(-1710619));
+        turn.setOpaque(false);
         turn.setPreferredSize(new Dimension(20, 20));
         turn.setText("");
         systemBoard.add(turn);
         exit.setBackground(new Color(-1710619));
+        exit.setBorderPainted(false);
+        exit.setContentAreaFilled(false);
         exit.setFocusPainted(false);
         exit.setFocusable(false);
         exit.setForeground(new Color(-1710619));
+        exit.setOpaque(false);
         exit.setPreferredSize(new Dimension(20, 20));
         exit.setText("");
         systemBoard.add(exit);

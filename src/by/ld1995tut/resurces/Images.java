@@ -12,6 +12,7 @@ public class Images
     }
     private static BufferedImage background;
     private static BufferedImage logo;
+    private static BufferedImage logoMini;
     private static BufferedImage smailUserImage;
     private static BufferedImage largeUserImage;
 
@@ -39,6 +40,19 @@ public class Images
             }
         }
         return logo;
+    }
+
+    public synchronized static BufferedImage getLogoMini()
+    {
+        if (logoMini == null)
+        {
+            try {
+                logoMini = ImageIO.read(Images.class.getResource("/images/logo-mini.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return logoMini;
     }
 
 

@@ -2,6 +2,7 @@ package by.ld1995tut.Frame;
 
 import by.ld1995tut.Contacts.ContactsList;
 import by.ld1995tut.FrameWindow;
+import by.ld1995tut.resurces.Images;
 import org.javagram.dao.*;
 import org.javagram.dao.proxy.TelegramProxy;
 
@@ -56,6 +57,14 @@ public class Frame extends JFrame
                 switchCod();
             }
         });
+
+        number.setMainImage(Images.getBackground());
+        number.setLogoImage(Images.getLogo());
+        sms.setMainImage(Images.getBackground());
+        sms.setLogoImage(Images.getLogoMini());
+        reg.setMainImage(Images.getBackground());
+        reg.setLogoImage(Images.getLogoMini());
+
         mainForm.setListContacts(contacts.getContactsPanel());
         contacts.addListSelectionListener(new ListSelectionListener()
         {
