@@ -60,6 +60,7 @@ public class ContactsList extends JPanel {
         final JScrollPane scrollPane1 = new JScrollPane();
         contactsPanel.add(scrollPane1, BorderLayout.CENTER);
         list = new JList();
+        list.setBackground(new Color(-4473925));
         scrollPane1.setViewportView(list);
     }
 

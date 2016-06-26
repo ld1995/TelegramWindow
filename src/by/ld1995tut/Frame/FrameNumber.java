@@ -1,11 +1,10 @@
 package by.ld1995tut.Frame;
 
+import by.ld1995tut.resurces.TextAlignment;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.text.DefaultFormatterFactory;
-import javax.swing.text.MaskFormatter;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
+import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -28,17 +27,13 @@ public class FrameNumber extends JPanel {
 
     public FrameNumber() {
         $$$setupUI$$$();
-        SimpleAttributeSet attributeSet = new SimpleAttributeSet();
-        StyleConstants.setAlignment(attributeSet, StyleConstants.ALIGN_CENTER);
-        text.setParagraphAttributes(attributeSet, false);
-        text.setHighlighter(null);
+        TextAlignment textAlignment = new TextAlignment(text);
         numberField.setBorder(BorderFactory.createEmptyBorder());
         try {
             MaskFormatter maskFormatter = new MaskFormatter("+### (##) ###-##-##");
             maskFormatter.setPlaceholder(null);
             maskFormatter.setPlaceholderCharacter('.');
             numberField.setFormatterFactory(new DefaultFormatterFactory(maskFormatter));
-
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -131,7 +126,9 @@ public class FrameNumber extends JPanel {
     private void $$$setupUI$$$() {
         createUIComponents();
         rootPanel.setLayout(new GridBagLayout());
+        rootPanel.setAlignmentX(0.5f);
         rootPanel.setBackground(new Color(-262374));
+        rootPanel.setEnabled(false);
         rootPanel.setFont(new Font(rootPanel.getFont().getName(), rootPanel.getFont().getStyle(), rootPanel.getFont().getSize()));
         rootPanel.setMinimumSize(new Dimension(800, 600));
         rootPanel.setOpaque(false);
@@ -139,7 +136,10 @@ public class FrameNumber extends JPanel {
         numberButton = new JButton();
         numberButton.setAlignmentX(0.0f);
         numberButton.setAlignmentY(0.5f);
-        numberButton.setForeground(new Color(-1115905));
+        numberButton.setBorderPainted(false);
+        numberButton.setDoubleBuffered(false);
+        numberButton.setFont(new Font("Open Sans Light", numberButton.getFont().getStyle(), 18));
+        numberButton.setForeground(new Color(-1));
         numberButton.setHorizontalTextPosition(0);
         numberButton.setIcon(new ImageIcon(getClass().getResource("/images/button-background.png")));
         numberButton.setLabel("ПРОДОЛЖИТЬ");
@@ -147,15 +147,15 @@ public class FrameNumber extends JPanel {
         numberButton.setMaximumSize(new Dimension(150, 32));
         numberButton.setMinimumSize(new Dimension(150, 32));
         numberButton.setOpaque(false);
-        numberButton.setPreferredSize(new Dimension(230, 40));
+        numberButton.setPreferredSize(new Dimension(270, 45));
         numberButton.setText("ПРОДОЛЖИТЬ");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridheight = 2;
-        gbc.weighty = 0.4;
-        gbc.insets = new Insets(0, 0, 60, 0);
+        gbc.weighty = 0.5;
+        gbc.insets = new Insets(0, 0, 100, 0);
         rootPanel.add(numberButton, gbc);
         logoPanel.setOpaque(false);
         logoPanel.setPreferredSize(new Dimension(180, 180));
@@ -165,9 +165,12 @@ public class FrameNumber extends JPanel {
         gbc.weighty = 0.4;
         rootPanel.add(logoPanel, gbc);
         text = new JTextPane();
+        text.setBackground(new Color(-1));
+        text.setCaretColor(new Color(-1));
+        text.setDisabledTextColor(new Color(-1));
         text.setEditable(false);
-        text.setEnabled(true);
-        text.setFont(new Font(text.getFont().getName(), text.getFont().getStyle(), text.getFont().getSize()));
+        text.setEnabled(false);
+        text.setFont(new Font("Open Sans", text.getFont().getStyle(), 16));
         text.setForeground(new Color(-1115905));
         text.setMargin(new Insets(0, 0, 0, 0));
         text.setOpaque(false);
@@ -179,36 +182,41 @@ public class FrameNumber extends JPanel {
         rootPanel.add(text, gbc);
         numberPanel = new JPanel();
         numberPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        numberPanel.setAlignmentX(0.5f);
         numberPanel.setOpaque(false);
-        numberPanel.setPreferredSize(new Dimension(300, 50));
+        numberPanel.setPreferredSize(new Dimension(320, 50));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(10, 0, 0, 0);
         rootPanel.add(numberPanel, gbc);
+        phonePanel.setAlignmentX(0.5f);
         phonePanel.setMinimumSize(new Dimension(22, 36));
         phonePanel.setOpaque(false);
         phonePanel.setPreferredSize(new Dimension(22, 36));
         numberPanel.add(phonePanel);
         numberField = new JFormattedTextField();
-        numberField.setBackground(new Color(-1115905));
-        numberField.setFont(new Font(numberField.getFont().getName(), numberField.getFont().getStyle(), 14));
+        numberField.setBackground(new Color(-1));
+        numberField.setCaretColor(new Color(-1));
+        numberField.setDisabledTextColor(new Color(-1));
+        numberField.setFont(new Font("Open Sans Light", numberField.getFont().getStyle(), 28));
         numberField.setForeground(new Color(-1115905));
         numberField.setHorizontalAlignment(2);
+        numberField.setMargin(new Insets(0, 0, 0, 0));
         numberField.setOpaque(false);
-        numberField.setPreferredSize(new Dimension(240, 24));
+        numberField.setPreferredSize(new Dimension(270, 30));
         numberField.setSelectedTextColor(new Color(-1115905));
-        numberField.setSelectionColor(new Color(-1115905));
+        numberField.setSelectionColor(new Color(-14436636));
         numberField.setText("");
         numberField.setToolTipText("");
         numberField.setVisible(true);
         numberPanel.add(numberField);
         final JSeparator separator1 = new JSeparator();
-        separator1.setForeground(new Color(-1115905));
+        separator1.setForeground(new Color(-1));
         separator1.setOpaque(true);
         separator1.setOrientation(0);
-        separator1.setPreferredSize(new Dimension(270, 1));
+        separator1.setPreferredSize(new Dimension(320, 2));
         numberPanel.add(separator1);
     }
 

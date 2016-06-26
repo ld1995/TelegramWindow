@@ -20,8 +20,8 @@
         </constraints>
         <properties>
           <autoscrolls value="false"/>
-          <font size="20"/>
-          <foreground color="-5327429"/>
+          <font name="Open Sans Light" size="36"/>
+          <foreground color="-4473925"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="0"/>
           <name value=""/>
@@ -41,7 +41,8 @@
           <caretColor color="-1115905"/>
           <editable value="false"/>
           <enabled value="true"/>
-          <foreground color="-1115905"/>
+          <font name="Open Sans" size="16"/>
+          <foreground color="-1"/>
           <opaque value="false"/>
           <text value="На данный номер телефона было отправлено&#10;SMS-сообщение с кодом подтверждения.&#10;Пожалуйста, введите этот код в поле ниже:"/>
         </properties>
@@ -65,9 +66,9 @@
           <gridbag weightx="0.0" weighty="0.1"/>
         </constraints>
         <properties>
-          <minimumSize width="150" height="50"/>
+          <minimumSize width="150" height="55"/>
           <opaque value="false"/>
-          <preferredSize width="170" height="50"/>
+          <preferredSize width="170" height="55"/>
         </properties>
         <border type="none"/>
         <children>
@@ -83,16 +84,19 @@
           <component id="fd4ad" class="javax.swing.JPasswordField" binding="passwordField">
             <constraints/>
             <properties>
-              <caretColor color="-1115905"/>
-              <disabledTextColor color="-1115905"/>
+              <background color="-1"/>
+              <caretColor color="-1"/>
+              <disabledTextColor color="-1"/>
               <focusCycleRoot value="true"/>
-              <foreground color="-1115905"/>
+              <font size="18"/>
+              <foreground color="-1"/>
               <horizontalAlignment value="0"/>
               <maximumSize width="50" height="23"/>
               <minimumSize width="120" height="27"/>
               <opaque value="false"/>
               <preferredSize width="110" height="27"/>
-              <selectedTextColor color="-1115905"/>
+              <selectedTextColor color="-1"/>
+              <selectionColor color="-14436636"/>
               <text value=""/>
             </properties>
           </component>
@@ -102,20 +106,24 @@
               <foreground color="-1115905"/>
               <opaque value="true"/>
               <orientation value="0"/>
-              <preferredSize width="270" height="1"/>
+              <preferredSize width="270" height="2"/>
             </properties>
           </component>
         </children>
       </grid>
-      <component id="206d4" class="javax.swing.JButton" binding="smsButton">
+      <component id="6331d" class="javax.swing.JButton" binding="smsButton">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag top="0" left="0" bottom="60" right="0" weightx="0.0" weighty="0.4"/>
+          <gridbag top="0" left="0" bottom="110" right="0" weightx="0.0" weighty="0.5"/>
         </constraints>
         <properties>
           <alignmentX value="0.0"/>
           <alignmentY value="0.5"/>
-          <foreground color="-1115905"/>
+          <borderPainted value="false"/>
+          <doubleBuffered value="false"/>
+          <focusable value="false"/>
+          <font name="Open Sans Light" size="18"/>
+          <foreground color="-1"/>
           <horizontalTextPosition value="0"/>
           <icon value="images/button-background.png"/>
           <label value="ПРОДОЛЖИТЬ"/>
@@ -123,7 +131,7 @@
           <maximumSize width="150" height="32"/>
           <minimumSize width="150" height="32"/>
           <opaque value="false"/>
-          <preferredSize width="230" height="40"/>
+          <preferredSize width="270" height="45"/>
           <text value="ПРОДОЛЖИТЬ"/>
         </properties>
       </component>

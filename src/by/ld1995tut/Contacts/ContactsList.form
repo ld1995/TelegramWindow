@@ -14,7 +14,9 @@
         <children>
           <component id="833ec" class="javax.swing.JList" binding="list">
             <constraints/>
-            <properties/>
+            <properties>
+              <background color="-4473925"/>
+            </properties>
           </component>
         </children>
       </scrollpane>

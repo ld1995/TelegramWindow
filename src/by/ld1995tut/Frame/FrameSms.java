@@ -2,12 +2,14 @@ package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
 import by.ld1995tut.mics.Pass;
+import by.ld1995tut.resurces.TextAlignment;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -30,10 +32,7 @@ public class FrameSms extends JPanel {
 
     public FrameSms() {
         $$$setupUI$$$();
-        SimpleAttributeSet attributeSet = new SimpleAttributeSet();
-        StyleConstants.setAlignment(attributeSet, StyleConstants.ALIGN_CENTER);
-        text.setParagraphAttributes(attributeSet, false);
-        text.setHighlighter(null);
+        TextAlignment textAlignment = new TextAlignment(text);
         passwordField.setBorder(BorderFactory.createEmptyBorder());
         if (passwordField.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) passwordField.getDocument()).setDocumentFilter(new Pass(5));
@@ -138,8 +137,8 @@ public class FrameSms extends JPanel {
         smsPanel.setPreferredSize(new Dimension(800, 600));
         number = new JLabel();
         number.setAutoscrolls(false);
-        number.setFont(new Font(number.getFont().getName(), number.getFont().getStyle(), 20));
-        number.setForeground(new Color(-1115905));
+        number.setFont(new Font("Open Sans Light", number.getFont().getStyle(), 36));
+        number.setForeground(new Color(-4473925));
         number.setHorizontalAlignment(0);
         number.setHorizontalTextPosition(0);
         number.setName("");
@@ -156,7 +155,8 @@ public class FrameSms extends JPanel {
         text.setCaretColor(new Color(-1115905));
         text.setEditable(false);
         text.setEnabled(true);
-        text.setForeground(new Color(-1115905));
+        text.setFont(new Font("Open Sans", text.getFont().getStyle(), 16));
+        text.setForeground(new Color(-1));
         text.setOpaque(false);
         text.setText("На данный номер телефона было отправлено\nSMS-сообщение с кодом подтверждения.\nПожалуйста, введите этот код в поле ниже:");
         gbc = new GridBagConstraints();
@@ -170,15 +170,15 @@ public class FrameSms extends JPanel {
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.weighty = 0.4;
+        gbc.weighty = 0.3;
         gbc.anchor = GridBagConstraints.NORTH;
         gbc.insets = new Insets(25, 0, 0, 0);
         smsPanel.add(logoPanel, gbc);
         codePanel = new JPanel();
         codePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        codePanel.setMinimumSize(new Dimension(150, 50));
+        codePanel.setMinimumSize(new Dimension(150, 55));
         codePanel.setOpaque(false);
-        codePanel.setPreferredSize(new Dimension(170, 50));
+        codePanel.setPreferredSize(new Dimension(170, 55));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -188,28 +188,35 @@ public class FrameSms extends JPanel {
         lockPanel.setPreferredSize(new Dimension(26, 36));
         codePanel.add(lockPanel);
         passwordField = new JPasswordField();
-        passwordField.setCaretColor(new Color(-1115905));
-        passwordField.setDisabledTextColor(new Color(-1115905));
+        passwordField.setBackground(new Color(-1));
+        passwordField.setCaretColor(new Color(-1));
+        passwordField.setDisabledTextColor(new Color(-1));
         passwordField.setFocusCycleRoot(true);
-        passwordField.setForeground(new Color(-1115905));
+        passwordField.setFont(new Font(passwordField.getFont().getName(), passwordField.getFont().getStyle(), 18));
+        passwordField.setForeground(new Color(-1));
         passwordField.setHorizontalAlignment(0);
         passwordField.setMaximumSize(new Dimension(50, 23));
         passwordField.setMinimumSize(new Dimension(120, 27));
         passwordField.setOpaque(false);
         passwordField.setPreferredSize(new Dimension(110, 27));
-        passwordField.setSelectedTextColor(new Color(-1115905));
+        passwordField.setSelectedTextColor(new Color(-1));
+        passwordField.setSelectionColor(new Color(-14436636));
         passwordField.setText("");
         codePanel.add(passwordField);
         final JSeparator separator1 = new JSeparator();
         separator1.setForeground(new Color(-1115905));
         separator1.setOpaque(true);
         separator1.setOrientation(0);
-        separator1.setPreferredSize(new Dimension(270, 1));
+        separator1.setPreferredSize(new Dimension(270, 2));
         codePanel.add(separator1);
         smsButton = new JButton();
         smsButton.setAlignmentX(0.0f);
         smsButton.setAlignmentY(0.5f);
-        smsButton.setForeground(new Color(-1115905));
+        smsButton.setBorderPainted(false);
+        smsButton.setDoubleBuffered(false);
+        smsButton.setFocusable(false);
+        smsButton.setFont(new Font("Open Sans Light", smsButton.getFont().getStyle(), 18));
+        smsButton.setForeground(new Color(-1));
         smsButton.setHorizontalTextPosition(0);
         smsButton.setIcon(new ImageIcon(getClass().getResource("/images/button-background.png")));
         smsButton.setLabel("ПРОДОЛЖИТЬ");
@@ -217,13 +224,13 @@ public class FrameSms extends JPanel {
         smsButton.setMaximumSize(new Dimension(150, 32));
         smsButton.setMinimumSize(new Dimension(150, 32));
         smsButton.setOpaque(false);
-        smsButton.setPreferredSize(new Dimension(230, 40));
+        smsButton.setPreferredSize(new Dimension(270, 45));
         smsButton.setText("ПРОДОЛЖИТЬ");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 4;
-        gbc.weighty = 0.4;
-        gbc.insets = new Insets(0, 0, 60, 0);
+        gbc.weighty = 0.5;
+        gbc.insets = new Insets(0, 0, 110, 0);
         smsPanel.add(smsButton, gbc);
     }
 

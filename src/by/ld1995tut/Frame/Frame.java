@@ -65,7 +65,7 @@ public class Frame extends JFrame
         reg.setMainImage(Images.getBackground());
         reg.setLogoImage(Images.getLogoMini());
 
-        mainForm.setListContacts(contacts.getContactsPanel());
+        mainForm.setList(contacts.getContactsPanel());
         contacts.addListSelectionListener(new ListSelectionListener()
         {
             @Override
