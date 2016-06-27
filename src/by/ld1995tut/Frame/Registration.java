@@ -2,6 +2,7 @@ package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
 import by.ld1995tut.mics.Reg;
+import by.ld1995tut.resurces.HintText;
 import by.ld1995tut.resurces.TextAlignment;
 
 import javax.imageio.ImageIO;
@@ -11,6 +12,8 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +31,7 @@ public class Registration extends JPanel {
     private BufferedImage mainImage;
     private BufferedImage logo;
 
+
     public Registration() {
         $$$setupUI$$$();
         TextAlignment textAlignment = new TextAlignment(text);
@@ -37,7 +41,10 @@ public class Registration extends JPanel {
             ((AbstractDocument) lastName.getDocument()).setDocumentFilter(new Reg());
         if (fastName.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) fastName.getDocument()).setDocumentFilter(new Reg());
+        HintText last = new HintText(lastName, "Имя", lastName.getCaretColor());
+        HintText fast = new HintText(fastName, "Фамилия", fastName.getCaretColor());
     }
+
 
     //=============================================================
 

@@ -25,6 +25,7 @@
           <alignmentY value="0.5"/>
           <borderPainted value="false"/>
           <doubleBuffered value="false"/>
+          <focusable value="false"/>
           <font name="Open Sans Light" size="18"/>
           <foreground color="-1"/>
           <horizontalTextPosition value="0"/>
@@ -44,6 +45,7 @@
           <gridbag weightx="0.0" weighty="0.4"/>
         </constraints>
         <properties>
+          <focusable value="false"/>
           <opaque value="false"/>
           <preferredSize width="180" height="180"/>
         </properties>
@@ -63,6 +65,7 @@
           <disabledTextColor color="-1"/>
           <editable value="false"/>
           <enabled value="false"/>
+          <focusable value="false"/>
           <font name="Open Sans" size="16"/>
           <foreground color="-1115905"/>
           <margin top="0" left="0" bottom="0" right="0"/>
@@ -86,6 +89,7 @@
             <constraints/>
             <properties>
               <alignmentX value="0.5"/>
+              <focusable value="false"/>
               <minimumSize width="22" height="36"/>
               <opaque value="false"/>
               <preferredSize width="22" height="36"/>

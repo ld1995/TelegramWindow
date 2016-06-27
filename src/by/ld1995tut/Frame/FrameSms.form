@@ -20,6 +20,7 @@
         </constraints>
         <properties>
           <autoscrolls value="false"/>
+          <focusable value="false"/>
           <font name="Open Sans Light" size="36"/>
           <foreground color="-4473925"/>
           <horizontalAlignment value="0"/>
@@ -41,6 +42,7 @@
           <caretColor color="-1115905"/>
           <editable value="false"/>
           <enabled value="true"/>
+          <focusable value="false"/>
           <font name="Open Sans" size="16"/>
           <foreground color="-1"/>
           <opaque value="false"/>
@@ -53,6 +55,7 @@
           <gridbag top="25" left="0" bottom="0" right="0" weightx="0.0" weighty="0.3"/>
         </constraints>
         <properties>
+          <focusable value="false"/>
           <minimumSize width="124" height="98"/>
           <opaque value="false"/>
           <preferredSize width="124" height="98"/>
@@ -75,6 +78,7 @@
           <grid id="8b0d0" binding="lockPanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints/>
             <properties>
+              <focusable value="false"/>
               <opaque value="false"/>
               <preferredSize width="26" height="36"/>
             </properties>

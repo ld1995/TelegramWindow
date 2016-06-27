@@ -44,8 +44,6 @@ public class FrameSms extends JPanel {
         }
     }
 
-    //=============================================================
-
     public JPanel getSmsPanel() {
         return smsPanel;
     }
@@ -106,7 +104,6 @@ public class FrameSms extends JPanel {
                 g.drawImage(logo, 0, 0, this.getWidth(), this.getHeight(), null);
             }
         };
-
         lockPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -137,6 +134,7 @@ public class FrameSms extends JPanel {
         smsPanel.setPreferredSize(new Dimension(800, 600));
         number = new JLabel();
         number.setAutoscrolls(false);
+        number.setFocusable(false);
         number.setFont(new Font("Open Sans Light", number.getFont().getStyle(), 36));
         number.setForeground(new Color(-4473925));
         number.setHorizontalAlignment(0);
@@ -155,6 +153,7 @@ public class FrameSms extends JPanel {
         text.setCaretColor(new Color(-1115905));
         text.setEditable(false);
         text.setEnabled(true);
+        text.setFocusable(false);
         text.setFont(new Font("Open Sans", text.getFont().getStyle(), 16));
         text.setForeground(new Color(-1));
         text.setOpaque(false);
@@ -164,6 +163,7 @@ public class FrameSms extends JPanel {
         gbc.gridy = 2;
         gbc.weighty = 0.1;
         smsPanel.add(text, gbc);
+        logoPanel.setFocusable(false);
         logoPanel.setMinimumSize(new Dimension(124, 98));
         logoPanel.setOpaque(false);
         logoPanel.setPreferredSize(new Dimension(124, 98));
@@ -184,6 +184,7 @@ public class FrameSms extends JPanel {
         gbc.gridy = 3;
         gbc.weighty = 0.1;
         smsPanel.add(codePanel, gbc);
+        lockPanel.setFocusable(false);
         lockPanel.setOpaque(false);
         lockPanel.setPreferredSize(new Dimension(26, 36));
         codePanel.add(lockPanel);

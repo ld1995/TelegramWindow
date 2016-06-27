@@ -1,7 +1,12 @@
 package by.ld1995tut.Frame;
 
+import by.ld1995tut.mics.Reg;
+import by.ld1995tut.resurces.HintText;
+import org.javagram.dao.TelegramDAO;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -16,19 +21,36 @@ public class MainForm extends JPanel {
     private JPanel searchIcon;
     private JTextField searchField;
     private JPanel list;
+    private JPanel logoPanel;
+    private JButton settings;
+    private JPanel infoPanel;
+    private JLabel userInfo;
+    private JPanel userFotoPanel;
+    private JButton button1;
+    private JPanel message;
+    private JPanel contactsFoto;
+    private JButton button2;
+    private JPanel addPanel;
 
     private BufferedImage search;
+    private BufferedImage logo;
+    private BufferedImage userFoto;
+
 
     public MainForm() {
         $$$setupUI$$$();
         list.add(new JPanel());
         searchField.setBorder(BorderFactory.createEmptyBorder());
+        if (searchField.getDocument() instanceof AbstractDocument)
+            ((AbstractDocument) searchField.getDocument()).setDocumentFilter(new Reg());
         try {
             search = ImageIO.read(new File("resources/images/icon-search.png"));
+            logo = ImageIO.read(new File("resources/images/logo-micro.png"));
+            userFoto = ImageIO.read(new File("resources/images/mask-blue-mini.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        HintText searchHint = new HintText(searchField, "Поиск", searchField.getCaretColor());
     }
 
     public JPanel getRootPanel() {
@@ -73,6 +95,27 @@ public class MainForm extends JPanel {
                 g.drawImage(search, 0, 0, null);
             }
         };
+        logoPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (search == null) {
+                    return;
+                }
+                g.drawImage(logo, 0, 0, null);
+            }
+        };
+        userFotoPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (userFoto == null) {
+                    return;
+                }
+                g.drawImage(userFoto, 0, 0, null);
+            }
+        };
+        contactsFoto = new JPanel();
     }
 
     /**
@@ -89,38 +132,188 @@ public class MainForm extends JPanel {
         rootPanel.setMinimumSize(new Dimension(800, 600));
         rootPanel.setPreferredSize(new Dimension(800, 600));
         titlePanel = new JPanel();
-        titlePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        titlePanel.setLayout(new GridBagLayout());
         titlePanel.setBackground(new Color(-14436636));
+        titlePanel.setPreferredSize(new Dimension(600, 40));
         rootPanel.add(titlePanel, BorderLayout.NORTH);
+        logoPanel.setFocusable(false);
+        logoPanel.setOpaque(false);
+        logoPanel.setPreferredSize(new Dimension(102, 24));
+        GridBagConstraints gbc;
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 10.0;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(0, 20, 0, 0);
+        titlePanel.add(logoPanel, gbc);
+        infoPanel = new JPanel();
+        infoPanel.setLayout(new GridBagLayout());
+        infoPanel.setOpaque(false);
+        infoPanel.setPreferredSize(new Dimension(230, 31));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 10.0;
+        gbc.anchor = GridBagConstraints.EAST;
+        titlePanel.add(infoPanel, gbc);
+        userFotoPanel.setFocusable(false);
+        userFotoPanel.setPreferredSize(new Dimension(29, 29));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        infoPanel.add(userFotoPanel, gbc);
+        userInfo = new JLabel();
+        userInfo.setFocusable(false);
+        userInfo.setFont(new Font("Open Sans Light", userInfo.getFont().getStyle(), 14));
+        userInfo.setMinimumSize(new Dimension(150, 24));
+        userInfo.setOpaque(false);
+        userInfo.setPreferredSize(new Dimension(150, 24));
+        userInfo.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        infoPanel.add(userInfo, gbc);
+        settings = new JButton();
+        settings.setBorderPainted(false);
+        settings.setContentAreaFilled(false);
+        settings.setFocusPainted(true);
+        settings.setFocusable(false);
+        settings.setHorizontalTextPosition(0);
+        settings.setIcon(new ImageIcon(getClass().getResource("/images/icon-settings.png")));
+        settings.setLabel("");
+        settings.setMinimumSize(new Dimension(22, 22));
+        settings.setOpaque(false);
+        settings.setPreferredSize(new Dimension(23, 23));
+        settings.setRequestFocusEnabled(false);
+        settings.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.insets = new Insets(0, 0, 0, 10);
+        infoPanel.add(settings, gbc);
         listContacts = new JPanel();
         listContacts.setLayout(new BorderLayout(0, 0));
         listContacts.setBackground(new Color(-1710619));
         listContacts.setDoubleBuffered(true);
-        listContacts.setMinimumSize(new Dimension(230, 500));
+        listContacts.setForeground(new Color(-1644826));
+        listContacts.setMinimumSize(new Dimension(205, 50));
+        listContacts.setOpaque(true);
         listContacts.setPreferredSize(new Dimension(250, 500));
         rootPanel.add(listContacts, BorderLayout.WEST);
         searchPanel = new JPanel();
-        searchPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+        searchPanel.setLayout(new GridBagLayout());
         searchPanel.setBackground(new Color(-1));
+        searchPanel.setOpaque(true);
         searchPanel.setPreferredSize(new Dimension(205, 40));
         listContacts.add(searchPanel, BorderLayout.NORTH);
+        searchIcon.setFocusable(false);
         searchIcon.setMinimumSize(new Dimension(20, 20));
         searchIcon.setOpaque(false);
         searchIcon.setPreferredSize(new Dimension(20, 20));
-        searchPanel.add(searchIcon);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.insets = new Insets(0, 10, 0, 0);
+        searchPanel.add(searchIcon, gbc);
         searchField = new JTextField();
-        searchField.setFont(new Font("Open Sans", searchField.getFont().getStyle(), 14));
+        searchField.setFocusable(true);
+        searchField.setFont(new Font("Open Sans", searchField.getFont().getStyle(), 16));
         searchField.setOpaque(false);
         searchField.setPreferredSize(new Dimension(170, 24));
-        searchPanel.add(searchField);
+        searchField.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.anchor = GridBagConstraints.WEST;
+        searchPanel.add(searchField, gbc);
+        addPanel = new JPanel();
+        addPanel.setLayout(new GridBagLayout());
+        addPanel.setMinimumSize(new Dimension(205, 80));
+        addPanel.setOpaque(false);
+        addPanel.setPreferredSize(new Dimension(205, 100));
+        listContacts.add(addPanel, BorderLayout.SOUTH);
+        button2 = new JButton();
+        button2.setBorderPainted(false);
+        button2.setContentAreaFilled(false);
+        button2.setFocusable(false);
+        button2.setIcon(new ImageIcon(getClass().getResource("/images/icon-plus.png")));
+        button2.setOpaque(false);
+        button2.setPreferredSize(new Dimension(26, 26));
+        button2.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.weighty = 0.2;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(0, 20, 0, 0);
+        addPanel.add(button2, gbc);
         list = new JPanel();
         list.setLayout(new BorderLayout(0, 0));
-        list.setBackground(new Color(-4473925));
-        listContacts.add(list, BorderLayout.CENTER);
+        list.setBackground(new Color(-1644826));
+        list.setForeground(new Color(-1644826));
+        list.setOpaque(true);
+        list.setPreferredSize(new Dimension(250, 50));
+        listContacts.add(list, BorderLayout.EAST);
         messagePanel = new JPanel();
-        messagePanel.setLayout(new GridBagLayout());
+        messagePanel.setLayout(new BorderLayout(0, 0));
         messagePanel.setBackground(new Color(-1));
+        messagePanel.setFocusable(false);
+        messagePanel.setPreferredSize(new Dimension(29, 29));
         rootPanel.add(messagePanel, BorderLayout.CENTER);
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new GridBagLayout());
+        panel1.setOpaque(false);
+        panel1.setPreferredSize(new Dimension(600, 40));
+        messagePanel.add(panel1, BorderLayout.NORTH);
+        button1 = new JButton();
+        button1.setBorderPainted(false);
+        button1.setContentAreaFilled(false);
+        button1.setFocusable(false);
+        button1.setIcon(new ImageIcon(getClass().getResource("/images/icon-edit.png")));
+        button1.setLabel("");
+        button1.setOpaque(false);
+        button1.setPreferredSize(new Dimension(22, 22));
+        button1.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.insets = new Insets(0, 0, 0, 10);
+        panel1.add(button1, gbc);
+        contactsFoto.setFocusable(false);
+        contactsFoto.setPreferredSize(new Dimension(29, 29));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 20, 0, 0);
+        panel1.add(contactsFoto, gbc);
+        final JLabel label1 = new JLabel();
+        label1.setFocusable(false);
+        label1.setFont(new Font("Open Sans Light", label1.getFont().getStyle(), 14));
+        label1.setMinimumSize(new Dimension(150, 24));
+        label1.setOpaque(false);
+        label1.setPreferredSize(new Dimension(150, 24));
+        label1.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(0, 10, 0, 0);
+        panel1.add(label1, gbc);
+        message = new JPanel();
+        message.setLayout(new BorderLayout(0, 0));
+        message.setOpaque(false);
+        messagePanel.add(message, BorderLayout.CENTER);
     }
 
     /**

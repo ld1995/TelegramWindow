@@ -4,28 +4,59 @@ import org.javagram.dao.*;
 import org.javagram.dao.Dialog;
 import org.javagram.dao.proxy.TelegramProxy;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     private JTextField lastMessage;
     private JLabel nameLabel;
     private JPanel fotoPanel;
     private JPanel rootPanel;
-    TelegramProxy telegramProxy;
 
+    private TelegramProxy telegramProxy;
     private Person person;
     private boolean hasFocus;
+    private BufferedImage mask;
+    private BufferedImage maskOnline;
 
     public ContactsForm(TelegramProxy telegramProxy) {
         this.telegramProxy = telegramProxy;
         $$$setupUI$$$();
         lastMessage.setBorder(BorderFactory.createEmptyBorder());
-
     }
 
     private void createUIComponents() {
         rootPanel = this;
+        fotoPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                boolean smail = true;
+                BufferedImage image;
+                try {
+                    image = telegramProxy.getPhoto(person, smail);
+                    mask = ImageIO.read(new File("resources/images/mask-gray.png"));
+                    maskOnline = ImageIO.read(new File("resources/images/mask-gray-online.png"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    image = null;
+                }
+
+
+                if (image == null) {
+                    //изображения нету
+                }
+                if (telegramProxy.isOnline(person)) {
+
+
+                }
+                g.drawImage(image, 0, 0, null);
+            }
+        };
     }
 
     @Override
@@ -57,17 +88,17 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         createUIComponents();
         rootPanel.setLayout(new GridBagLayout());
         rootPanel.setMinimumSize(new Dimension(250, 60));
-        rootPanel.setPreferredSize(new Dimension(250, 60));
-        fotoPanel = new JPanel();
-        fotoPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-        fotoPanel.setMinimumSize(new Dimension(50, 50));
-        fotoPanel.setPreferredSize(new Dimension(50, 50));
+        rootPanel.setPreferredSize(new Dimension(250, 50));
+        fotoPanel.setMinimumSize(new Dimension(41, 41));
+        fotoPanel.setOpaque(false);
+        fotoPanel.setPreferredSize(new Dimension(41, 41));
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridheight = 2;
-        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 0.1;
+        gbc.weighty = 0.5;
         rootPanel.add(fotoPanel, gbc);
         nameLabel = new JLabel();
         nameLabel.setFont(new Font("Open Sans Semibold", nameLabel.getFont().getStyle(), 14));
@@ -78,6 +109,8 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.weighty = 0.1;
         gbc.anchor = GridBagConstraints.WEST;
         rootPanel.add(nameLabel, gbc);
         lastMessage = new JTextField();
@@ -89,9 +122,11 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.anchor = GridBagConstraints.SOUTHWEST;
+        gbc.weightx = 0.1;
+        gbc.weighty = 0.1;
+        gbc.anchor = GridBagConstraints.SOUTH;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(0, 0, 5, 0);
+        gbc.insets = new Insets(0, 0, 10, 0);
         rootPanel.add(lastMessage, gbc);
     }
 

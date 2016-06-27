@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6358c43c-c6ca-47a7-b33b-b00f53083525" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/icon-search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/ld1995tut/resurces/TextAlignment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/icon-edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/icon-plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/icon-settings.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/logo-micro.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/mask-blue-mini.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/mask-gray-online.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/images/mask-gray.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Messages/MessageForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Messages/MessagesForm.form" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Messages/MessagesForm.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/ld1995tut/resurces/HintText.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Contacts/ContactsForm.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Contacts/ContactsForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Contacts/ContactsList.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Contacts/ContactsList.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameNumber$1.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameNumber$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameNumber$2.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameNumber$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameNumber.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameNumber.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameSms$1.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameSms$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameSms$2.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameSms$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameSms.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/FrameSms.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/MainForm$1.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/MainForm$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/MainForm.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/MainForm.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/Registration$1.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/Registration$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/Registration.class" afterPath="$PROJECT_DIR$/out/production/TelegramWindow/by/ld1995tut/Frame/Registration.class" />
@@ -19,14 +30,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.java" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.form" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.java" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/Frame.java" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/Frame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNamber.form" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNamber.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNumber.java" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNumber.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.form" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.java" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.form" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.java" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.form" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.java" afterPath="$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.java" />
     </list>
     <ignored path="TelegramWindow.iws" />
@@ -50,40 +59,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainForm.form" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainForm.form" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Registration.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Frame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/Frame.java">
+      <file leaf-file-name="FrameSms.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
+            <state relative-caret-position="289">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
-                <element signature="method#switchCod#0;class#Frame#0" expanded="false" />
-                <element signature="method#registration#0;class#Frame#0" expanded="false" />
-                <element signature="method#exitMessage#0;class#Frame#0" expanded="false" />
-                <element signature="method#exit#0;class#Frame#0" expanded="false" />
-                <marker date="1466964362240" expanded="true" signature="36:149" ph="..." />
+                <marker date="1467019437079" expanded="false" signature="6222:8606" ph="UI Designer generated code" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrameNamber.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNamber.form">
+      <file leaf-file-name="FrameSms.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="117" column="36" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+              <folding>
+                <element signature="e#1806#1807#0" expanded="true" />
+                <element signature="e#1838#1839#0" expanded="true" />
+                <element signature="e#1875#1876#0" expanded="true" />
+                <element signature="e#1908#1909#0" expanded="true" />
+                <element signature="e#1960#1961#0" expanded="true" />
+                <element signature="e#2007#2008#0" expanded="true" />
+                <element signature="e#2046#2047#0" expanded="true" />
+                <element signature="e#2081#2082#0" expanded="true" />
+                <element signature="e#2247#2248#0" expanded="true" />
+                <element signature="e#2282#2283#0" expanded="true" />
+                <element signature="e#2556#2846#0" expanded="true" />
+                <element signature="e#2845#2846#0" expanded="true" />
+                <element signature="e#2868#3156#0" expanded="true" />
+                <element signature="e#3155#3156#0" expanded="true" />
+                <element signature="e#3182#3476#0" expanded="true" />
+                <element signature="e#3475#3476#0" expanded="true" />
+                <element signature="method#$$$setupUI$$$#0;class#MainForm#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FrameNumber.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNumber.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="32" column="10" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="65" />
+              <folding>
+                <element signature="method#getNumberField#0;class#FrameNumber#0" expanded="false" />
+                <element signature="method#addActionListenerForConfirm#0;class#FrameNumber#0" expanded="false" />
+                <element signature="method#removeActionListenerForConfirm#0;class#FrameNumber#0" expanded="false" />
+                <element signature="method#paintComponent#0;class#FrameNumber#0" expanded="false" />
+                <element signature="method#createUIComponents#0;class#FrameNumber#0" expanded="false" />
+                <element signature="method#setMainImage#0;class#FrameNumber#0" expanded="false" />
+                <element signature="method#setLogoImage#0;class#FrameNumber#0" expanded="false" />
+                <element signature="method#$$$setupUI$$$#0;class#FrameNumber#0" expanded="true" />
+                <element signature="docComment;method#$$$getRootComponent$$$#0;class#FrameNumber#0" expanded="false" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -94,36 +140,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
-              <folding>
-                <element signature="method#createUIComponents#0;class#MainForm#0" expanded="false" />
-                <element signature="e#1623#1913#0" expanded="false" />
-                <element signature="e#1912#1913#0" expanded="false" />
-                <element signature="method#$$$setupUI$$$#0;class#MainForm#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactsForm.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-              <folding>
-                <element signature="e#712#713#0" expanded="true" />
-                <element signature="e#744#745#0" expanded="true" />
-                <element signature="method#$$$setupUI$$$#0;class#ContactsForm#0" expanded="true" />
-                <element signature="method#$$$setupUI$$$#0;class#ContactsForm#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ContactsList.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.form">
           <provider selected="true" editor-type-id="ui-designer">
@@ -131,37 +147,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactsList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.java">
+      <file leaf-file-name="MessageForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Messages/MessageForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6">
-              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+            <state relative-caret-position="85">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactsForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
               <folding>
-                <element signature="e#865#866#0" expanded="false" />
-                <element signature="e#901#902#0" expanded="false" />
-                <element signature="initializer##0;class#ContactsList#0" expanded="false" />
-                <element signature="initializer##0;class#ContactsList#0" expanded="false" />
-                <element signature="e#2023#2024#0" expanded="false" />
-                <element signature="e#2059#2060#0" expanded="false" />
+                <element signature="e#953#1810#0" expanded="true" />
+                <element signature="e#1809#1810#0" expanded="true" />
+                <element signature="method#$$$setupUI$$$#0;class#ContactsForm#0" expanded="true" />
+                <element signature="method#$$$setupUI$$$#0;class#ContactsForm#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FrameNumber.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNumber.java">
+      <file leaf-file-name="ContactsList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="104" column="10" selection-start-line="95" selection-start-column="8" selection-end-line="104" selection-end-column="10" />
+            <state relative-caret-position="146">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
-                <element signature="e#1531#1532#0" expanded="true" />
-                <element signature="e#1563#1564#0" expanded="true" />
-                <element signature="e#2577#2863#0" expanded="true" />
-                <element signature="e#2862#2863#0" expanded="true" />
-                <element signature="e#2887#3175#0" expanded="true" />
-                <element signature="e#3174#3175#0" expanded="true" />
-                <element signature="method#$$$setupUI$$$#0;class#FrameNumber#0" expanded="true" />
-                <element signature="method#$$$setupUI$$$#0;class#FrameNumber#0" expanded="true" />
+                <element signature="e#928#929#0" expanded="true" />
+                <element signature="e#964#965#0" expanded="true" />
+                <element signature="method#$$$setupUI$$$#0;class#ContactsList#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,8 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/FrameNamber.java" />
-        <option value="$PROJECT_DIR$/src/Api.java" />
         <option value="$PROJECT_DIR$/src/FrameWindow.form" />
         <option value="$PROJECT_DIR$/src/FrameNamber.form" />
         <option value="$PROJECT_DIR$/src/FrameSms.form" />
@@ -210,7 +227,6 @@
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/FrameContacts.form" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/FrameContacts.java" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/infoOnContact.java" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.java" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Message/MessagesForm.form" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Person.java" />
         <option value="$PROJECT_DIR$/lib/telegram-dao-proxy-v4.2.jar!/org/javagram/dao/Person.class" />
@@ -221,22 +237,26 @@
         <option value="$PROJECT_DIR$/src/by/ld1995tut/mics/Reg.java" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Loader.java" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/FrameWindow.java" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/FrameWindow.form" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/resurces/Images.java" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/resurces/Text.java" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/resurces/TextAlignment.java" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNumber.java" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.java" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.java" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNamber.form" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.form" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.java" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/FrameWindow.form" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/resurces/HintText.java" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.java" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Messages/MessagesForm.form" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Messages/MessagesForm.java" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.java" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNamber.form" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.form" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.java" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/Frame.java" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.form" />
-        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.form" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.java" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNumber.java" />
         <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.form" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.java" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.form" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.java" />
+        <option value="$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.form" />
       </list>
     </option>
   </component>
@@ -296,7 +316,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -332,8 +351,52 @@
               <option name="myItemId" value="ld1995tut" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FrameWindow" />
+              <option name="myItemId" value="TelegramWindow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TelegramWindow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ld1995tut" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resurces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TelegramWindow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TelegramWindow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ld1995tut" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Messages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MessagesForm" />
               <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,6 +415,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ld1995tut" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Messages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TelegramWindow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TelegramWindow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ld1995tut" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Frame" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,7 +466,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Registration" />
+              <option name="myItemId" value="MainForm" />
               <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -401,6 +490,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Frame" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrameSms" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -494,15 +587,12 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1029,11 +1119,14 @@
       <workItem from="1466856878363" duration="11427000" />
       <workItem from="1466929121322" duration="971000" />
       <workItem from="1466930233692" duration="17965000" />
+      <workItem from="1466970480963" duration="1270000" />
+      <workItem from="1466972386011" duration="250000" />
+      <workItem from="1467004330760" duration="25912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174958000" />
+    <option name="totallyTimeSpent" value="202390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1047,7 +1140,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3654485" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35188216" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3502455" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1094,69 +1187,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/Frame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="26" column="49" selection-start-line="26" selection-start-column="49" selection-end-line="26" selection-end-column="49" />
-          <folding>
-            <element signature="method#switchCod#0;class#Frame#0" expanded="false" />
-            <element signature="method#registration#0;class#Frame#0" expanded="false" />
-            <element signature="method#exitMessage#0;class#Frame#0" expanded="false" />
-            <element signature="method#exit#0;class#Frame#0" expanded="false" />
-            <marker date="1466964362240" expanded="true" signature="36:149" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/FrameWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/FrameWindow.form">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/App.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/telegram-dao-proxy-v4.2.jar!/org/javagram/dao/Contact.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1219,13 +1249,6 @@
     <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Message/MessagesForm.java" />
     <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Message/MessageForm.java" />
     <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/mics/Number.java" />
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/mics/Pass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/mics/Reg.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1293,10 +1316,36 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/resurces/Images.java">
+    <entry file="file://$PROJECT_DIR$/resources/images/button-background.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/images/icon-search.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/FrameWindow.form">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/images/logo-micro.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/mics/Pass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1309,202 +1358,245 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/images/button-background.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/FrameWindow.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.form">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="34" column="62" selection-start-line="34" selection-start-column="62" selection-end-line="34" selection-end-column="62" />
-          <folding>
-            <element signature="e#1582#1583#0" expanded="false" />
-            <element signature="e#1613#1614#0" expanded="false" />
-            <element signature="e#1653#1654#0" expanded="false" />
-            <element signature="e#1715#1716#0" expanded="false" />
-            <element signature="e#1759#1760#0" expanded="false" />
-            <element signature="e#1802#1803#0" expanded="false" />
-            <element signature="e#1846#1847#0" expanded="false" />
-            <element signature="e#1891#1892#0" expanded="false" />
-            <element signature="e#2901#3223#0" expanded="false" />
-            <element signature="e#3222#3223#0" expanded="false" />
-            <element signature="e#3246#3568#0" expanded="false" />
-            <element signature="e#3567#3568#0" expanded="false" />
-            <element signature="method#$$$setupUI$$$#0;class#FrameSms#0" expanded="false" />
-            <element signature="method#$$$setupUI$$$#0;class#FrameSms#0" expanded="false" />
-            <element signature="e#8618#8619#0" expanded="false" />
-            <element signature="e#8649#8650#0" expanded="false" />
-          </folding>
-        </state>
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1051">
-          <caret line="110" column="10" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="10" />
+        <state relative-caret-position="300">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
+            <element signature="e#1755#1756#0" expanded="false" />
+            <element signature="e#1795#1796#0" expanded="false" />
+            <element signature="e#1834#1835#0" expanded="false" />
+            <element signature="e#1865#1866#0" expanded="false" />
+            <element signature="e#1900#1901#0" expanded="false" />
+            <element signature="e#1930#1931#0" expanded="false" />
+            <element signature="e#1969#1970#0" expanded="false" />
+            <element signature="e#2000#2001#0" expanded="false" />
             <element signature="method#getPerson#0;class#Registration#0" expanded="false" />
             <element signature="method#addActionListenerForConfirm#0;class#Registration#0" expanded="false" />
             <element signature="method#removeActionListenerForConfirm#0;class#Registration#0" expanded="false" />
             <element signature="method#paintComponent#0;class#Registration#0" expanded="false" />
             <element signature="method#setMainImage#0;class#Registration#0" expanded="false" />
             <element signature="method#setLogoImage#0;class#Registration#0" expanded="false" />
-            <element signature="e#3066#3387#0" expanded="true" />
-            <element signature="e#3386#3387#0" expanded="true" />
+            <element signature="method#createUIComponents#0;class#Registration#0" expanded="false" />
+            <element signature="e#3343#3664#0" expanded="false" />
+            <element signature="e#3663#3664#0" expanded="false" />
+            <element signature="method#$$$setupUI$$$#0;class#Registration#0" expanded="false" />
+            <element signature="method#$$$setupUI$$$#0;class#Registration#0" expanded="false" />
+            <element signature="e#9288#9289#0" expanded="false" />
+            <element signature="e#9328#9329#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/resurces/HintText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/images/icon-search.png">
+    <entry file="file://$PROJECT_DIR$/resources/images/icon-settings.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNumber.java">
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Messages/MessagesForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Messages/MessagesForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="104" column="10" selection-start-line="95" selection-start-column="8" selection-end-line="104" selection-end-column="10" />
+          <caret line="50" column="25" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
           <folding>
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1563#1564#0" expanded="true" />
-            <element signature="e#2577#2863#0" expanded="true" />
-            <element signature="e#2862#2863#0" expanded="true" />
-            <element signature="e#2887#3175#0" expanded="true" />
-            <element signature="e#3174#3175#0" expanded="true" />
-            <element signature="method#$$$setupUI$$$#0;class#FrameNumber#0" expanded="true" />
-            <element signature="method#$$$setupUI$$$#0;class#FrameNumber#0" expanded="true" />
+            <marker date="1467015711197" expanded="true" signature="1832:1839" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNamber.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/resurces/Images.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="845">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNamber.form">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/Frame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="67" column="54" selection-start-line="67" selection-start-column="54" selection-end-line="67" selection-end-column="54" />
+        <state relative-caret-position="221">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
             <element signature="method#switchCod#0;class#Frame#0" expanded="false" />
             <element signature="method#registration#0;class#Frame#0" expanded="false" />
             <element signature="method#exitMessage#0;class#Frame#0" expanded="false" />
             <element signature="method#exit#0;class#Frame#0" expanded="false" />
-            <marker date="1466964362240" expanded="true" signature="36:149" ph="..." />
+            <marker date="1467021526638" expanded="true" signature="36:149" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
-          <folding>
-            <element signature="method#createUIComponents#0;class#MainForm#0" expanded="false" />
-            <element signature="e#1623#1913#0" expanded="false" />
-            <element signature="e#1912#1913#0" expanded="false" />
-            <element signature="method#$$$setupUI$$$#0;class#MainForm#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="e#865#866#0" expanded="false" />
-            <element signature="e#901#902#0" expanded="false" />
-            <element signature="initializer##0;class#ContactsList#0" expanded="false" />
-            <element signature="initializer##0;class#ContactsList#0" expanded="false" />
-            <element signature="e#2023#2024#0" expanded="false" />
-            <element signature="e#2059#2060#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.form">
-      <provider selected="true" editor-type-id="ui-designer">
+    <entry file="file://$PROJECT_DIR$/resources/images/icon-edit.png">
+      <provider selected="true" editor-type-id="images">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/images/icon-plus.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Messages/MessageForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/Registration.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="65" />
+          <folding>
+            <element signature="method#getNumberField#0;class#FrameNumber#0" expanded="false" />
+            <element signature="method#addActionListenerForConfirm#0;class#FrameNumber#0" expanded="false" />
+            <element signature="method#removeActionListenerForConfirm#0;class#FrameNumber#0" expanded="false" />
+            <element signature="method#paintComponent#0;class#FrameNumber#0" expanded="false" />
+            <element signature="method#createUIComponents#0;class#FrameNumber#0" expanded="false" />
+            <element signature="method#setMainImage#0;class#FrameNumber#0" expanded="false" />
+            <element signature="method#setLogoImage#0;class#FrameNumber#0" expanded="false" />
+            <element signature="method#$$$setupUI$$$#0;class#FrameNumber#0" expanded="true" />
+            <element signature="docComment;method#$$$getRootComponent$$$#0;class#FrameNumber#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="e#953#1810#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
+            <element signature="method#$$$setupUI$$$#0;class#ContactsForm#0" expanded="true" />
+            <element signature="method#$$$setupUI$$$#0;class#ContactsForm#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.form">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.form">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsForm.java">
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Contacts/ContactsList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="146">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#744#745#0" expanded="true" />
-            <element signature="method#$$$setupUI$$$#0;class#ContactsForm#0" expanded="true" />
-            <element signature="method#$$$setupUI$$$#0;class#ContactsForm#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="method#$$$setupUI$$$#0;class#ContactsList#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <marker date="1467019437079" expanded="false" signature="6222:8606" ph="UI Designer generated code" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/FrameSms.form">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="117" column="36" selection-start-line="117" selection-start-column="36" selection-end-line="117" selection-end-column="36" />
+          <folding>
+            <element signature="e#1806#1807#0" expanded="true" />
+            <element signature="e#1838#1839#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
+            <element signature="e#1908#1909#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2007#2008#0" expanded="true" />
+            <element signature="e#2046#2047#0" expanded="true" />
+            <element signature="e#2081#2082#0" expanded="true" />
+            <element signature="e#2247#2248#0" expanded="true" />
+            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2556#2846#0" expanded="true" />
+            <element signature="e#2845#2846#0" expanded="true" />
+            <element signature="e#2868#3156#0" expanded="true" />
+            <element signature="e#3155#3156#0" expanded="true" />
+            <element signature="e#3182#3476#0" expanded="true" />
+            <element signature="e#3475#3476#0" expanded="true" />
+            <element signature="method#$$$setupUI$$$#0;class#MainForm#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/ld1995tut/Frame/MainForm.form">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
   </component>

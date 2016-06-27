@@ -7,15 +7,26 @@
     <properties/>
     <border type="none"/>
     <children>
-      <scrollpane id="c07e8">
+      <scrollpane id="c07e8" binding="scrollPanel">
         <constraints border-constraint="Center"/>
-        <properties/>
+        <properties>
+          <opaque value="false"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="833ec" class="javax.swing.JList" binding="list">
             <constraints/>
             <properties>
-              <background color="-4473925"/>
+              <background color="-1644826"/>
+              <doubleBuffered value="false"/>
+              <dragEnabled value="false"/>
+              <focusable value="true"/>
+              <foreground color="-1644826"/>
+              <opaque value="false"/>
+              <requestFocusEnabled value="true"/>
+              <selectionBackground color="-328961"/>
+              <selectionForeground color="-14436636"/>
+              <selectionMode value="2"/>
             </properties>
           </component>
         </children>

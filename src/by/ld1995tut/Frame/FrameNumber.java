@@ -12,7 +12,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 
-public class FrameNumber extends JPanel {
+public class FrameNumber extends JPanel
+{
     private JButton numberButton;
     private JPanel rootPanel;
     private JFormattedTextField numberField;
@@ -25,61 +26,69 @@ public class FrameNumber extends JPanel {
     private BufferedImage logo;
     private BufferedImage phone;
 
-    public FrameNumber() {
+    public FrameNumber()
+    {
         $$$setupUI$$$();
         TextAlignment textAlignment = new TextAlignment(text);
         numberField.setBorder(BorderFactory.createEmptyBorder());
-        try {
+        try
+        {
             MaskFormatter maskFormatter = new MaskFormatter("+### (##) ###-##-##");
             maskFormatter.setPlaceholder(null);
             maskFormatter.setPlaceholderCharacter('.');
             numberField.setFormatterFactory(new DefaultFormatterFactory(maskFormatter));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        try {
             phone = ImageIO.read(new File("resources/images/icon-phone.png"));
-        } catch (IOException e) {
+        }
+        catch (IOException | ParseException e)
+        {
             e.printStackTrace();
         }
     }
 
-    //=======================================================
-
-    public JPanel getRootPanel() {
+    public JPanel getRootPanel()
+    {
         return rootPanel;
     }
 
-    public String getNumberField() {
-        try {
+    public String getNumberField()
+    {
+        try
+        {
             numberField.commitEdit();
             return numberField.getValue().toString();
-        } catch (ParseException e) {
+        }
+        catch (ParseException e)
+        {
             return null;
         }
     }
 
-    public void addActionListenerForConfirm(ActionListener actionListener) {
+    public void addActionListenerForConfirm(ActionListener actionListener)
+    {
         numberButton.addActionListener(actionListener);
         numberField.addActionListener(actionListener);
     }
 
-    public void removeActionListenerForConfirm(ActionListener actionListener) {
+    public void removeActionListenerForConfirm(ActionListener actionListener)
+    {
         numberButton.removeActionListener(actionListener);
         numberField.removeActionListener(actionListener);
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(Graphics g)
+    {
         super.paintComponent(g);
 
-        if (mainImage == null) {
+        if (mainImage == null)
+        {
             return;
         }
         g.drawImage(mainImage, 0, 0, this.getWidth(), this.getHeight(), null);
     }
 
-    private void createUIComponents() {
+    private void createUIComponents()
+    {
         // TODO: place custom component creation code here
         rootPanel = this;
         logoPanel = new JPanel() {
@@ -103,15 +112,16 @@ public class FrameNumber extends JPanel {
                 g.drawImage(phone, 0, 0, null);
             }
         };
-
     }
 
-    public void setMainImage(BufferedImage mainImage) {
+    public void setMainImage(BufferedImage mainImage)
+    {
         this.mainImage = mainImage;
         repaint();
     }
 
-    public void setLogoImage(BufferedImage logo) {
+    public void setLogoImage(BufferedImage logo)
+    {
         this.logo = logo;
         repaint();
     }
@@ -138,6 +148,7 @@ public class FrameNumber extends JPanel {
         numberButton.setAlignmentY(0.5f);
         numberButton.setBorderPainted(false);
         numberButton.setDoubleBuffered(false);
+        numberButton.setFocusable(false);
         numberButton.setFont(new Font("Open Sans Light", numberButton.getFont().getStyle(), 18));
         numberButton.setForeground(new Color(-1));
         numberButton.setHorizontalTextPosition(0);
@@ -157,6 +168,7 @@ public class FrameNumber extends JPanel {
         gbc.weighty = 0.5;
         gbc.insets = new Insets(0, 0, 100, 0);
         rootPanel.add(numberButton, gbc);
+        logoPanel.setFocusable(false);
         logoPanel.setOpaque(false);
         logoPanel.setPreferredSize(new Dimension(180, 180));
         gbc = new GridBagConstraints();
@@ -170,6 +182,7 @@ public class FrameNumber extends JPanel {
         text.setDisabledTextColor(new Color(-1));
         text.setEditable(false);
         text.setEnabled(false);
+        text.setFocusable(false);
         text.setFont(new Font("Open Sans", text.getFont().getStyle(), 16));
         text.setForeground(new Color(-1115905));
         text.setMargin(new Insets(0, 0, 0, 0));
@@ -192,6 +205,7 @@ public class FrameNumber extends JPanel {
         gbc.insets = new Insets(10, 0, 0, 0);
         rootPanel.add(numberPanel, gbc);
         phonePanel.setAlignmentX(0.5f);
+        phonePanel.setFocusable(false);
         phonePanel.setMinimumSize(new Dimension(22, 36));
         phonePanel.setOpaque(false);
         phonePanel.setPreferredSize(new Dimension(22, 36));
