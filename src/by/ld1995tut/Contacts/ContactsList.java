@@ -54,10 +54,12 @@ public class ContactsList extends JPanel {
         createUIComponents();
         contactsPanel.setLayout(new BorderLayout(0, 0));
         scrollPanel = new JScrollPane();
+        scrollPanel.setBackground(new Color(-1644826));
+        scrollPanel.setForeground(new Color(-3223858));
         scrollPanel.setOpaque(false);
         contactsPanel.add(scrollPanel, BorderLayout.CENTER);
         list = new JList();
-        list.setBackground(new Color(-1644826));
+        list.setBackground(new Color(-1));
         list.setDoubleBuffered(false);
         list.setDragEnabled(false);
         list.setFocusable(true);

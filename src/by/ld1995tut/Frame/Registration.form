@@ -13,29 +13,6 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="4d24e" class="javax.swing.JButton" binding="nextReg">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag top="0" left="0" bottom="105" right="0" weightx="0.0" weighty="0.5"/>
-        </constraints>
-        <properties>
-          <alignmentX value="0.0"/>
-          <alignmentY value="0.5"/>
-          <borderPainted value="false"/>
-          <doubleBuffered value="false"/>
-          <font name="Open Sans Light" size="18"/>
-          <foreground color="-1115905"/>
-          <horizontalTextPosition value="0"/>
-          <icon value="images/button-background.png"/>
-          <label value="ЗАВЕРШИТЬ"/>
-          <margin top="0" left="0" bottom="0" right="0"/>
-          <maximumSize width="150" height="32"/>
-          <minimumSize width="150" height="32"/>
-          <opaque value="false"/>
-          <preferredSize width="270" height="45"/>
-          <text value="ЗАВЕРШИТЬ"/>
-        </properties>
-      </component>
       <grid id="4e0bf" binding="logoPanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
@@ -75,7 +52,7 @@
         <properties>
           <alignmentX value="0.5"/>
           <opaque value="false"/>
-          <preferredSize width="200" height="45"/>
+          <preferredSize width="250" height="45"/>
         </properties>
         <border type="none"/>
         <children>
@@ -89,7 +66,7 @@
               <horizontalAlignment value="2"/>
               <minimumSize width="250" height="35"/>
               <opaque value="false"/>
-              <preferredSize width="200" height="35"/>
+              <preferredSize width="250" height="35"/>
               <selectedTextColor color="-1"/>
               <selectionColor color="-14436636"/>
               <toolTipText value=""/>
@@ -114,7 +91,7 @@
         <properties>
           <alignmentX value="0.5"/>
           <opaque value="false"/>
-          <preferredSize width="200" height="45"/>
+          <preferredSize width="250" height="45"/>
         </properties>
         <border type="none"/>
         <children>
@@ -127,7 +104,7 @@
               <foreground color="-1"/>
               <horizontalAlignment value="2"/>
               <opaque value="false"/>
-              <preferredSize width="200" height="35"/>
+              <preferredSize width="250" height="35"/>
               <selectedTextColor color="-1"/>
               <selectionColor color="-14436636"/>
               <toolTipText value=""/>
@@ -144,6 +121,32 @@
           </component>
         </children>
       </grid>
+      <component id="58407" class="javax.swing.JButton" binding="nextReg">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="0" left="0" bottom="102" right="0" weightx="0.0" weighty="0.5"/>
+        </constraints>
+        <properties>
+          <alignmentX value="0.0"/>
+          <alignmentY value="0.5"/>
+          <background color="-16731159"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <doubleBuffered value="false"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="20"/>
+          <foreground color="-1"/>
+          <horizontalTextPosition value="0"/>
+          <icon value="images/button-background.png"/>
+          <label value="ЗАВЕРШИТЬ"/>
+          <margin top="0" left="0" bottom="0" right="0"/>
+          <maximumSize width="150" height="32"/>
+          <minimumSize width="150" height="32"/>
+          <opaque value="false"/>
+          <preferredSize width="335" height="65"/>
+          <text value="ЗАВЕРШИТЬ"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

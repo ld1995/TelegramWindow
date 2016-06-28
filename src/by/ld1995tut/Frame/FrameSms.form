@@ -16,7 +16,7 @@
       <component id="ed6d7" class="javax.swing.JLabel" binding="number">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="0.0" weighty="0.1"/>
+          <gridbag top="0" left="0" bottom="10" right="0" weightx="0.0" weighty="0.1"/>
         </constraints>
         <properties>
           <autoscrolls value="false"/>
@@ -115,18 +115,20 @@
           </component>
         </children>
       </grid>
-      <component id="6331d" class="javax.swing.JButton" binding="smsButton">
+      <component id="f6c7b" class="javax.swing.JButton" binding="smsButton">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag top="0" left="0" bottom="110" right="0" weightx="0.0" weighty="0.5"/>
+          <gridbag top="0" left="0" bottom="111" right="0" weightx="0.0" weighty="0.5"/>
         </constraints>
         <properties>
           <alignmentX value="0.0"/>
           <alignmentY value="0.5"/>
+          <background color="-16731159"/>
           <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <doubleBuffered value="false"/>
           <focusable value="false"/>
-          <font name="Open Sans Light" size="18"/>
+          <font name="Open Sans" size="20"/>
           <foreground color="-1"/>
           <horizontalTextPosition value="0"/>
           <icon value="images/button-background.png"/>
@@ -135,7 +137,7 @@
           <maximumSize width="150" height="32"/>
           <minimumSize width="150" height="32"/>
           <opaque value="false"/>
-          <preferredSize width="270" height="45"/>
+          <preferredSize width="335" height="65"/>
           <text value="ПРОДОЛЖИТЬ"/>
         </properties>
       </component>

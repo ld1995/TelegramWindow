@@ -104,7 +104,7 @@ public class FrameWindow extends JPanel {
         rootPanel = new JPanel();
         rootPanel.setLayout(new BorderLayout(0, 0));
         systemBoard.setLayout(new FlowLayout(FlowLayout.RIGHT, 5, 5));
-        systemBoard.setBackground(new Color(-1710619));
+        systemBoard.setBackground(new Color(-1644826));
         systemBoard.setForeground(new Color(-1710619));
         rootPanel.add(systemBoard, BorderLayout.NORTH);
         turn.setBackground(new Color(-1710619));

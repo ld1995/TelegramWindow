@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
-    private JTextField lastMessage;
+    private JTextPane lastMessage;
     private JLabel nameLabel;
     private JPanel fotoPanel;
     private JPanel rootPanel;
@@ -46,18 +46,26 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
                     image = null;
                 }
 
-
                 if (image == null) {
-                    //изображения нету
+                    try {
+                        image = ImageIO.read(new File("resources/images/default-user-avatar.png"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
+                BufferedImage combined = new BufferedImage(fotoPanel.getWidth(), fotoPanel.getHeight(), BufferedImage.TYPE_INT_ARGB);
+                Graphics graphics = combined.getGraphics();
+                graphics.drawImage(image, 0, 0, fotoPanel.getWidth(), fotoPanel.getHeight(), null);
                 if (telegramProxy.isOnline(person)) {
-
-
-                }
-                g.drawImage(image, 0, 0, null);
+                    //если пользователь онлайн
+                    graphics.drawImage(maskOnline, 0, 0, fotoPanel.getWidth(), fotoPanel.getHeight(), null);
+                } else
+                    graphics.drawImage(mask, 0, 0, fotoPanel.getWidth(), fotoPanel.getHeight(), null);
+                g.drawImage(combined, 0, 0, fotoPanel.getWidth(), fotoPanel.getHeight(), null);
             }
         };
     }
+
 
     @Override
     public Component getListCellRendererComponent(JList<? extends Person> jList,
@@ -87,7 +95,9 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     private void $$$setupUI$$$() {
         createUIComponents();
         rootPanel.setLayout(new GridBagLayout());
+        rootPanel.setForeground(new Color(-1644826));
         rootPanel.setMinimumSize(new Dimension(250, 60));
+        rootPanel.setOpaque(true);
         rootPanel.setPreferredSize(new Dimension(250, 50));
         fotoPanel.setMinimumSize(new Dimension(41, 41));
         fotoPanel.setOpaque(false);
@@ -113,20 +123,14 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         gbc.weighty = 0.1;
         gbc.anchor = GridBagConstraints.WEST;
         rootPanel.add(nameLabel, gbc);
-        lastMessage = new JTextField();
-        lastMessage.setDoubleBuffered(false);
-        lastMessage.setDragEnabled(false);
-        lastMessage.setEditable(false);
-        lastMessage.setFont(new Font("Open Sans Light", lastMessage.getFont().getStyle(), 10));
+        lastMessage = new JTextPane();
         lastMessage.setOpaque(true);
+        lastMessage.setPreferredSize(new Dimension(150, 25));
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.weightx = 0.1;
         gbc.weighty = 0.1;
-        gbc.anchor = GridBagConstraints.SOUTH;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(0, 0, 10, 0);
+        gbc.anchor = GridBagConstraints.WEST;
         rootPanel.add(lastMessage, gbc);
     }
 

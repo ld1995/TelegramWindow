@@ -23,10 +23,12 @@
         <properties>
           <alignmentX value="0.0"/>
           <alignmentY value="0.5"/>
+          <background color="-16731159"/>
           <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
           <doubleBuffered value="false"/>
           <focusable value="false"/>
-          <font name="Open Sans Light" size="18"/>
+          <font name="Open Sans" size="20"/>
           <foreground color="-1"/>
           <horizontalTextPosition value="0"/>
           <icon value="images/button-background.png"/>
@@ -35,7 +37,7 @@
           <maximumSize width="150" height="32"/>
           <minimumSize width="150" height="32"/>
           <opaque value="false"/>
-          <preferredSize width="270" height="45"/>
+          <preferredSize width="335" height="65"/>
           <text value="ПРОДОЛЖИТЬ"/>
         </properties>
       </component>
@@ -81,7 +83,7 @@
         <properties>
           <alignmentX value="0.5"/>
           <opaque value="false"/>
-          <preferredSize width="320" height="50"/>
+          <preferredSize width="400" height="50"/>
         </properties>
         <border type="none"/>
         <children>
@@ -103,12 +105,12 @@
               <background color="-1"/>
               <caretColor color="-1"/>
               <disabledTextColor color="-1"/>
-              <font name="Open Sans Light" size="28"/>
+              <font name="Open Sans Light" size="36"/>
               <foreground color="-1115905"/>
               <horizontalAlignment value="2"/>
               <margin top="0" left="0" bottom="0" right="0"/>
               <opaque value="false"/>
-              <preferredSize width="270" height="30"/>
+              <preferredSize width="350" height="37"/>
               <selectedTextColor color="-1115905"/>
               <selectionColor color="-14436636"/>
               <text value=""/>
@@ -122,7 +124,7 @@
               <foreground color="-1"/>
               <opaque value="true"/>
               <orientation value="0"/>
-              <preferredSize width="320" height="2"/>
+              <preferredSize width="400" height="2"/>
             </properties>
           </component>
         </children>

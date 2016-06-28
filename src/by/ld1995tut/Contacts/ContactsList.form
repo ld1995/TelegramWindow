@@ -10,6 +10,8 @@
       <scrollpane id="c07e8" binding="scrollPanel">
         <constraints border-constraint="Center"/>
         <properties>
+          <background color="-1644826"/>
+          <foreground color="-3223858"/>
           <opaque value="false"/>
         </properties>
         <border type="none"/>
@@ -17,7 +19,7 @@
           <component id="833ec" class="javax.swing.JList" binding="list">
             <constraints/>
             <properties>
-              <background color="-1644826"/>
+              <background color="-1"/>
               <doubleBuffered value="false"/>
               <dragEnabled value="false"/>
               <focusable value="true"/>

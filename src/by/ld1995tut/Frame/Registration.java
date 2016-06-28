@@ -45,9 +45,6 @@ public class Registration extends JPanel {
         HintText fast = new HintText(fastName, "Фамилия", fastName.getCaretColor());
     }
 
-
-    //=============================================================
-
     public JPanel getRegistrationPanel() {
         return registrationPanel;
     }
@@ -63,8 +60,6 @@ public class Registration extends JPanel {
     public JTextField getFastName() {
         return fastName;
     }
-
-    //=============================================================
 
     public Person getPerson() {
         Person person = new Person(getFastName().getText().trim(), getLastName().getText().trim());
@@ -133,33 +128,10 @@ public class Registration extends JPanel {
         registrationPanel.setMinimumSize(new Dimension(800, 600));
         registrationPanel.setOpaque(false);
         registrationPanel.setPreferredSize(new Dimension(800, 600));
-        nextReg = new JButton();
-        nextReg.setAlignmentX(0.0f);
-        nextReg.setAlignmentY(0.5f);
-        nextReg.setBorderPainted(false);
-        nextReg.setDoubleBuffered(false);
-        nextReg.setFont(new Font("Open Sans Light", nextReg.getFont().getStyle(), 18));
-        nextReg.setForeground(new Color(-1115905));
-        nextReg.setHorizontalTextPosition(0);
-        nextReg.setIcon(new ImageIcon(getClass().getResource("/images/button-background.png")));
-        nextReg.setLabel("ЗАВЕРШИТЬ");
-        nextReg.setMargin(new Insets(0, 0, 0, 0));
-        nextReg.setMaximumSize(new Dimension(150, 32));
-        nextReg.setMinimumSize(new Dimension(150, 32));
-        nextReg.setOpaque(false);
-        nextReg.setPreferredSize(new Dimension(270, 45));
-        nextReg.setText("ЗАВЕРШИТЬ");
-        GridBagConstraints gbc;
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.gridwidth = 2;
-        gbc.weighty = 0.5;
-        gbc.insets = new Insets(0, 0, 105, 0);
-        registrationPanel.add(nextReg, gbc);
         logoPanel.setMinimumSize(new Dimension(124, 98));
         logoPanel.setOpaque(false);
         logoPanel.setPreferredSize(new Dimension(124, 98));
+        GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -187,7 +159,7 @@ public class Registration extends JPanel {
         lastPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         lastPanel.setAlignmentX(0.5f);
         lastPanel.setOpaque(false);
-        lastPanel.setPreferredSize(new Dimension(200, 45));
+        lastPanel.setPreferredSize(new Dimension(250, 45));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -204,7 +176,7 @@ public class Registration extends JPanel {
         lastName.setHorizontalAlignment(2);
         lastName.setMinimumSize(new Dimension(250, 35));
         lastName.setOpaque(false);
-        lastName.setPreferredSize(new Dimension(200, 35));
+        lastName.setPreferredSize(new Dimension(250, 35));
         lastName.setSelectedTextColor(new Color(-1));
         lastName.setSelectionColor(new Color(-14436636));
         lastName.setToolTipText("");
@@ -219,7 +191,7 @@ public class Registration extends JPanel {
         fastPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         fastPanel.setAlignmentX(0.5f);
         fastPanel.setOpaque(false);
-        fastPanel.setPreferredSize(new Dimension(200, 45));
+        fastPanel.setPreferredSize(new Dimension(250, 45));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -234,7 +206,7 @@ public class Registration extends JPanel {
         fastName.setForeground(new Color(-1));
         fastName.setHorizontalAlignment(2);
         fastName.setOpaque(false);
-        fastName.setPreferredSize(new Dimension(200, 35));
+        fastName.setPreferredSize(new Dimension(250, 35));
         fastName.setSelectedTextColor(new Color(-1));
         fastName.setSelectionColor(new Color(-14436636));
         fastName.setToolTipText("");
@@ -245,6 +217,31 @@ public class Registration extends JPanel {
         separator2.setOrientation(0);
         separator2.setPreferredSize(new Dimension(320, 2));
         fastPanel.add(separator2);
+        nextReg = new JButton();
+        nextReg.setAlignmentX(0.0f);
+        nextReg.setAlignmentY(0.5f);
+        nextReg.setBackground(new Color(-16731159));
+        nextReg.setBorderPainted(false);
+        nextReg.setContentAreaFilled(false);
+        nextReg.setDoubleBuffered(false);
+        nextReg.setFocusable(false);
+        nextReg.setFont(new Font("Open Sans", nextReg.getFont().getStyle(), 20));
+        nextReg.setForeground(new Color(-1));
+        nextReg.setHorizontalTextPosition(0);
+        nextReg.setIcon(new ImageIcon(getClass().getResource("/images/button-background.png")));
+        nextReg.setLabel("ЗАВЕРШИТЬ");
+        nextReg.setMargin(new Insets(0, 0, 0, 0));
+        nextReg.setMaximumSize(new Dimension(150, 32));
+        nextReg.setMinimumSize(new Dimension(150, 32));
+        nextReg.setOpaque(false);
+        nextReg.setPreferredSize(new Dimension(335, 65));
+        nextReg.setText("ЗАВЕРШИТЬ");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        gbc.weighty = 0.5;
+        gbc.insets = new Insets(0, 0, 102, 0);
+        registrationPanel.add(nextReg, gbc);
     }
 
     /**

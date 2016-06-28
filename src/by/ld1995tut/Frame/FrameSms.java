@@ -36,12 +36,6 @@ public class FrameSms extends JPanel {
         passwordField.setBorder(BorderFactory.createEmptyBorder());
         if (passwordField.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) passwordField.getDocument()).setDocumentFilter(new Pass(5));
-        try {
-            // logo = ImageIO.read(new File("resources/images/logo-mini.png"));
-            lock = ImageIO.read(new File("resources/images/icon-lock.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public JPanel getSmsPanel() {
@@ -87,6 +81,11 @@ public class FrameSms extends JPanel {
 
     public void setLogoImage(BufferedImage logo) {
         this.logo = logo;
+        repaint();
+    }
+
+    public void setLockImage(BufferedImage lock) {
+        this.lock = lock;
         repaint();
     }
 
@@ -147,6 +146,7 @@ public class FrameSms extends JPanel {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.weighty = 0.1;
+        gbc.insets = new Insets(0, 0, 10, 0);
         smsPanel.add(number, gbc);
         text = new JTextPane();
         text.setBackground(new Color(-1115905));
@@ -213,10 +213,12 @@ public class FrameSms extends JPanel {
         smsButton = new JButton();
         smsButton.setAlignmentX(0.0f);
         smsButton.setAlignmentY(0.5f);
+        smsButton.setBackground(new Color(-16731159));
         smsButton.setBorderPainted(false);
+        smsButton.setContentAreaFilled(false);
         smsButton.setDoubleBuffered(false);
         smsButton.setFocusable(false);
-        smsButton.setFont(new Font("Open Sans Light", smsButton.getFont().getStyle(), 18));
+        smsButton.setFont(new Font("Open Sans", smsButton.getFont().getStyle(), 20));
         smsButton.setForeground(new Color(-1));
         smsButton.setHorizontalTextPosition(0);
         smsButton.setIcon(new ImageIcon(getClass().getResource("/images/button-background.png")));
@@ -225,13 +227,13 @@ public class FrameSms extends JPanel {
         smsButton.setMaximumSize(new Dimension(150, 32));
         smsButton.setMinimumSize(new Dimension(150, 32));
         smsButton.setOpaque(false);
-        smsButton.setPreferredSize(new Dimension(270, 45));
+        smsButton.setPreferredSize(new Dimension(335, 65));
         smsButton.setText("ПРОДОЛЖИТЬ");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 4;
         gbc.weighty = 0.5;
-        gbc.insets = new Insets(0, 0, 110, 0);
+        gbc.insets = new Insets(0, 0, 111, 0);
         smsPanel.add(smsButton, gbc);
     }
 

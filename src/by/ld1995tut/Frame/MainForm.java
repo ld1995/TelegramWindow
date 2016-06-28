@@ -40,16 +40,10 @@ public class MainForm extends JPanel {
     public MainForm() {
         $$$setupUI$$$();
         list.add(new JPanel());
+        message.add(new JPanel());
         searchField.setBorder(BorderFactory.createEmptyBorder());
         if (searchField.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) searchField.getDocument()).setDocumentFilter(new Reg());
-        try {
-            search = ImageIO.read(new File("resources/images/icon-search.png"));
-            logo = ImageIO.read(new File("resources/images/logo-micro.png"));
-            userFoto = ImageIO.read(new File("resources/images/mask-blue-mini.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         HintText searchHint = new HintText(searchField, "Поиск", searchField.getCaretColor());
     }
 
@@ -65,8 +59,8 @@ public class MainForm extends JPanel {
         this.titlePanel.add(titlePanel);
     }
 
-    public JPanel getListContacts() {
-        return listContacts;
+    public Component getListContacts() {
+        return list.getComponent(0);
     }
 
     public void setList(Component contactsPanel) {
@@ -74,13 +68,28 @@ public class MainForm extends JPanel {
         this.list.add(contactsPanel);
     }
 
-    public JPanel getMessagePanel() {
-        return messagePanel;
+    public Component getMessages() {
+        return message.getComponent(0);
     }
 
-    public void setMessagePanel(Component messagesPanel) {
-        this.messagePanel.removeAll();
-        this.messagePanel.add(messagesPanel);
+    public void setMessages(Component messagePanel) {
+        this.message.removeAll();
+        this.message.add(messagePanel);
+    }
+
+    public void setSearch(BufferedImage search) {
+        this.search = search;
+        repaint();
+    }
+
+    public void setLogo(BufferedImage logo) {
+        this.logo = logo;
+        repaint();
+    }
+
+    public void setUserFoto(BufferedImage userFoto) {
+        this.userFoto = userFoto;
+        repaint();
     }
 
     private void createUIComponents() {
@@ -115,7 +124,9 @@ public class MainForm extends JPanel {
                 g.drawImage(userFoto, 0, 0, null);
             }
         };
-        contactsFoto = new JPanel();
+        contactsFoto = new JPanel() {
+
+        };
     }
 
     /**
@@ -208,6 +219,7 @@ public class MainForm extends JPanel {
         searchPanel = new JPanel();
         searchPanel.setLayout(new GridBagLayout());
         searchPanel.setBackground(new Color(-1));
+        searchPanel.setForeground(new Color(-1644826));
         searchPanel.setOpaque(true);
         searchPanel.setPreferredSize(new Dimension(205, 40));
         listContacts.add(searchPanel, BorderLayout.NORTH);
@@ -235,9 +247,10 @@ public class MainForm extends JPanel {
         searchPanel.add(searchField, gbc);
         addPanel = new JPanel();
         addPanel.setLayout(new GridBagLayout());
+        addPanel.setForeground(new Color(-1710619));
         addPanel.setMinimumSize(new Dimension(205, 80));
         addPanel.setOpaque(false);
-        addPanel.setPreferredSize(new Dimension(205, 100));
+        addPanel.setPreferredSize(new Dimension(205, 80));
         listContacts.add(addPanel, BorderLayout.SOUTH);
         button2 = new JButton();
         button2.setBorderPainted(false);
@@ -253,13 +266,13 @@ public class MainForm extends JPanel {
         gbc.weightx = 0.1;
         gbc.weighty = 0.2;
         gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(0, 20, 0, 0);
+        gbc.insets = new Insets(0, 20, 20, 0);
         addPanel.add(button2, gbc);
         list = new JPanel();
         list.setLayout(new BorderLayout(0, 0));
-        list.setBackground(new Color(-1644826));
-        list.setForeground(new Color(-1644826));
-        list.setOpaque(true);
+        list.setBackground(new Color(-16777216));
+        list.setForeground(new Color(-3223858));
+        list.setOpaque(false);
         list.setPreferredSize(new Dimension(250, 50));
         listContacts.add(list, BorderLayout.EAST);
         messagePanel = new JPanel();

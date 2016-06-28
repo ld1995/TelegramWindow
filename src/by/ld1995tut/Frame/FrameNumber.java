@@ -12,8 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 
-public class FrameNumber extends JPanel
-{
+public class FrameNumber extends JPanel {
     private JButton numberButton;
     private JPanel rootPanel;
     private JFormattedTextField numberField;
@@ -26,69 +25,54 @@ public class FrameNumber extends JPanel
     private BufferedImage logo;
     private BufferedImage phone;
 
-    public FrameNumber()
-    {
+    public FrameNumber() {
         $$$setupUI$$$();
         TextAlignment textAlignment = new TextAlignment(text);
         numberField.setBorder(BorderFactory.createEmptyBorder());
-        try
-        {
+        try {
             MaskFormatter maskFormatter = new MaskFormatter("+### (##) ###-##-##");
             maskFormatter.setPlaceholder(null);
             maskFormatter.setPlaceholderCharacter('.');
             numberField.setFormatterFactory(new DefaultFormatterFactory(maskFormatter));
-            phone = ImageIO.read(new File("resources/images/icon-phone.png"));
-        }
-        catch (IOException | ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
     }
 
-    public JPanel getRootPanel()
-    {
+    public JPanel getRootPanel() {
         return rootPanel;
     }
 
-    public String getNumberField()
-    {
-        try
-        {
+    public String getNumberField() {
+        try {
             numberField.commitEdit();
             return numberField.getValue().toString();
-        }
-        catch (ParseException e)
-        {
+        } catch (ParseException e) {
             return null;
         }
     }
 
-    public void addActionListenerForConfirm(ActionListener actionListener)
-    {
+    public void addActionListenerForConfirm(ActionListener actionListener) {
         numberButton.addActionListener(actionListener);
         numberField.addActionListener(actionListener);
     }
 
-    public void removeActionListenerForConfirm(ActionListener actionListener)
-    {
+    public void removeActionListenerForConfirm(ActionListener actionListener) {
         numberButton.removeActionListener(actionListener);
         numberField.removeActionListener(actionListener);
     }
 
     @Override
-    protected void paintComponent(Graphics g)
-    {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        if (mainImage == null)
-        {
+        if (mainImage == null) {
             return;
         }
         g.drawImage(mainImage, 0, 0, this.getWidth(), this.getHeight(), null);
     }
 
-    private void createUIComponents()
-    {
+    private void createUIComponents() {
         // TODO: place custom component creation code here
         rootPanel = this;
         logoPanel = new JPanel() {
@@ -114,15 +98,18 @@ public class FrameNumber extends JPanel
         };
     }
 
-    public void setMainImage(BufferedImage mainImage)
-    {
+    public void setMainImage(BufferedImage mainImage) {
         this.mainImage = mainImage;
         repaint();
     }
 
-    public void setLogoImage(BufferedImage logo)
-    {
+    public void setLogoImage(BufferedImage logo) {
         this.logo = logo;
+        repaint();
+    }
+
+    public void setPhoneImage(BufferedImage phone) {
+        this.phone = phone;
         repaint();
     }
 
@@ -146,10 +133,12 @@ public class FrameNumber extends JPanel
         numberButton = new JButton();
         numberButton.setAlignmentX(0.0f);
         numberButton.setAlignmentY(0.5f);
+        numberButton.setBackground(new Color(-16731159));
         numberButton.setBorderPainted(false);
+        numberButton.setContentAreaFilled(false);
         numberButton.setDoubleBuffered(false);
         numberButton.setFocusable(false);
-        numberButton.setFont(new Font("Open Sans Light", numberButton.getFont().getStyle(), 18));
+        numberButton.setFont(new Font("Open Sans", numberButton.getFont().getStyle(), 20));
         numberButton.setForeground(new Color(-1));
         numberButton.setHorizontalTextPosition(0);
         numberButton.setIcon(new ImageIcon(getClass().getResource("/images/button-background.png")));
@@ -158,7 +147,7 @@ public class FrameNumber extends JPanel
         numberButton.setMaximumSize(new Dimension(150, 32));
         numberButton.setMinimumSize(new Dimension(150, 32));
         numberButton.setOpaque(false);
-        numberButton.setPreferredSize(new Dimension(270, 45));
+        numberButton.setPreferredSize(new Dimension(335, 65));
         numberButton.setText("ПРОДОЛЖИТЬ");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
@@ -197,7 +186,7 @@ public class FrameNumber extends JPanel
         numberPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         numberPanel.setAlignmentX(0.5f);
         numberPanel.setOpaque(false);
-        numberPanel.setPreferredSize(new Dimension(320, 50));
+        numberPanel.setPreferredSize(new Dimension(400, 50));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -214,12 +203,12 @@ public class FrameNumber extends JPanel
         numberField.setBackground(new Color(-1));
         numberField.setCaretColor(new Color(-1));
         numberField.setDisabledTextColor(new Color(-1));
-        numberField.setFont(new Font("Open Sans Light", numberField.getFont().getStyle(), 28));
+        numberField.setFont(new Font("Open Sans Light", numberField.getFont().getStyle(), 36));
         numberField.setForeground(new Color(-1115905));
         numberField.setHorizontalAlignment(2);
         numberField.setMargin(new Insets(0, 0, 0, 0));
         numberField.setOpaque(false);
-        numberField.setPreferredSize(new Dimension(270, 30));
+        numberField.setPreferredSize(new Dimension(350, 37));
         numberField.setSelectedTextColor(new Color(-1115905));
         numberField.setSelectionColor(new Color(-14436636));
         numberField.setText("");
@@ -230,7 +219,7 @@ public class FrameNumber extends JPanel
         separator1.setForeground(new Color(-1));
         separator1.setOpaque(true);
         separator1.setOrientation(0);
-        separator1.setPreferredSize(new Dimension(320, 2));
+        separator1.setPreferredSize(new Dimension(400, 2));
         numberPanel.add(separator1);
     }
 

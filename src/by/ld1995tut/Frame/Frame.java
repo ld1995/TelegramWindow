@@ -60,12 +60,19 @@ public class Frame extends JFrame
 
         number.setMainImage(Images.getBackground());
         number.setLogoImage(Images.getLogo());
+        number.setPhoneImage(Images.getPhone());
+
         sms.setMainImage(Images.getBackground());
         sms.setLogoImage(Images.getLogoMini());
+        sms.setLogoImage(Images.getLock());
+
         reg.setMainImage(Images.getBackground());
         reg.setLogoImage(Images.getLogoMini());
 
         mainForm.setList(contacts.getContactsPanel());
+        mainForm.setSearch(Images.getSearch());
+        mainForm.setLogo(Images.getLogoMicro());
+        mainForm.setUserFoto(Images.getUserFoto());
         contacts.addListSelectionListener(new ListSelectionListener()
         {
             @Override

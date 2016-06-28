@@ -10,7 +10,7 @@
       <grid id="31494" binding="systemBoard" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="2">
         <constraints border-constraint="North"/>
         <properties>
-          <background color="-1710619"/>
+          <background color="-1644826"/>
           <foreground color="-1710619"/>
         </properties>
         <border type="none"/>
