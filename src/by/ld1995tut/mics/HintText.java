@@ -1,4 +1,4 @@
-package by.ld1995tut.resurces;
+package by.ld1995tut.mics;
 
 import javax.swing.*;
 import java.awt.*;

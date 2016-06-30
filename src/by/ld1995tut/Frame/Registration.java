@@ -2,21 +2,14 @@ package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
 import by.ld1995tut.mics.Reg;
-import by.ld1995tut.resurces.HintText;
-import by.ld1995tut.resurces.TextAlignment;
+import by.ld1995tut.mics.HintText;
+import by.ld1995tut.mics.TextAlignment;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class Registration extends JPanel {
     private JPanel registrationPanel;

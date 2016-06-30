@@ -1,6 +1,7 @@
 package by.ld1995tut;
 
 import by.ld1995tut.Frame.Frame;
+import by.ld1995tut.resurces.Config;
 import org.javagram.dao.ApiBridgeTelegramDAO;
 import org.javagram.dao.DebugTelegramDAO;
 import org.javagram.dao.TelegramDAO;
@@ -21,7 +22,7 @@ public class Loader
                     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                     TelegramDAO telegramDAO = new
                             //DebugTelegramDAO();
-                            ApiBridgeTelegramDAO("149.154.167.50:443",23019,"8b256851da8846c10cdaff738117bc3c");
+                            ApiBridgeTelegramDAO(Config.SERVER,Config.APP_ID,Config.APP_HASH);
                     Frame frame = new Frame(telegramDAO);
                     frame.setLocationRelativeTo(null);
                     frame.setVisible(true);

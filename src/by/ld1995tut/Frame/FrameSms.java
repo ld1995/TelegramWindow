@@ -2,19 +2,13 @@ package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
 import by.ld1995tut.mics.Pass;
-import by.ld1995tut.resurces.TextAlignment;
+import by.ld1995tut.mics.TextAlignment;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class FrameSms extends JPanel {
     private JPasswordField passwordField;

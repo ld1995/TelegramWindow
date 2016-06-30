@@ -1,15 +1,12 @@
 package by.ld1995tut.Frame;
 
-import by.ld1995tut.resurces.TextAlignment;
+import by.ld1995tut.mics.TextAlignment;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 
 public class FrameNumber extends JPanel {

@@ -64,7 +64,7 @@ public class Frame extends JFrame
 
         sms.setMainImage(Images.getBackground());
         sms.setLogoImage(Images.getLogoMini());
-        sms.setLogoImage(Images.getLock());
+        sms.setLockImage(Images.getLock());
 
         reg.setMainImage(Images.getBackground());
         reg.setLogoImage(Images.getLogoMini());
@@ -72,7 +72,7 @@ public class Frame extends JFrame
         mainForm.setList(contacts.getContactsPanel());
         mainForm.setSearch(Images.getSearch());
         mainForm.setLogo(Images.getLogoMicro());
-        mainForm.setUserFoto(Images.getUserFoto());
+
         contacts.addListSelectionListener(new ListSelectionListener()
         {
             @Override
@@ -165,6 +165,7 @@ public class Frame extends JFrame
         telegramProxy = new TelegramProxy(telegramDAO);
         contacts.getContacts(telegramProxy);
         changeContentPanel(mainForm.getRootPanel());
+        mainForm.setUserInfo(telegramProxy);
     }
 
     private void changeContentPanel(Container contentPanel)

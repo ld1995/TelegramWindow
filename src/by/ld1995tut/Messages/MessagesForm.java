@@ -105,10 +105,16 @@ public class MessagesForm extends JPanel {
     private void $$$setupUI$$$() {
         createUIComponents();
         rootPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        rootPanel.setBackground(new Color(-1));
+        rootPanel.setForeground(new Color(-1));
+        rootPanel.setPreferredSize(new Dimension(550, 510));
         scrollPane = new JScrollPane();
         rootPanel.add(scrollPane, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         scrollPanel = new JPanel();
         scrollPanel.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        scrollPanel.setBackground(new Color(-1));
+        scrollPanel.setForeground(new Color(-1));
+        scrollPanel.setPreferredSize(new Dimension(24, 24));
         scrollPane.setViewportView(scrollPanel);
     }
 
