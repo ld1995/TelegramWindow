@@ -1,44 +1,71 @@
 package by.ld1995tut.Frame;
 
 import by.ld1995tut.Contacts.ContactsList;
-import by.ld1995tut.FrameWindow;
+import by.ld1995tut.undecorated.*;
+import by.ld1995tut.Messages.MessagesForm;
+import by.ld1995tut.overlays.*;
 import by.ld1995tut.resurces.Images;
 import org.javagram.dao.*;
+import org.javagram.dao.Dialog;
 import org.javagram.dao.proxy.TelegramProxy;
+import org.javagram.dao.proxy.changes.UpdateChanges;
 
 import javax.swing.*;
+import javax.swing.Timer;
 import javax.swing.event.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.*;
+import java.util.List;
 
 public class Frame extends JFrame
 {
     private TelegramDAO telegramDAO;
     private TelegramProxy telegramProxy;
 
-    private FrameWindow frameWindow = new FrameWindow();
+    private FrameWindow frameWindow;
+
     private FrameNumber number = new FrameNumber();
     private FrameSms sms = new FrameSms();
     private Registration reg = new Registration();
-    private ContactsList contacts = new ContactsList();
     private MainForm mainForm = new MainForm();
+    private ContactsList contacts = new ContactsList();
 
-    private JPanel panel = frameWindow.getRootPanel();
-    private JPanel numberPanel = number.getRootPanel();
+    private ProfileForm profilForm = new ProfileForm();
+    private AddContact addContact = new AddContact();
+    private MyBufferedOverlayDialog mainWindowManager = new MyBufferedOverlayDialog(mainForm,profilForm);
+    private MyBufferedOverlayDialog windowManager = new MyBufferedOverlayDialog(mainForm,addContact);
+    private static final int MAIN_WINDOW = -1, PROFILE_FORM = 0;
 
-    public Frame(TelegramDAO telegramDAO) throws Exception
+    private PlusOverlay plusOverlay = new PlusOverlay();
+    private MyLayeredPane contactsLayeredPane = new MyLayeredPane();
+
+    private Timer timer;
+    private int messageFrozen;
+
+    private int messagesFrozen;
+
+    public Frame(TelegramDAO telegramDAO)
     {
-        setSize(800,600);
-        setUndecorated(true);
-        setContentPane(panel);
-        changeContentPanel(numberPanel);
         this.telegramDAO = telegramDAO;
+    }
+
+    {
+        frameWindow = new FrameWindow(this, ComponentResizerAbstract.KEEP_RATIO_CENTER);
+        changeContentPanel(number);
+        setSize(925+4,390+39);
+        setMinimumSize(new Dimension(800,600));
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent windowEvent) {
-                exitMessage();
+               if (showQuestionMessage("Уверены, что хотите выйти?","Выйти"))
+               {
+                   exit();
+               }
             }
         });
         number.addActionListenerForConfirm(new ActionListener()
@@ -46,7 +73,15 @@ public class Frame extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                switchPhonToCod();
+                String phoneNumber = number.getNumberField();
+                if (phoneNumber == null)
+                {
+                    showErrorMessage("Ввидите корректный номер телефона!","Ошибка!");
+                }
+                else
+                {
+                    switchPhoneToCod(phoneNumber);
+                }
             }
         });
         sms.addActionListenerForConfirm(new ActionListener()
@@ -54,30 +89,8 @@ public class Frame extends JFrame
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                switchCod();
-            }
-        });
-
-        number.setMainImage(Images.getBackground());
-        number.setLogoImage(Images.getLogo());
-        number.setPhoneImage(Images.getPhone());
-
-        sms.setMainImage(Images.getBackground());
-        sms.setLogoImage(Images.getLogoMini());
-        sms.setLockImage(Images.getLock());
-
-        reg.setMainImage(Images.getBackground());
-        reg.setLogoImage(Images.getLogoMini());
-
-        mainForm.setList(contacts.getContactsPanel());
-        mainForm.setSearch(Images.getSearch());
-        mainForm.setLogo(Images.getLogoMicro());
-
-        contacts.addListSelectionListener(new ListSelectionListener()
-        {
-            @Override
-            public void valueChanged(ListSelectionEvent e)
-            {
+                String authCode = sms.getPasswordField();
+                switchCod(authCode);
             }
         });
         reg.addActionListenerForConfirm(new ActionListener()
@@ -87,49 +100,181 @@ public class Frame extends JFrame
                 registration();
             }
         });
-        frameWindow.addActionListenerForClose(new ActionListener()
+
+        mainForm.setList(contactsLayeredPane);
+        contactsLayeredPane.add(contacts, new Integer(0));
+        contactsLayeredPane.add(plusOverlay, new Integer(1));
+
+        contacts.addListSelectionListener(new ListSelectionListener()
+        {
+            @Override
+            public void valueChanged(ListSelectionEvent e)
+            {
+                if (messagesFrozen != 0)
+                {
+                    return;
+                }
+                if (telegramProxy == null)
+                {
+                    displayDialog(null);
+                }
+                else
+                {
+                    displayDialog(contacts.getSelectedValue());
+                }
+            }
+        });
+        mainForm.addSearchEventListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                searchFor(mainForm.getSearchText());
+            }
+        });
+        plusOverlay.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addContact.setTelegramProxy(telegramProxy);
+                mainWindowManager.setIndex(PROFILE_FORM);
+            }
+        });
+        addContact.addActionListenerForLogout(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switchToBegin();
+            }
+        });
+        addContact.addActionListenerForAddButton(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateContacts();
+            }
+        });
+
+        mainForm.addSendMessageListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                exitMessage();
+                Person buddy = contacts.getSelectedValue();
+                String text = mainForm.getMessageText();
+                if (telegramProxy != null && buddy != null && !text.isEmpty())
+                {
+                    try
+                    {
+                        telegramProxy.sendMessage(buddy,text);
+                        mainForm.setMessageText("");
+                        checkForUpdates();
+                    }
+                    catch (Exception ex)
+                    {
+                        showErrorMessage("Сообщение не может быть отправлено","Ошибка");
+                    }
+                }
             }
         });
-        frameWindow.addActionListenerForMinimize(new ActionListener()
+        mainForm.addGearEventListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                setState(JFrame.ICONIFIED);
+                profilForm.setTelegramProxy(telegramProxy);
+                mainWindowManager.setIndex(PROFILE_FORM);
             }
         });
+        profilForm.addActionListenerForClose(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainWindowManager.setIndex(MAIN_WINDOW);
+            }
+        });
+        profilForm.addActionListenerForLogout(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switchToBegin();
+            }
+        });
+        mainForm.addBuddyEditEventListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //редактирование профиля контакта
+            }
+        });
+        timer = new Timer(2000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                checkForUpdates();
+            }
+        });
+        timer.start();
     }
 
-    private void switchPhonToCod()
+    protected void checkForUpdates()
+    {
+        if (telegramProxy != null)
+        {
+            UpdateChanges updateChanges = telegramProxy.update();
+
+            int photosChangedCount = updateChanges.getLargePhotosChanged().size() +
+                    updateChanges.getSmallPhotosChanged().size() + updateChanges.getStatusesChanged().size();
+
+            if (updateChanges.getListChanged())
+            {
+                updateContacts();
+            }
+            else if (photosChangedCount != 0)
+            {
+                contacts.repaint();
+            }
+
+            Person currentBuddy = getMessagesForm().getPerson();
+            Person targetPerson = contacts.getSelectedValue();
+
+            Dialog currentDialog = currentBuddy != null ? telegramProxy.getDialog(currentBuddy) : null;
+
+            if (!Objects.equals(targetPerson,currentBuddy) || updateChanges.getDialogsToReset().contains(currentDialog)
+                    || updateChanges.getDialogsChanged().getDeleted().contains(currentDialog))
+            {
+                updateMessages();
+            }
+            else if (updateChanges.getPersonsChanged().getChanged().containsKey(currentBuddy)
+                    || updateChanges.getSmallPhotosChanged().contains(currentBuddy)
+                    || updateChanges.getLargePhotosChanged().contains(currentBuddy))
+            {
+                displayBuddy(targetPerson);
+            }
+            if (updateChanges.getPersonsChanged().getChanged().containsKey(telegramProxy.getMe())
+                    || updateChanges.getSmallPhotosChanged().contains(telegramProxy.getMe())
+                    || updateChanges.getLargePhotosChanged().contains(telegramProxy.getMe()))
+            {
+                displayMe(telegramProxy.getMe());
+            }
+        }
+    }
+
+    private void switchPhoneToCod(String phoneNumber)
     {
         try
         {
-            telegramDAO.acceptNumber(number.getNumberField().replace("[\\D]+",""));
+            telegramDAO.acceptNumber(phoneNumber.replace("[\\D]+",""));
             telegramDAO.sendCode();
             sms.setNamber(number.getNumberField());
-            changeContentPanel(sms.getSmsPanel());
+            changeContentPanel(sms);
         }
         catch (IOException e)
         {
-            e.printStackTrace();
-            changeContentPanel(numberPanel);
-            errorMessage();
+            showErrorMessage("Номер телефона введён неверно!", "Ошибка!");
+            changeContentPanel(number);
             return;
         }
     }
 
-    private void switchCod()
+    private void switchCod(String code)
     {
         try
         {
             if (telegramDAO.canSignIn())
             {
-                telegramDAO.signIn(sms.getPasswordField());
+                telegramDAO.signIn(code);
                 switchContacts();
             }
             else if (telegramDAO.canSignUp())
@@ -139,8 +284,7 @@ public class Frame extends JFrame
         }
         catch (IOException e)
         {
-            e.printStackTrace();
-            errorMessage();
+            showErrorMessage("Неверный код","Внимание!");
         }
     }
 
@@ -155,41 +299,234 @@ public class Frame extends JFrame
         }
         catch (IOException e)
         {
-            e.printStackTrace();
-            errorMessage();
+            showErrorMessage("Неверно заполнены поля регистрации","Внимание");
         }
     }
 
-    private void switchContacts()
+    private void switchContacts() {
+        changeContentPanel(mainWindowManager);
+        createTelergramProxy();
+    }
+
+    private void switchToBegin()
     {
-        telegramProxy = new TelegramProxy(telegramDAO);
-        contacts.getContacts(telegramProxy);
-        changeContentPanel(mainForm.getRootPanel());
-        mainForm.setUserInfo(telegramProxy);
+        try
+        {
+            destroyTelegramProxy();
+            this.sms.clear();
+            this.number.clear();
+            mainWindowManager.setIndex(MAIN_WINDOW);
+            changeContentPanel(number);
+            telegramDAO.logOut();
+        }
+        catch (Exception e)
+        {
+            showErrorMessage("Продолжение работы невозможно", "Критическая ошибка!");
+            abort(e);
+        }
+    }
+
+    private void searchFor(String searchText)
+    {
+        searchText = searchText.trim();
+        if (searchText.isEmpty())
+        {
+            return;
+        }
+        String[] words = searchText.toLowerCase().split("\\s+");
+        List<Person> persons = telegramProxy.getPersons();
+        Person person = contacts.getSelectedValue();
+        person = searchFor(searchText.toLowerCase(),words,persons,person);
+        contacts.setSelectedValue(person);
+        if (person == null)
+        {
+            showInformationMessage("Ничего не найдено", "Поиск");
+        }
+    }
+
+    private static Person searchFor(String text, String[] words, List<? extends Person> persons, Person current)
+    {
+        int currentIndex = persons.indexOf(current);
+
+        for (int i =1; i <= persons.size(); i++)
+        {
+            int index = (currentIndex + i)% persons.size();
+            Person person = persons.get(index);
+            if (contains(person.getFirstName().toLowerCase(),words) || contains(person.getLastName().toLowerCase(),words))
+            {
+                return person;
+            }
+        }
+        return null;
+    }
+
+    private static boolean contains (String text, String ... words)
+    {
+        for (String word : words)
+        {
+            if (text.contains(word))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void changeContentPanel(Container contentPanel)
     {
-        frameWindow.setInputPanel(contentPanel);
+        frameWindow.setContentPanel(contentPanel);
     }
 
-    private void errorMessage()
+    private void createTelergramProxy()
     {
-        JOptionPane.showMessageDialog(panel,
-                "Поле заполнено неверно",
-                "Внимание",
-                JOptionPane.INFORMATION_MESSAGE);
+        telegramProxy = new TelegramProxy(telegramDAO);
+        updateTelegramProxy();
     }
 
-    private void exitMessage()
+    private void destroyTelegramProxy()
     {
-        int option = JOptionPane.showConfirmDialog(panel,
-                "Вы точно хотети выйти?",
-                "Выход", JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE);
-        if (option == JOptionPane.YES_OPTION)
+        telegramProxy = null;
+        updateTelegramProxy();
+    }
+
+    private void updateTelegramProxy()
+    {
+        messageFrozen++;
+        try
         {
-            exit();
+            contacts.setTelegramProxy(telegramProxy);
+            contacts.setSelectedValue(null);
+            createMessagesForm();
+            displayDialog(null);
+            displayMe(telegramProxy != null ? telegramProxy.getMe() : null);
+        }
+        finally
+        {
+            messageFrozen--;
+        }
+
+        mainForm.revalidate();
+        mainForm.repaint();
+    }
+
+    private void updateContacts()
+    {
+        messagesFrozen++;
+        try
+        {
+            Person person = contacts.getSelectedValue();
+            contacts.setTelegramProxy(telegramProxy);
+            contacts.setSelectedValue(person);
+        } finally {
+            messagesFrozen--;
+        }
+    }
+
+    private void updateMessages()
+    {
+        displayDialog(contacts.getSelectedValue());
+        mainForm.revalidate();
+        mainForm.repaint();
+    }
+
+    private MessagesForm createMessagesForm()
+    {
+        MessagesForm messagesForm = new MessagesForm(telegramProxy);
+        mainForm.setMessages(messagesForm);
+        mainForm.revalidate();
+        mainForm.repaint();
+        return messagesForm;
+    }
+
+    private MessagesForm getMessagesForm()
+    {
+        if (mainForm.getMessages() instanceof MessagesForm)
+        {
+            return (MessagesForm) mainForm.getMessages();
+        }
+        else
+        {
+            return createMessagesForm();
+        }
+    }
+
+    private void displayDialog(Person person)
+    {
+        try {
+            MessagesForm messagesForm = getMessagesForm();
+            messagesForm.display(person);
+            displayBuddy(person);
+            revalidate();
+            repaint();
+        }catch (Exception e)
+        {
+            showErrorMessage("Проблема соединения с сервером","Проблнмы в сети");
+        }
+    }
+
+    private void displayMe(Me me)
+    {
+        if (me == null)
+        {
+            mainForm.setMePhoto(null);
+            mainForm.setMeText(null);
+        }
+        else
+        {
+            mainForm.setMeText(me.getFirstName() + " " + me.getLastName());
+            try {
+                BufferedImage image = telegramProxy.getPhoto(me,true);
+                if (image == null)
+                {
+                    mainForm.setMePhoto(Images.getDefaultUserPhoto());
+                }
+                else
+                    mainForm.setMePhoto(image);
+            } catch (IOException e) {
+                mainForm.setMePhoto(Images.getDefaultUserPhoto());
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void displayBuddy(Person person)
+    {
+        if (person == null)
+        {
+            mainForm.setBuddyPhoto(null);
+            mainForm.setBuddyText(null);
+        }
+        else
+        {
+            mainForm.setBuddyText(person.getFirstName() + " " + person.getLastName());
+            try {
+                BufferedImage image = telegramProxy.getPhoto(person, true);
+                if (image == null)
+                {
+                    mainForm.setBuddyPhoto(Images.getDefaultUserPhoto());
+                }
+                else
+                {
+                    mainForm.setBuddyPhoto(image);
+                }
+            } catch (IOException e) {
+                mainForm.setBuddyPhoto(Images.getDefaultUserPhoto());
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void abort(Exception e)
+    {
+        if (e != null)
+        {
+            e.printStackTrace();
+        }
+        else
+        {
+            System.err.println("Unknown Error");
+            telegramDAO.close();
+            System.exit(-1);
         }
     }
 
@@ -198,5 +535,25 @@ public class Frame extends JFrame
         telegramDAO.close();
         dispose();
         System.exit(0);
+    }
+
+    private void showErrorMessage(String text, String title)
+    {
+        FrameWindow.showDialog(this, text, title, JOptionPane.ERROR_MESSAGE, JOptionPane.DEFAULT_OPTION);
+    }
+
+    private void showWarningMessage(String  text, String title)
+    {
+        FrameWindow.showDialog(this, text, title,JOptionPane.WARNING_MESSAGE, JOptionPane.DEFAULT_OPTION);
+    }
+
+    private void showInformationMessage(String text, String title)
+    {
+        FrameWindow.showDialog(this, text,title,JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION);
+    }
+
+    private boolean showQuestionMessage(String text, String title)
+    {
+        return FrameWindow.showDialog(this, text,title,JOptionPane.QUESTION_MESSAGE,JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 }

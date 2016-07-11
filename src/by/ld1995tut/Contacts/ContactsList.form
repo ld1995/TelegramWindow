@@ -6,6 +6,7 @@
     </constraints>
     <properties>
       <background color="-1644826"/>
+      <preferredSize width="250" height="128"/>
     </properties>
     <border type="none"/>
     <children>
@@ -21,7 +22,7 @@
           <component id="833ec" class="javax.swing.JList" binding="list">
             <constraints/>
             <properties>
-              <background color="-1644826"/>
+              <background color="-12828863"/>
               <doubleBuffered value="false"/>
               <dragEnabled value="false"/>
               <focusable value="true"/>

@@ -10,6 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="telegram-api-bridge" level="project" />
     <orderEntry type="library" name="c92d5fedcb0d4aee8a18319a9bb3761e" level="project" />
-    <orderEntry type="library" name="telegram-dao-proxy-v4.2" level="project" />
+    <orderEntry type="library" name="telegram-dao-proxy-v5.4" level="project" />
   </component>
 </module>

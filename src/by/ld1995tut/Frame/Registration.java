@@ -1,17 +1,18 @@
 package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
-import by.ld1995tut.mics.Reg;
+import by.ld1995tut.mics.TextEntry;
 import by.ld1995tut.mics.HintText;
-import by.ld1995tut.mics.TextAlignment;
+import by.ld1995tut.resurces.Images;
+import components.GuiHelper;
+import components.ImagePanel;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 
-public class Registration extends JPanel {
+public class Registration extends ImagePanel {
     private JPanel registrationPanel;
     private JTextField lastName;
     private JButton nextReg;
@@ -21,19 +22,16 @@ public class Registration extends JPanel {
     private JPanel lastPanel;
     private JPanel fastPanel;
 
-    private BufferedImage mainImage;
-    private BufferedImage logo;
-
-
     public Registration() {
+        super(Images.getBackground(), true, false, 0);
         $$$setupUI$$$();
-        TextAlignment textAlignment = new TextAlignment(text);
+        GuiHelper.adjustTextPane(text);
         lastName.setBorder(BorderFactory.createEmptyBorder());
         fastName.setBorder(BorderFactory.createEmptyBorder());
         if (lastName.getDocument() instanceof AbstractDocument)
-            ((AbstractDocument) lastName.getDocument()).setDocumentFilter(new Reg());
+            ((AbstractDocument) lastName.getDocument()).setDocumentFilter(new TextEntry());
         if (fastName.getDocument() instanceof AbstractDocument)
-            ((AbstractDocument) fastName.getDocument()).setDocumentFilter(new Reg());
+            ((AbstractDocument) fastName.getDocument()).setDocumentFilter(new TextEntry());
         HintText last = new HintText(lastName, "Имя", lastName.getCaretColor());
         HintText fast = new HintText(fastName, "Фамилия", fastName.getCaretColor());
     }
@@ -71,39 +69,16 @@ public class Registration extends JPanel {
         lastName.removeActionListener(actionListener);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        if (mainImage == null) {
-            return;
-        }
-        g.drawImage(mainImage, 0, 0, this.getWidth(), this.getHeight(), null);
-    }
-
-    public void setMainImage(BufferedImage mainImage) {
-        this.mainImage = mainImage;
-        repaint();
-    }
-
-    public void setLogoImage(BufferedImage logo) {
-        this.logo = logo;
-        repaint();
-    }
-
     private void createUIComponents() {
         // TODO: place custom component creation code here
         registrationPanel = this;
-        logoPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (logo == null) {
-                    return;
-                }
-                g.drawImage(logo, 0, 0, this.getWidth(), this.getHeight(), null);
-            }
-        };
+        logoPanel = new ImagePanel(Images.getLogoMini(), false, true, 0);
+    }
+
+    public void clean()
+    {
+        lastName.setText("");
+        fastName.setText("");
     }
 
     /**
@@ -183,6 +158,7 @@ public class Registration extends JPanel {
         fastPanel = new JPanel();
         fastPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
         fastPanel.setAlignmentX(0.5f);
+        fastPanel.setMinimumSize(new Dimension(250, 45));
         fastPanel.setOpaque(false);
         fastPanel.setPreferredSize(new Dimension(250, 45));
         gbc = new GridBagConstraints();

@@ -4,7 +4,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
 
-public class Reg extends DocumentFilter
+public class TextEntry extends DocumentFilter
 {
     @Override
     public void replace(DocumentFilter.FilterBypass fb, int offset, int length,

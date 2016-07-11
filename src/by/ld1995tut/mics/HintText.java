@@ -1,13 +1,13 @@
 package by.ld1995tut.mics;
 
-import javax.swing.*;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 public class HintText
 {
-    public HintText(final JTextField textField, final String text, final Color color)
+    public HintText(final JTextComponent textField, final String text, final Color color)
     {
         textField.setForeground(Color.LIGHT_GRAY);
         textField.setText(text);

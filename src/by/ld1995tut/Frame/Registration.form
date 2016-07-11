@@ -90,6 +90,7 @@
         </constraints>
         <properties>
           <alignmentX value="0.5"/>
+          <minimumSize width="250" height="45"/>
           <opaque value="false"/>
           <preferredSize width="250" height="45"/>
         </properties>

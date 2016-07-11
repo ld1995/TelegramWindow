@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="by.ld1995tut.FrameWindow">
-  <grid id="27dc6" binding="rootPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="by.ld1995tut.undecorated.FrameWindow">
+  <grid id="27dc6" binding="rootPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="515" height="400"/>
+      <xy x="20" y="20" width="800" height="600"/>
     </constraints>
-    <properties/>
-    <border type="none"/>
+    <properties>
+      <minimumSize width="800" height="600"/>
+      <preferredSize width="800" height="600"/>
+    </properties>
+    <border type="bevel-raised"/>
     <children>
-      <grid id="31494" binding="systemBoard" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="2">
+      <grid id="31494" binding="systemPanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="2">
         <constraints border-constraint="North"/>
         <properties>
           <background color="-1644826"/>
@@ -45,7 +48,7 @@
           </component>
         </children>
       </grid>
-      <grid id="19902" binding="inputPanel" layout-manager="GridBagLayout">
+      <grid id="19902" binding="inputPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
         <constraints border-constraint="Center"/>
         <properties>
           <background color="-4516864"/>

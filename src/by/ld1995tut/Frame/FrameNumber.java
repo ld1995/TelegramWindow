@@ -1,6 +1,8 @@
 package by.ld1995tut.Frame;
 
-import by.ld1995tut.mics.TextAlignment;
+import by.ld1995tut.resurces.Images;
+import components.GuiHelper;
+import components.ImagePanel;
 
 import javax.swing.*;
 import javax.swing.text.*;
@@ -9,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.text.ParseException;
 
-public class FrameNumber extends JPanel {
+public class FrameNumber extends ImagePanel {
     private JButton numberButton;
     private JPanel rootPanel;
     private JFormattedTextField numberField;
@@ -18,14 +20,13 @@ public class FrameNumber extends JPanel {
     private JPanel numberPanel;
     private JPanel phonePanel;
 
-    private BufferedImage mainImage;
-    private BufferedImage logo;
-    private BufferedImage phone;
-
     public FrameNumber() {
+        super(Images.getBackground(), true, false, 0);
         $$$setupUI$$$();
-        TextAlignment textAlignment = new TextAlignment(text);
+        GuiHelper.adjustTextPane(text);
         numberField.setBorder(BorderFactory.createEmptyBorder());
+        this.logoPanel.setBorder(BorderFactory.createEmptyBorder());
+        this.numberPanel.setBorder(BorderFactory.createEmptyBorder());
         try {
             MaskFormatter maskFormatter = new MaskFormatter("+### (##) ###-##-##");
             maskFormatter.setPlaceholder(null);
@@ -59,16 +60,6 @@ public class FrameNumber extends JPanel {
         numberField.removeActionListener(actionListener);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        if (mainImage == null) {
-            return;
-        }
-        g.drawImage(mainImage, 0, 0, this.getWidth(), this.getHeight(), null);
-    }
-
     private void createUIComponents() {
         // TODO: place custom component creation code here
         rootPanel = this;
@@ -76,38 +67,14 @@ public class FrameNumber extends JPanel {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                if (logo == null) {
-                    return;
-                }
-                g.drawImage(logo, 0, 0, null);
+                g.drawImage(Images.getLogo(), 0, 0, null);
             }
         };
-
-        phonePanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (phone == null) {
-                    return;
-                }
-                g.drawImage(phone, 0, 0, null);
-            }
-        };
+        phonePanel = new ImagePanel(Images.getPhone(), false, true, 0);
     }
 
-    public void setMainImage(BufferedImage mainImage) {
-        this.mainImage = mainImage;
-        repaint();
-    }
-
-    public void setLogoImage(BufferedImage logo) {
-        this.logo = logo;
-        repaint();
-    }
-
-    public void setPhoneImage(BufferedImage phone) {
-        this.phone = phone;
-        repaint();
+    public void clear() {
+        numberField.setText("");
     }
 
     /**

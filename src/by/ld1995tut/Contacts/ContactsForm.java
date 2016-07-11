@@ -11,6 +11,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     private JTextPane lastMessage;
@@ -24,6 +26,8 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     private boolean hasFocus;
     private boolean selected;
     private BufferedImage mask;
+    Calendar calendar = Calendar.getInstance();
+    private Date dateToday = new Date();
     private final DateFormat dateFormat = new SimpleDateFormat("dd.MM.yy");
     private final DateFormat dayFormat = new SimpleDateFormat("HH:mm");
 
@@ -43,28 +47,26 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
                 BufferedImage image;
                 try {
                     image = telegramProxy.getPhoto(person, small);
-                    mask = Images.getFotoMaskGray();
+                    mask = Images.getPhotoMaskGray();
                 } catch (IOException e) {
                     e.printStackTrace();
                     image = null;
                 }
                 if (image == null) {
-                    image = Images.getDefaultUserFoto();
+                    image = Images.getDefaultUserPhoto();
                 }
                 if (telegramProxy.isOnline(person)) {
-                    mask = Images.getFotoMaskOnlineGray();
+                    mask = Images.getPhotoMaskOnlineGray();
                 }
                 if (selected) {
-                    mask = Images.getFotoMaskWhite();
+                    mask = Images.getPhotoMaskWhite();
                 }
                 if (selected && telegramProxy.isOnline(person)) {
-                    mask = Images.getFotoMaskOnlineWhite();
+                    mask = Images.getPhotoMaskOnlineWhite();
                 }
-                BufferedImage combined = new BufferedImage(photoPanel.getWidth(), photoPanel.getHeight(), BufferedImage.TYPE_INT_ARGB);
-                Graphics graphics = combined.getGraphics();
-                graphics.drawImage(image, 0, 0, photoPanel.getWidth(), photoPanel.getHeight(), null);
-                graphics.drawImage(mask, 0, 0, photoPanel.getWidth(), photoPanel.getHeight(), null);
-                g.drawImage(combined, 0, 0, photoPanel.getWidth(), photoPanel.getHeight(), null);
+
+                g.drawImage(image, 0, 0, photoPanel.getWidth(), photoPanel.getHeight(), null);
+                g.drawImage(mask, 0, 0, photoPanel.getWidth(), photoPanel.getHeight(), null);
             }
         };
     }
@@ -74,7 +76,7 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         super.paintComponent(g);
         if (hasFocus) {
             g.setColor(new Color(35, 182, 228));
-            g.fillRect(243, 0, rootPanel.getHeight(), rootPanel.getWidth());
+            g.fillRect(265, 0, rootPanel.getHeight(), rootPanel.getWidth());
         }
     }
 
@@ -88,7 +90,8 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         this.nameLabel.setText(person.getFirstName() + " " + person.getLastName());
         if (dialog != null) {
             this.lastMessage.setText(dialog.getLastMessage().getText());
-            this.date.setText(dateFormat.format(dialog.getLastMessage().getDate()));
+//            this.date.setText(dateFormat.format(dialog.getLastMessage().getDate()));
+            this.date.setText(String.valueOf(telegramProxy.onlineUntil(person)));
         } else {
             this.lastMessage.setText("");
             this.date.setText("");
@@ -115,9 +118,10 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         rootPanel.setLayout(new GridBagLayout());
         rootPanel.setBackground(new Color(-1644826));
         rootPanel.setForeground(new Color(-1644826));
-        rootPanel.setMinimumSize(new Dimension(250, 60));
+        rootPanel.setMinimumSize(new Dimension(270, 60));
         rootPanel.setOpaque(true);
-        rootPanel.setPreferredSize(new Dimension(250, 60));
+        rootPanel.setPreferredSize(new Dimension(270, 60));
+        rootPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5), null));
         photoPanel.setForeground(new Color(-1644826));
         photoPanel.setMinimumSize(new Dimension(41, 41));
         photoPanel.setOpaque(false);
@@ -125,10 +129,10 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy = 0;
         gbc.gridheight = 2;
         gbc.weighty = 1.0;
-        gbc.insets = new Insets(0, 15, 0, 0);
+        gbc.insets = new Insets(0, 10, 0, 0);
         rootPanel.add(photoPanel, gbc);
         nameLabel = new JLabel();
         nameLabel.setFont(new Font("Open Sans Semibold", nameLabel.getFont().getStyle(), 14));
@@ -138,7 +142,7 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         nameLabel.setText("Label");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 1;
+        gbc.gridy = 0;
         gbc.weightx = 0.1;
         gbc.weighty = 0.1;
         gbc.anchor = GridBagConstraints.WEST;
@@ -149,10 +153,10 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         date.setText("Label");
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
-        gbc.gridy = 1;
+        gbc.gridy = 0;
         gbc.gridheight = 2;
         gbc.anchor = GridBagConstraints.EAST;
-        gbc.insets = new Insets(0, 0, 0, 5);
+        gbc.insets = new Insets(0, 0, 0, 10);
         rootPanel.add(date, gbc);
         lastMessage = new JTextPane();
         lastMessage.setMinimumSize(new Dimension(150, 25));
@@ -160,30 +164,12 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         lastMessage.setPreferredSize(new Dimension(150, 18));
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
-        gbc.gridy = 2;
+        gbc.gridy = 1;
         gbc.weightx = 0.1;
         gbc.weighty = 0.1;
         gbc.anchor = GridBagConstraints.WEST;
         gbc.insets = new Insets(5, 10, 0, 0);
         rootPanel.add(lastMessage, gbc);
-        final JSeparator separator1 = new JSeparator();
-        separator1.setBackground(new Color(-3618616));
-        separator1.setPreferredSize(new Dimension(0, 1));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 3;
-        gbc.fill = GridBagConstraints.BOTH;
-        rootPanel.add(separator1, gbc);
-        final JSeparator separator2 = new JSeparator();
-        separator2.setBackground(new Color(-3618616));
-        separator2.setPreferredSize(new Dimension(0, 1));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.gridwidth = 3;
-        gbc.fill = GridBagConstraints.BOTH;
-        rootPanel.add(separator2, gbc);
     }
 
     /**

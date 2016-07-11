@@ -26,16 +26,14 @@ public class Images
     private static BufferedImage maskWhite;
     private static BufferedImage maskOnlineGray;
     private static BufferedImage maskOnlineWhite;
+    private static BufferedImage iconHide;
+    private static BufferedImage iconClose;
 
     public synchronized static BufferedImage getBackground()
     {
         if (background == null)
         {
-            try {
-                background = ImageIO.read(Images.class.getResource("/images/background.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            background = loadImage("background.png");
         }
         return background;
     }
@@ -44,11 +42,7 @@ public class Images
     {
         if (logo == null)
         {
-            try {
-                logo = ImageIO.read(Images.class.getResource("/images/logo.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            logo = loadImage("logo.png");
         }
         return logo;
     }
@@ -57,11 +51,7 @@ public class Images
     {
         if (logoMini == null)
         {
-            try {
-                logoMini = ImageIO.read(Images.class.getResource("/images/logo-mini.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            logoMini = loadImage("logo-mini.png");
         }
         return logoMini;
     }
@@ -70,11 +60,7 @@ public class Images
     {
         if (phone == null)
         {
-            try {
-                phone = ImageIO.read(new File("resources/images/icon-phone.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            phone = loadImage("icon-phone.png");
         }
         return phone;
     }
@@ -83,11 +69,7 @@ public class Images
     {
         if (lock == null)
         {
-            try {
-                lock = ImageIO.read(new File("resources/images/icon-lock.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            lock = loadImage("icon-lock.png");
         }
         return lock;
     }
@@ -96,11 +78,7 @@ public class Images
     {
         if (logoMicro == null)
         {
-            try {
-                logoMicro = ImageIO.read(new File("resources/images/logo-micro.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            logoMicro = loadImage("logo-micro.png");
         }
         return logoMicro;
     }
@@ -109,103 +87,99 @@ public class Images
     {
         if (search == null)
         {
-            try {
-                search = ImageIO.read(new File("resources/images/icon-search.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            search = loadImage("icon-search.png");
         }
         return search;
     }
 
-    public synchronized static BufferedImage getUserFotoMask()
+    public synchronized static BufferedImage getUserPhotoMask()
     {
         if (userFotoMask == null)
         {
-            try {
-                userFotoMask = ImageIO.read(new File("resources/images/mask-blue-mini.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            userFotoMask = loadImage("mask-blue-mini.png");
         }
         return userFotoMask;
     }
 
-    public synchronized static BufferedImage getUserFotoMaskWhite()
+    public synchronized static BufferedImage getUserPhotoMaskWhite()
     {
         if (userFotoMaskWhite == null)
         {
-            try {
-                userFotoMaskWhite = ImageIO.read(new File("resources/images/mask-white-mini.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            userFotoMaskWhite = loadImage("mask-white-mini.png");
         }
         return userFotoMaskWhite;
     }
 
-    public synchronized static BufferedImage getDefaultUserFoto()
+    public synchronized static BufferedImage getDefaultUserPhoto()
     {
         if (defaultUserFoto == null)
         {
-            try {
-                defaultUserFoto = ImageIO.read(new File("resources/images/default-user-avatar.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            defaultUserFoto = loadImage("default-user-avatar.png");
         }
         return defaultUserFoto;
     }
 
-    public synchronized static BufferedImage getFotoMaskGray()
+    public synchronized static BufferedImage getPhotoMaskGray()
     {
         if (maskGray == null)
         {
-            try {
-                maskGray = ImageIO.read(new File("resources/images/mask-gray.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            maskGray = loadImage("mask-gray.png");
         }
         return maskGray;
     }
 
-    public synchronized static BufferedImage getFotoMaskWhite()
+    public synchronized static BufferedImage getPhotoMaskWhite()
     {
         if (maskWhite == null)
         {
-            try {
-                maskWhite = ImageIO.read(new File("resources/images/mask-white.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            maskWhite = loadImage("mask-white.png");
         }
         return maskWhite;
     }
 
-    public synchronized static BufferedImage getFotoMaskOnlineGray()
+    public synchronized static BufferedImage getPhotoMaskOnlineGray()
     {
         if (maskOnlineGray == null)
         {
-            try {
-                maskOnlineGray = ImageIO.read(new File("resources/images/mask-gray-online.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            maskOnlineGray = loadImage("mask-gray-online.png");
         }
         return maskOnlineGray;
     }
 
-    public synchronized static BufferedImage getFotoMaskOnlineWhite()
+    public synchronized static BufferedImage getPhotoMaskOnlineWhite()
     {
         if (maskOnlineWhite == null)
         {
-            try {
-                maskOnlineWhite = ImageIO.read(new File("resources/images/mask-white-online.png"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            maskOnlineWhite = loadImage("mask-white-online.png");
         }
         return maskOnlineWhite;
+    }
+
+    public synchronized static BufferedImage getIconHide()
+    {
+        if (iconHide == null)
+        {
+            iconHide = loadImage("icon-hide.png");
+        }
+        return iconHide;
+    }
+
+    public synchronized static BufferedImage getIconClose()
+    {
+        if (iconClose == null)
+        {
+            iconClose = loadImage("icon-close.png");
+        }
+        return iconClose;
+    }
+
+    private static BufferedImage loadImage(String name)
+    {
+        try {
+            return ImageIO.read(new File("resources/images/" + name));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR);
+        }
     }
 }

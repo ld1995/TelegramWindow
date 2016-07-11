@@ -2,7 +2,9 @@ package by.ld1995tut.Frame;
 
 import by.ld1995tut.Person;
 import by.ld1995tut.mics.Pass;
-import by.ld1995tut.mics.TextAlignment;
+import by.ld1995tut.resurces.Images;
+import components.GuiHelper;
+import components.ImagePanel;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
@@ -10,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
-public class FrameSms extends JPanel {
+public class FrameSms extends ImagePanel {
     private JPasswordField passwordField;
     private JButton smsButton;
     private JLabel number;
@@ -20,14 +22,13 @@ public class FrameSms extends JPanel {
     private JPanel codePanel;
     private JPanel lockPanel;
 
-    private BufferedImage mainImage;
-    private BufferedImage logo;
-    private BufferedImage lock;
-
     public FrameSms() {
+        super(Images.getBackground(), true, false, 0);
         $$$setupUI$$$();
-        TextAlignment textAlignment = new TextAlignment(text);
+        GuiHelper.adjustTextPane(text);
         passwordField.setBorder(BorderFactory.createEmptyBorder());
+        this.lockPanel.setBorder(BorderFactory.createEmptyBorder());
+        this.codePanel.setBorder(BorderFactory.createEmptyBorder());
         if (passwordField.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) passwordField.getDocument()).setDocumentFilter(new Pass(5));
     }
@@ -58,56 +59,16 @@ public class FrameSms extends JPanel {
         passwordField.removeActionListener(actionListener);
     }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-
-        if (mainImage == null) {
-            return;
-        }
-        g.drawImage(mainImage, 0, 0, this.getWidth(), this.getHeight(), null);
-    }
-
-    public void setMainImage(BufferedImage mainImage) {
-        this.mainImage = mainImage;
-        repaint();
-    }
-
-    public void setLogoImage(BufferedImage logo) {
-        this.logo = logo;
-        repaint();
-    }
-
-    public void setLockImage(BufferedImage lock) {
-        this.lock = lock;
-        repaint();
-    }
-
     private void createUIComponents() {
         // TODO: place custom component creation code here
         smsPanel = this;
-        logoPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
+        logoPanel = new ImagePanel(Images.getLogoMini(), false, true, 0);
+        lockPanel = new ImagePanel(Images.getLock(), false, true, 0);
+    }
 
-                if (logo == null) {
-                    return;
-                }
-                g.drawImage(logo, 0, 0, this.getWidth(), this.getHeight(), null);
-            }
-        };
-        lockPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-
-                if (lock == null) {
-                    return;
-                }
-                g.drawImage(lock, 0, 0, this.getWidth(), this.getHeight(), null);
-            }
-        };
+    public void clear() {
+        passwordField.setText("");
+        number.setText("");
     }
 
     /**
@@ -187,6 +148,7 @@ public class FrameSms extends JPanel {
         passwordField.setCaretColor(new Color(-1));
         passwordField.setDisabledTextColor(new Color(-1));
         passwordField.setFocusCycleRoot(true);
+        passwordField.setFocusTraversalPolicyProvider(true);
         passwordField.setFont(new Font(passwordField.getFont().getName(), passwordField.getFont().getStyle(), 18));
         passwordField.setForeground(new Color(-1));
         passwordField.setHorizontalAlignment(0);

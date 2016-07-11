@@ -1,14 +1,12 @@
 package by.ld1995tut.Contacts;
 
-import by.ld1995tut.mics.MyScrolldarUI;
+import components.GuiHelper;
 import org.javagram.dao.Person;
 import org.javagram.dao.proxy.TelegramProxy;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.util.*;
 import java.util.List;
 
 public class ContactsList extends JPanel {
@@ -19,35 +17,23 @@ public class ContactsList extends JPanel {
 
     public ContactsList() {
         $$$setupUI$$$();
-        int width = 2;
-        JScrollBar verticalScrollBar = scrollPanel.getVerticalScrollBar();
-        verticalScrollBar.setUI(new MyScrolldarUI());
-        verticalScrollBar.setPreferredSize(new Dimension(width, Integer.MAX_VALUE));
-        scrollPanel.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-
-        JScrollBar horizontalScrollBar = scrollPanel.getHorizontalScrollBar();
-        horizontalScrollBar.setUI(new MyScrolldarUI());
-        horizontalScrollBar.setPreferredSize(new Dimension(Integer.MAX_VALUE, width));
-        scrollPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        for (String corner : new String[]{ScrollPaneConstants.LOWER_LEADING_CORNER, ScrollPaneConstants.LOWER_LEADING_CORNER,
-                ScrollPaneConstants.UPPER_LEADING_CORNER, ScrollPaneConstants.UPPER_RIGHT_CORNER}) {
-            JPanel panel = new JPanel();
-            panel.setBackground(new Color(230, 230, 230));
-            scrollPanel.setCorner(corner, panel);
-        }
+        GuiHelper.decorateScrollPane(scrollPanel);
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
         contactsPanel = this;
     }
 
-    public void getContacts(TelegramProxy telegramProxy) {
+    public void setTelegramProxy(TelegramProxy telegramProxy) {
         this.telegramProxy = telegramProxy;
-        List<Person> dialogs = telegramProxy.getPersons();
-        list.setCellRenderer(new ContactsForm(telegramProxy));
-        list.setListData(dialogs.toArray(new Person[dialogs.size()]));
+        if (telegramProxy != null) {
+            List<Person> dialogs = telegramProxy.getPersons();
+            list.setCellRenderer(new ContactsForm(telegramProxy));
+            list.setListData(dialogs.toArray(new Person[dialogs.size()]));
+        } else {
+            list.setCellRenderer(new DefaultListCellRenderer());
+            list.setListData(new Person[0]);
+        }
     }
 
     public JPanel getContactsPanel() {
@@ -76,7 +62,11 @@ public class ContactsList extends JPanel {
                 }
             }
         }
-        list.setSelectedIndex(-1);
+        list.clearSelection();
+    }
+
+    public TelegramProxy getTelegramProxy() {
+        return telegramProxy;
     }
 
 
@@ -91,13 +81,14 @@ public class ContactsList extends JPanel {
         createUIComponents();
         contactsPanel.setLayout(new BorderLayout(0, 0));
         contactsPanel.setBackground(new Color(-1644826));
+        contactsPanel.setPreferredSize(new Dimension(250, 128));
         scrollPanel = new JScrollPane();
         scrollPanel.setBackground(new Color(-1644826));
         scrollPanel.setForeground(new Color(-1644826));
         scrollPanel.setOpaque(true);
         contactsPanel.add(scrollPanel, BorderLayout.CENTER);
         list = new JList();
-        list.setBackground(new Color(-1644826));
+        list.setBackground(new Color(-12828863));
         list.setDoubleBuffered(false);
         list.setDragEnabled(false);
         list.setFocusable(true);

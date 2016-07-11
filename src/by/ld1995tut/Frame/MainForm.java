@@ -1,17 +1,17 @@
 package by.ld1995tut.Frame;
 
-import by.ld1995tut.mics.Reg;
+import by.ld1995tut.mics.TextEntry;
 import by.ld1995tut.mics.HintText;
 import by.ld1995tut.resurces.Images;
-import org.javagram.dao.Me;
-import org.javagram.dao.Person;
-import org.javagram.dao.proxy.TelegramProxy;
+import components.GuiHelper;
+import components.ImagePanel;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.util.Objects;
 
 public class MainForm extends JPanel {
     private JPanel rootPanel;
@@ -23,36 +23,106 @@ public class MainForm extends JPanel {
     private JTextField searchField;
     private JPanel list;
     private JPanel logoPanel;
-    private JButton settings;
+    private JButton gearButton;
     private JPanel infoPanel;
     private JLabel userInfo;
     private JPanel userPhotoPanel;
-    private JButton button1;
+    private JButton buddyEditButton;
     private JPanel message;
     private JPanel contactsPhoto;
-    private JButton button2;
-    private JPanel addPanel;
     private JPanel messageInfo;
+    private JButton sendMessageButton;
+    private JTextArea messageText;
+    private JLabel contactsInfo;
+    private JScrollPane messageTextScrollPanel;
 
-    private TelegramProxy telegramProxy;
+    private BufferedImage userPhotoMask = Images.getUserPhotoMask();
+    private BufferedImage contactsPhotoMask = Images.getUserPhotoMaskWhite();
 
-    private BufferedImage search;
-    private BufferedImage logo;
-    private BufferedImage userPhotoMask;
-    private BufferedImage contactsPhotoMask;
-    private BufferedImage userPhoto;
-
+    private BufferedImage mePhoto;
+    private String meText;
+    private BufferedImage buddyPhoto;
+    private String buddyText;
 
     public MainForm() {
         $$$setupUI$$$();
         list.add(new JPanel());
         message.add(new JPanel());
+        GuiHelper.decorateScrollPane(messageTextScrollPanel);
         searchField.setBorder(BorderFactory.createEmptyBorder());
         if (searchField.getDocument() instanceof AbstractDocument)
-            ((AbstractDocument) searchField.getDocument()).setDocumentFilter(new Reg());
+            ((AbstractDocument) searchField.getDocument()).setDocumentFilter(new TextEntry());
         HintText searchHint = new HintText(searchField, "Поиск", searchField.getCaretColor());
-        userPhotoMask = Images.getUserFotoMask();
-        contactsPhotoMask = Images.getUserFotoMaskWhite();
+        HintText textHint = new HintText(messageText, "Введите сообщение", messageText.getCaretColor());
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        rootPanel = this;
+        searchIcon = new ImagePanel(Images.getSearch(), false, true, 0);
+        logoPanel = new ImagePanel(Images.getLogoMicro(), false, true, 0);
+        userPhotoPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                BufferedImage image = null;
+                if (userPhotoMask != null) {
+                    image = mePhoto;
+                }
+                if (mePhoto == null) {
+                    return;
+                }
+                if (meText != null) {
+                    userInfo.setText(meText);
+                }
+                g.drawImage(image, 0, 0, userPhotoPanel.getWidth(), userPhotoPanel.getHeight(), null);
+                g.drawImage(userPhotoMask, 0, 0, userPhotoPanel.getWidth(), userPhotoPanel.getHeight(), null);
+            }
+        };
+        contactsPhoto = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if (contactsPhotoMask == null) {
+                    return;
+                }
+                if (buddyPhoto == null) {
+                    return;
+                }
+                if (buddyText != null) {
+                    contactsInfo.setText(buddyText);
+                }
+                g.drawImage(buddyPhoto, 0, 0, contactsPhoto.getWidth(), contactsPhoto.getHeight(), null);
+                g.drawImage(contactsPhotoMask, 0, 0, contactsPhoto.getWidth(), contactsPhoto.getHeight(), null);
+            }
+        };
+//        messageInfo = new JPanel() {
+//            @Override
+//            protected void paintComponent(Graphics g) {
+//                super.paintComponent(g);
+//                int leftMostPoint = buddyEditButton.getX();
+//                int rightMostPoint = 2;
+//
+//                if (buddyPhoto != null) {
+//                    int inset = 2;
+//                    BufferedImage image = buddyPhoto;
+//                    rightMostPoint = GuiHelper.drowImage(g, image, rightMostPoint, 0, leftMostPoint - rightMostPoint, this.getHeight(), inset, false);
+//                }
+//
+//                if (buddyText != null) {
+//                    int inset = 10;
+//                    Font font = Fonts.getNameFont().deriveFont(Font.ITALIC, 12);
+//                    Color color = Color.cyan;
+//                    String text = buddyText;
+//
+//                    rightMostPoint = GuiHelper.drowText(g, text, color, font, rightMostPoint, 0, leftMostPoint - rightMostPoint, this.getHeight(), inset, false);
+//                }
+//            }
+//        };
+    }
+
+    public void setRootPanel(JPanel rootPanel) {
+        this.rootPanel = rootPanel;
     }
 
     public JPanel getRootPanel() {
@@ -77,68 +147,84 @@ public class MainForm extends JPanel {
         this.message.add(messagePanel);
     }
 
-    public void setSearch(BufferedImage search) {
-        this.search = search;
+    public String getMeText() {
+        return meText;
+    }
+
+    public void setMeText(String meText) {
+        if (!Objects.equals(this.meText, meText))
+            this.meText = meText;
         repaint();
     }
 
-    public void setLogo(BufferedImage logo) {
-        this.logo = logo;
+    public BufferedImage getMePhoto() {
+        return mePhoto;
+    }
+
+    public void setMePhoto(BufferedImage mePhoto) {
+        if (this.mePhoto != mePhoto) {
+            this.mePhoto = mePhoto;
+            repaint();
+        }
+    }
+
+    public BufferedImage getBuddyPhoto() {
+        return buddyPhoto;
+    }
+
+    public void setBuddyPhoto(BufferedImage buddyPhoto) {
+        this.buddyPhoto = buddyPhoto;
         repaint();
     }
 
-    public void setUserPhotoMask(BufferedImage userPhotoMask) {
-        this.userPhotoMask = userPhotoMask;
+    public String getBuddyText() {
+        return buddyText;
+    }
+
+    public void setBuddyText(String buddyText) {
+//        if (!Objects.equals(this.buddyText, buddyText))
+        this.buddyText = buddyText;
         repaint();
     }
 
-    public void setUserInfo(TelegramProxy telegramProxy) {
-        this.telegramProxy = telegramProxy;
-        userInfo.setText(telegramProxy.getMe().getLastName() + " " + telegramProxy.getMe().getFirstName());
+    public String getMessageText() {
+        return messageText.getText();
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-        searchIcon = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (search == null) {
-                    return;
-                }
-                g.drawImage(search, 0, 0, null);
-            }
-        };
-        logoPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (search == null) {
-                    return;
-                }
-                g.drawImage(logo, 0, 0, null);
-            }
-        };
-        userPhotoPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (userPhotoMask == null) {
-                    return;
-                }
-                g.drawImage(userPhotoMask, 0, 0, null);
-            }
-        };
-        contactsPhoto = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (contactsPhotoMask == null) {
-                    return;
-                }
-                g.drawImage(contactsPhotoMask, 0, 0, null);
-            }
-        };
+    public void setMessageText(String messageText) {
+        this.messageText.setText(messageText);
+    }
+
+    public String getSearchText() {
+        return searchField.getText();
+    }
+
+    public void addSendMessageListener(ActionListener listener) {
+        this.sendMessageButton.addActionListener(listener);
+    }
+
+    public void addGearEventListener(ActionListener listener) {
+        this.gearButton.addActionListener(listener);
+    }
+
+    public void addSearchEventListener(ActionListener actionListener) {
+        this.searchField.addActionListener(actionListener);
+    }
+
+    public void addBuddyEditEventListener(ActionListener actionListener) {
+        this.buddyEditButton.addActionListener(actionListener);
+    }
+
+    public void removeSendMessageListener(ActionListener actionListener) {
+        this.sendMessageButton.removeActionListener(actionListener);
+    }
+
+    public void removeGearEventListener(ActionListener actionListener) {
+        this.gearButton.removeActionListener(actionListener);
+    }
+
+    public void removeBuddyEditEventListener(ActionListener actionListener) {
+        this.buddyEditButton.removeActionListener(actionListener);
     }
 
     /**
@@ -150,7 +236,6 @@ public class MainForm extends JPanel {
      */
     private void $$$setupUI$$$() {
         createUIComponents();
-        rootPanel = new JPanel();
         rootPanel.setLayout(new BorderLayout(0, 0));
         rootPanel.setMinimumSize(new Dimension(800, 600));
         rootPanel.setPreferredSize(new Dimension(800, 600));
@@ -180,6 +265,7 @@ public class MainForm extends JPanel {
         gbc.weightx = 10.0;
         gbc.anchor = GridBagConstraints.EAST;
         titlePanel.add(infoPanel, gbc);
+        userPhotoPanel.setBackground(new Color(-14436636));
         userPhotoPanel.setFocusable(false);
         userPhotoPanel.setPreferredSize(new Dimension(29, 29));
         gbc = new GridBagConstraints();
@@ -201,34 +287,34 @@ public class MainForm extends JPanel {
         gbc.weightx = 0.1;
         gbc.anchor = GridBagConstraints.EAST;
         infoPanel.add(userInfo, gbc);
-        settings = new JButton();
-        settings.setBorderPainted(false);
-        settings.setContentAreaFilled(false);
-        settings.setFocusPainted(true);
-        settings.setFocusable(false);
-        settings.setHorizontalTextPosition(0);
-        settings.setIcon(new ImageIcon(getClass().getResource("/images/icon-settings.png")));
-        settings.setLabel("");
-        settings.setMinimumSize(new Dimension(22, 22));
-        settings.setOpaque(false);
-        settings.setPreferredSize(new Dimension(23, 23));
-        settings.setRequestFocusEnabled(false);
-        settings.setText("");
+        gearButton = new JButton();
+        gearButton.setBorderPainted(false);
+        gearButton.setContentAreaFilled(false);
+        gearButton.setFocusPainted(true);
+        gearButton.setFocusable(false);
+        gearButton.setHorizontalTextPosition(0);
+        gearButton.setIcon(new ImageIcon(getClass().getResource("/images/icon-settings.png")));
+        gearButton.setLabel("");
+        gearButton.setMinimumSize(new Dimension(22, 22));
+        gearButton.setOpaque(false);
+        gearButton.setPreferredSize(new Dimension(23, 23));
+        gearButton.setRequestFocusEnabled(false);
+        gearButton.setText("");
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 0;
         gbc.weightx = 0.1;
         gbc.anchor = GridBagConstraints.EAST;
         gbc.insets = new Insets(0, 0, 0, 10);
-        infoPanel.add(settings, gbc);
+        infoPanel.add(gearButton, gbc);
         listContacts = new JPanel();
         listContacts.setLayout(new BorderLayout(0, 0));
         listContacts.setBackground(new Color(-1644826));
         listContacts.setDoubleBuffered(true);
         listContacts.setForeground(new Color(-1644826));
-        listContacts.setMinimumSize(new Dimension(205, 50));
+        listContacts.setMinimumSize(new Dimension(250, 50));
         listContacts.setOpaque(true);
-        listContacts.setPreferredSize(new Dimension(250, 500));
+        listContacts.setPreferredSize(new Dimension(275, 500));
         rootPanel.add(listContacts, BorderLayout.WEST);
         searchPanel = new JPanel();
         searchPanel.setLayout(new GridBagLayout());
@@ -252,7 +338,7 @@ public class MainForm extends JPanel {
         searchField.setFont(new Font("Open Sans", searchField.getFont().getStyle(), 16));
         searchField.setForeground(new Color(-3223858));
         searchField.setOpaque(false);
-        searchField.setPreferredSize(new Dimension(170, 24));
+        searchField.setPreferredSize(new Dimension(200, 24));
         searchField.setText("");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
@@ -260,35 +346,12 @@ public class MainForm extends JPanel {
         gbc.weightx = 0.1;
         gbc.anchor = GridBagConstraints.WEST;
         searchPanel.add(searchField, gbc);
-        addPanel = new JPanel();
-        addPanel.setLayout(new GridBagLayout());
-        addPanel.setForeground(new Color(-1644826));
-        addPanel.setMinimumSize(new Dimension(250, 80));
-        addPanel.setOpaque(false);
-        addPanel.setPreferredSize(new Dimension(250, 80));
-        listContacts.add(addPanel, BorderLayout.SOUTH);
-        button2 = new JButton();
-        button2.setBorderPainted(false);
-        button2.setContentAreaFilled(false);
-        button2.setFocusable(false);
-        button2.setIcon(new ImageIcon(getClass().getResource("/images/icon-plus.png")));
-        button2.setOpaque(false);
-        button2.setPreferredSize(new Dimension(26, 26));
-        button2.setText("");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.weightx = 0.1;
-        gbc.weighty = 0.2;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(0, 20, 20, 0);
-        addPanel.add(button2, gbc);
         list = new JPanel();
         list.setLayout(new BorderLayout(0, 0));
         list.setBackground(new Color(-1644826));
         list.setForeground(new Color(-1644826));
         list.setOpaque(false);
-        list.setPreferredSize(new Dimension(250, 50));
+        list.setPreferredSize(new Dimension(275, 50));
         listContacts.add(list, BorderLayout.EAST);
         messagePanel = new JPanel();
         messagePanel.setLayout(new BorderLayout(0, 0));
@@ -302,45 +365,22 @@ public class MainForm extends JPanel {
         messageInfo.setOpaque(false);
         messageInfo.setPreferredSize(new Dimension(600, 45));
         messagePanel.add(messageInfo, BorderLayout.NORTH);
-        button1 = new JButton();
-        button1.setBorderPainted(false);
-        button1.setContentAreaFilled(false);
-        button1.setFocusable(false);
-        button1.setIcon(new ImageIcon(getClass().getResource("/images/icon-edit.png")));
-        button1.setLabel("");
-        button1.setOpaque(false);
-        button1.setPreferredSize(new Dimension(22, 22));
-        button1.setText("");
+        buddyEditButton = new JButton();
+        buddyEditButton.setBorderPainted(false);
+        buddyEditButton.setContentAreaFilled(false);
+        buddyEditButton.setFocusable(false);
+        buddyEditButton.setIcon(new ImageIcon(getClass().getResource("/images/icon-edit.png")));
+        buddyEditButton.setLabel("");
+        buddyEditButton.setOpaque(false);
+        buddyEditButton.setPreferredSize(new Dimension(22, 22));
+        buddyEditButton.setText("");
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 0;
         gbc.weightx = 0.1;
         gbc.anchor = GridBagConstraints.EAST;
         gbc.insets = new Insets(0, 0, 0, 10);
-        messageInfo.add(button1, gbc);
-        contactsPhoto.setFocusable(false);
-        contactsPhoto.setPreferredSize(new Dimension(29, 29));
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.weighty = 0.1;
-        gbc.insets = new Insets(0, 20, 0, 0);
-        messageInfo.add(contactsPhoto, gbc);
-        final JLabel label1 = new JLabel();
-        label1.setFocusable(false);
-        label1.setFont(new Font("Open Sans Light", label1.getFont().getStyle(), 14));
-        label1.setForeground(new Color(-3223858));
-        label1.setMinimumSize(new Dimension(150, 24));
-        label1.setOpaque(false);
-        label1.setPreferredSize(new Dimension(150, 24));
-        label1.setText("Label");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        gbc.weightx = 0.1;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.insets = new Insets(0, 10, 0, 0);
-        messageInfo.add(label1, gbc);
+        messageInfo.add(buddyEditButton, gbc);
         final JSeparator separator1 = new JSeparator();
         separator1.setForeground(new Color(-1644826));
         separator1.setPreferredSize(new Dimension(0, 1));
@@ -361,10 +401,68 @@ public class MainForm extends JPanel {
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.BOTH;
         messageInfo.add(separator2, gbc);
+        contactsPhoto.setMinimumSize(new Dimension(29, 29));
+        contactsPhoto.setPreferredSize(new Dimension(29, 29));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 20, 0, 0);
+        messageInfo.add(contactsPhoto, gbc);
+        contactsInfo = new JLabel();
+        contactsInfo.setFont(new Font("Open Sans", contactsInfo.getFont().getStyle(), 14));
+        contactsInfo.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.weightx = 0.1;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.insets = new Insets(0, 10, 0, 0);
+        messageInfo.add(contactsInfo, gbc);
+        final JPanel panel1 = new JPanel();
+        panel1.setLayout(new BorderLayout(0, 0));
+        panel1.setBackground(new Color(-1644826));
+        panel1.setForeground(new Color(-1644826));
+        panel1.setOpaque(false);
+        messagePanel.add(panel1, BorderLayout.CENTER);
+        final JPanel panel2 = new JPanel();
+        panel2.setLayout(new GridBagLayout());
+        panel2.setBackground(new Color(-1));
+        panel2.setPreferredSize(new Dimension(550, 80));
+        panel1.add(panel2, BorderLayout.SOUTH);
+        sendMessageButton = new JButton();
+        sendMessageButton.setBorderPainted(false);
+        sendMessageButton.setContentAreaFilled(false);
+        sendMessageButton.setIcon(new ImageIcon(getClass().getResource("/images/button-send.png")));
+        sendMessageButton.setOpaque(false);
+        sendMessageButton.setPreferredSize(new Dimension(62, 45));
+        sendMessageButton.setText("");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        panel2.add(sendMessageButton, gbc);
+        messageTextScrollPanel = new JScrollPane();
+        messageTextScrollPanel.setForeground(new Color(-329473));
+        messageTextScrollPanel.setMinimumSize(new Dimension(420, 45));
+        messageTextScrollPanel.setOpaque(false);
+        messageTextScrollPanel.setPreferredSize(new Dimension(500, 45));
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panel2.add(messageTextScrollPanel, gbc);
+        messageText = new JTextArea();
+        messageText.setBackground(new Color(-1644826));
+        messageText.setFont(new Font("Open Sans", messageText.getFont().getStyle(), 16));
+        messageText.setPreferredSize(new Dimension(450, 45));
+        messageText.setSelectedTextColor(new Color(-1));
+        messageText.setSelectionColor(new Color(-16731159));
+        messageText.setText("");
+        messageTextScrollPanel.setViewportView(messageText);
         message = new JPanel();
         message.setLayout(new BorderLayout(0, 0));
-        message.setOpaque(false);
-        messagePanel.add(message, BorderLayout.CENTER);
+        message.setBackground(new Color(-1));
+        message.setPreferredSize(new Dimension(550, 430));
+        panel1.add(message, BorderLayout.CENTER);
     }
 
     /**
