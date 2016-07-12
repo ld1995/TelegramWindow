@@ -26,10 +26,9 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     private boolean hasFocus;
     private boolean selected;
     private BufferedImage mask;
-    Calendar calendar = Calendar.getInstance();
-    private Date dateToday = new Date();
     private final DateFormat dateFormat = new SimpleDateFormat("dd.MM.yy");
     private final DateFormat dayFormat = new SimpleDateFormat("HH:mm");
+    private int index;
 
     public ContactsForm(TelegramProxy telegramProxy) {
         this.telegramProxy = telegramProxy;
@@ -76,7 +75,15 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         super.paintComponent(g);
         if (hasFocus) {
             g.setColor(new Color(35, 182, 228));
-            g.fillRect(265, 0, rootPanel.getHeight(), rootPanel.getWidth());
+            g.fillRect(265, 0, this.getHeight(), this.getWidth());
+        }
+        if (index == 0) {
+            g.setColor(new Color(230, 230, 230));
+            g.drawLine(0, 1, 270, 1);
+            g.drawLine(0, 59, 270, 59);
+        } else {
+            g.setColor(new Color(230, 230, 230));
+            g.drawLine(0, this.getWidth(), this.getHeight(), this.getWidth());
         }
     }
 
@@ -86,12 +93,13 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
                                                   boolean selected, boolean hasFocus) {
         this.person = person;
         this.selected = selected;
+        this.index = index;
         Dialog dialog = telegramProxy.getDialog(person);
         this.nameLabel.setText(person.getFirstName() + " " + person.getLastName());
         if (dialog != null) {
             this.lastMessage.setText(dialog.getLastMessage().getText());
 //            this.date.setText(dateFormat.format(dialog.getLastMessage().getDate()));
-            this.date.setText(String.valueOf(telegramProxy.onlineUntil(person)));
+//            this.date.setText(dateFormat.format(telegramProxy.onlineUntil(person)));
         } else {
             this.lastMessage.setText("");
             this.date.setText("");

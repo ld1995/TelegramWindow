@@ -35,16 +35,14 @@ public class Frame extends JFrame
 
     private ProfileForm profilForm = new ProfileForm();
     private AddContact addContact = new AddContact();
-    private MyBufferedOverlayDialog mainWindowManager = new MyBufferedOverlayDialog(mainForm,profilForm);
-    private MyBufferedOverlayDialog windowManager = new MyBufferedOverlayDialog(mainForm,addContact);
-    private static final int MAIN_WINDOW = -1, PROFILE_FORM = 0;
+    private EditContact editContact = new EditContact();
+    private MyBufferedOverlayDialog mainWindowManager = new MyBufferedOverlayDialog(mainForm,profilForm,addContact, editContact);
+    private static final int MAIN_WINDOW = -1, PROFILE_FORM = 0, ADD_CONTACT = 1, EDIT_CONTACT = 2;
 
     private PlusOverlay plusOverlay = new PlusOverlay();
     private MyLayeredPane contactsLayeredPane = new MyLayeredPane();
 
     private Timer timer;
-    private int messageFrozen;
-
     private int messagesFrozen;
 
     public Frame(TelegramDAO telegramDAO)
@@ -134,22 +132,22 @@ public class Frame extends JFrame
             @Override
             public void actionPerformed(ActionEvent e) {
                 addContact.setTelegramProxy(telegramProxy);
-                mainWindowManager.setIndex(PROFILE_FORM);
+                mainWindowManager.setIndex(ADD_CONTACT);
             }
         });
         addContact.addActionListenerForLogout(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switchToBegin();
+                mainWindowManager.setIndex(MAIN_WINDOW);
             }
         });
         addContact.addActionListenerForAddButton(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                showInformationMessage("Добавление невозможно","Внимание");
                 updateContacts();
             }
         });
-
         mainForm.addSendMessageListener(new ActionListener()
         {
             @Override
@@ -184,19 +182,41 @@ public class Frame extends JFrame
         profilForm.addActionListenerForClose(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainWindowManager.setIndex(MAIN_WINDOW);
+                switchToBegin();
             }
         });
         profilForm.addActionListenerForLogout(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switchToBegin();
+                mainWindowManager.setIndex(MAIN_WINDOW);
+            }
+        });
+        profilForm.addActionListenerSave(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showInformationMessage("Сохранить изменения невозможно","Внимание");
             }
         });
         mainForm.addBuddyEditEventListener(new ActionListener() {
             @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                mainWindowManager.setIndex(EDIT_CONTACT);
+                editContact.setBuddyPhoto(mainForm.getBuddyPhoto());
+                editContact.setBuddyText(mainForm.getBuddyText());
+            }
+        });
+        editContact.addActionListenerForLogout(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                mainWindowManager.setIndex(MAIN_WINDOW);
+            }
+        });
+        editContact.addActionListenerForSave(new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                //редактирование профиля контакта
+                showInformationMessage("Сохранить изменения невозможно", "Внимание");
             }
         });
         timer = new Timer(2000, new ActionListener() {
@@ -391,7 +411,7 @@ public class Frame extends JFrame
 
     private void updateTelegramProxy()
     {
-        messageFrozen++;
+        messagesFrozen++;
         try
         {
             contacts.setTelegramProxy(telegramProxy);
@@ -402,7 +422,7 @@ public class Frame extends JFrame
         }
         finally
         {
-            messageFrozen--;
+            messagesFrozen--;
         }
 
         mainForm.revalidate();

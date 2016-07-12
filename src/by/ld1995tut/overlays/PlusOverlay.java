@@ -50,6 +50,7 @@ public class PlusOverlay extends JPanel {
         plusButton.setMaximumSize(new Dimension(26, 26));
         plusButton.setMinimumSize(new Dimension(26, 26));
         plusButton.setPreferredSize(new Dimension(26, 26));
+        plusButton.setRequestFocusEnabled(false);
         plusButton.setText("");
         GridBagConstraints gbc;
         gbc = new GridBagConstraints();

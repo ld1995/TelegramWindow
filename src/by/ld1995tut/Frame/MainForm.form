@@ -222,6 +222,8 @@
                   <gridbag top="0" left="20" bottom="0" right="0" weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <background color="-1"/>
+                  <foreground color="-1"/>
                   <minimumSize width="29" height="29"/>
                   <preferredSize width="29" height="29"/>
                 </properties>
@@ -234,7 +236,9 @@
                   <gridbag top="0" left="10" bottom="0" right="0" weightx="0.1" weighty="0.0"/>
                 </constraints>
                 <properties>
+                  <background color="-4868677"/>
                   <font name="Open Sans" size="14"/>
+                  <foreground color="-1"/>
                   <text value="Label"/>
                 </properties>
               </component>
@@ -288,11 +292,15 @@
                         <constraints/>
                         <properties>
                           <background color="-1644826"/>
+                          <doubleBuffered value="false"/>
+                          <dragEnabled value="false"/>
                           <font name="Open Sans" size="16"/>
+                          <lineWrap value="true"/>
                           <preferredSize width="450" height="45"/>
                           <selectedTextColor color="-1"/>
                           <selectionColor color="-16731159"/>
                           <text value=""/>
+                          <wrapStyleWord value="true"/>
                         </properties>
                       </component>
                     </children>

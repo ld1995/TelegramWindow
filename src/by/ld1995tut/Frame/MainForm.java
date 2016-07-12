@@ -91,34 +91,12 @@ public class MainForm extends JPanel {
                 }
                 if (buddyText != null) {
                     contactsInfo.setText(buddyText);
+                    contactsInfo.setForeground(new Color(187, 187, 187));
                 }
                 g.drawImage(buddyPhoto, 0, 0, contactsPhoto.getWidth(), contactsPhoto.getHeight(), null);
                 g.drawImage(contactsPhotoMask, 0, 0, contactsPhoto.getWidth(), contactsPhoto.getHeight(), null);
             }
         };
-//        messageInfo = new JPanel() {
-//            @Override
-//            protected void paintComponent(Graphics g) {
-//                super.paintComponent(g);
-//                int leftMostPoint = buddyEditButton.getX();
-//                int rightMostPoint = 2;
-//
-//                if (buddyPhoto != null) {
-//                    int inset = 2;
-//                    BufferedImage image = buddyPhoto;
-//                    rightMostPoint = GuiHelper.drowImage(g, image, rightMostPoint, 0, leftMostPoint - rightMostPoint, this.getHeight(), inset, false);
-//                }
-//
-//                if (buddyText != null) {
-//                    int inset = 10;
-//                    Font font = Fonts.getNameFont().deriveFont(Font.ITALIC, 12);
-//                    Color color = Color.cyan;
-//                    String text = buddyText;
-//
-//                    rightMostPoint = GuiHelper.drowText(g, text, color, font, rightMostPoint, 0, leftMostPoint - rightMostPoint, this.getHeight(), inset, false);
-//                }
-//            }
-//        };
     }
 
     public void setRootPanel(JPanel rootPanel) {
@@ -182,7 +160,6 @@ public class MainForm extends JPanel {
     }
 
     public void setBuddyText(String buddyText) {
-//        if (!Objects.equals(this.buddyText, buddyText))
         this.buddyText = buddyText;
         repaint();
     }
@@ -401,6 +378,8 @@ public class MainForm extends JPanel {
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.BOTH;
         messageInfo.add(separator2, gbc);
+        contactsPhoto.setBackground(new Color(-1));
+        contactsPhoto.setForeground(new Color(-1));
         contactsPhoto.setMinimumSize(new Dimension(29, 29));
         contactsPhoto.setPreferredSize(new Dimension(29, 29));
         gbc = new GridBagConstraints();
@@ -409,7 +388,9 @@ public class MainForm extends JPanel {
         gbc.insets = new Insets(0, 20, 0, 0);
         messageInfo.add(contactsPhoto, gbc);
         contactsInfo = new JLabel();
+        contactsInfo.setBackground(new Color(-4868677));
         contactsInfo.setFont(new Font("Open Sans", contactsInfo.getFont().getStyle(), 14));
+        contactsInfo.setForeground(new Color(-1));
         contactsInfo.setText("Label");
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
@@ -452,11 +433,15 @@ public class MainForm extends JPanel {
         panel2.add(messageTextScrollPanel, gbc);
         messageText = new JTextArea();
         messageText.setBackground(new Color(-1644826));
+        messageText.setDoubleBuffered(false);
+        messageText.setDragEnabled(false);
         messageText.setFont(new Font("Open Sans", messageText.getFont().getStyle(), 16));
+        messageText.setLineWrap(true);
         messageText.setPreferredSize(new Dimension(450, 45));
         messageText.setSelectedTextColor(new Color(-1));
         messageText.setSelectionColor(new Color(-16731159));
         messageText.setText("");
+        messageText.setWrapStyleWord(true);
         messageTextScrollPanel.setViewportView(messageText);
         message = new JPanel();
         message.setLayout(new BorderLayout(0, 0));

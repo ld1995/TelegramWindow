@@ -28,6 +28,7 @@ public class Images
     private static BufferedImage maskOnlineWhite;
     private static BufferedImage iconHide;
     private static BufferedImage iconClose;
+    private static BufferedImage maskDarkGrayBig;
 
     public synchronized static BufferedImage getBackground()
     {
@@ -171,6 +172,15 @@ public class Images
             iconClose = loadImage("icon-close.png");
         }
         return iconClose;
+    }
+
+    public synchronized static BufferedImage getMaskDarkGrayBig()
+    {
+        if (maskDarkGrayBig == null)
+        {
+            maskDarkGrayBig = loadImage("mask-dark-gray-big.png");
+        }
+        return maskDarkGrayBig;
     }
 
     private static BufferedImage loadImage(String name)
