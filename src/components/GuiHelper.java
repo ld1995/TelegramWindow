@@ -1,6 +1,6 @@
 package components;
 
-import by.ld1995tut.mics.MyScrolldarUI;
+import mics.MyScrollbarUI;
 
 import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
@@ -20,12 +20,12 @@ public class GuiHelper
         int width = 3;
 
         JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
-        verticalScrollBar.setUI(new MyScrolldarUI());
+        verticalScrollBar.setUI(new MyScrollbarUI());
         verticalScrollBar.setPreferredSize(new Dimension(width,Integer.MAX_VALUE));
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         JScrollBar horizontalScrollBar = scrollPane.getHorizontalScrollBar();
-        horizontalScrollBar.setUI(new MyScrolldarUI());
+        horizontalScrollBar.setUI(new MyScrollbarUI());
         horizontalScrollBar.setPreferredSize(new Dimension(Integer.MAX_VALUE,width));
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
