@@ -1,34 +1,52 @@
 package resources;
 
 import java.awt.*;
-import java.io.IOException;
 import java.io.InputStream;
 
 public class Fonts
 {
-    private static Font nameFont;
+    private static Font openSansLight;
+    private static Font openSansRegular;
+    private static Font openSansSemiBold;
 
-    public static Font getNameFont()
+    public static Font getOpenSansLight()
     {
-        if (nameFont == null)
+        if (openSansLight == null)
         {
-            nameFont = loadFont("OpenSansRegular.ttf");
+            openSansLight = loadFont("OpenSansLight.ttf");
         }
-        return nameFont;
+        return openSansLight;
+    }
+
+    public static Font getOpenSansRegular()
+    {
+        if (openSansRegular == null)
+        {
+            openSansRegular = loadFont("OpenSansRegular.ttf");
+        }
+        return openSansRegular;
+    }
+
+    public static Font getOpenSansSemiBold()
+    {
+        if (openSansSemiBold == null)
+        {
+            openSansSemiBold = loadFont("OpenSansSemiBold.ttf");
+        }
+        return openSansSemiBold;
     }
 
     private static Font loadFont(String name)
     {
         try
         {
-        InputStream inputStream = Fonts.class.getResourceAsStream("resources/fonts/" + name);
+            InputStream inputStream = Fonts.class.getResourceAsStream("fonts/" + name);
             return Font.createFont(Font.TRUETYPE_FONT,inputStream);
-
         }
-        catch (FontFormatException | IOException e)
+        catch (Exception e)
         {
             e.printStackTrace();
-            return new Font("serif",Font.PLAIN,14);
+            return new Font("serif",Font.PLAIN,16);
         }
     }
 }

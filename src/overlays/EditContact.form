@@ -131,7 +131,7 @@
         </constraints>
         <properties>
           <opaque value="false"/>
-          <preferredSize width="450" height="150"/>
+          <preferredSize width="450" height="120"/>
         </properties>
         <border type="none"/>
         <children>
@@ -169,7 +169,7 @@
           </component>
           <component id="35a6d" class="javax.swing.JButton" binding="delete" custom-create="true">
             <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="6" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag top="0" left="0" bottom="0" right="30" weightx="0.1" weighty="0.1"/>
             </constraints>
             <properties>

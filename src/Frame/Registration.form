@@ -56,7 +56,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="c4645" class="javax.swing.JTextField" binding="lastName">
+          <component id="c4645" class="javax.swing.JTextField" binding="lastName" custom-create="true">
             <constraints/>
             <properties>
               <caretColor color="-1"/>
@@ -96,7 +96,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="f5215" class="javax.swing.JTextField" binding="fastName">
+          <component id="f5215" class="javax.swing.JTextField" binding="fastName" custom-create="true">
             <constraints/>
             <properties>
               <caretColor color="-1"/>

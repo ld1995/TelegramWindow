@@ -1,5 +1,6 @@
 package Messages;
 
+import components.GuiHelper;
 import org.javagram.dao.Me;
 import org.javagram.dao.Message;
 import org.javagram.dao.Person;
@@ -25,6 +26,7 @@ public class MessagesForm extends JPanel {
 
     {
         this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        GuiHelper.decorateScrollPane(scrollPane);
     }
 
     public MessagesForm(TelegramProxy telegramProxy) {
@@ -59,20 +61,24 @@ public class MessagesForm extends JPanel {
                 }
             };
             Message message = messageList.get(i);
-            int aligment;
+            int alignment;
             Color color;
+            String fontColor;
             if (message.getReceiver() instanceof Me) {
-                aligment = FlowLayout.LEFT;
+                alignment = FlowLayout.LEFT;
                 color = Color.blue;
+                fontColor = "White";
             } else if (message.getReceiver() instanceof Me) {
-                aligment = FlowLayout.RIGHT;
+                alignment = FlowLayout.RIGHT;
                 color = Color.cyan;
+                fontColor = "black";
             } else {
-                aligment = FlowLayout.CENTER;
+                alignment = FlowLayout.CENTER;
                 color = Color.red;
+                fontColor = "green";
             }
-            panel.setLayout(new FlowLayout(aligment));
-            panel.add(new MessageForm(message.getText(), dateFormat.format(message.getDate()), width, color));
+            panel.setLayout(new FlowLayout(alignment));
+            panel.add(new MessageForm(message.getText(), dateFormat.format(message.getDate()), width, color,fontColor));
             scrollPanel.add(panel);
         }
         scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());

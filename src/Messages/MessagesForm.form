@@ -25,6 +25,7 @@
             <properties>
               <background color="-1"/>
               <foreground color="-1"/>
+              <opaque value="true"/>
               <preferredSize width="24" height="24"/>
             </properties>
             <border type="none"/>

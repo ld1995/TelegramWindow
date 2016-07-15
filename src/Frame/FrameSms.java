@@ -1,13 +1,12 @@
 package Frame;
 
-import mics.Pass;
+import components.MaxLengthDocumentFilter;
 import resources.Images;
 import components.GuiHelper;
 import components.ImagePanel;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
-import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class FrameSms extends ImagePanel {
@@ -27,7 +26,7 @@ public class FrameSms extends ImagePanel {
         this.lockPanel.setBorder(BorderFactory.createEmptyBorder());
         this.codePanel.setBorder(BorderFactory.createEmptyBorder());
         if (passwordField.getDocument() instanceof AbstractDocument)
-            ((AbstractDocument) passwordField.getDocument()).setDocumentFilter(new Pass(5));
+            ((AbstractDocument) passwordField.getDocument()).setDocumentFilter(new MaxLengthDocumentFilter(5));
     }
 
     public JPanel getSmsPanel() {

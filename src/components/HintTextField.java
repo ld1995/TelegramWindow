@@ -1,12 +1,12 @@
-package mics;
+package components;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-public class HintTextField extends JTextField {
-
+public class HintTextField extends JTextField
+{
     private String hint;
 
     private Font hintFont;
@@ -56,7 +56,7 @@ public class HintTextField extends JTextField {
             repaint();
     }
 
-    public String getHint() {
+    public String getHisnt() {
         return hint;
     }
 
@@ -65,7 +65,7 @@ public class HintTextField extends JTextField {
         if(getHintFont() != null)
             return getHintFont();
         else
-            return getFont().deriveFont(getFont().getStyle() ^ Font.ITALIC);
+            return getFont().deriveFont(getFont().getStyle() ^ Font.PLAIN);
     }
 
     protected Color createHintForeground() {

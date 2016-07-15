@@ -35,7 +35,7 @@ public class EditContact extends JPanel {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.setColor(new Color(255, 255, 255));
-                g.drawLine(0, 60, 450, 60);
+                g.drawLine(0, (contactPanel.getHeight()/2), 450,(contactPanel.getHeight()/2));
             }
         };
         photoPanel = new JPanel() {
@@ -60,7 +60,7 @@ public class EditContact extends JPanel {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.setColor(new Color(250, 83, 83));
-                g.drawRect(0, 0, 219, 34);
+                g.drawRect(0, 0, (delete.getWidth()-1),(delete.getHeight()-1));
             }
         };
     }

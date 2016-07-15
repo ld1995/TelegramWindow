@@ -1,9 +1,10 @@
 package Frame;
 
 import components.GuiHelper;
+import components.HintTextField;
 import components.ImagePanel;
-import mics.HintText;
-import mics.TextEntry;
+import components.TextEntry;
+import resources.Fonts;
 import resources.Images;
 
 import javax.swing.*;
@@ -13,7 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
-public class MainForm extends JPanel {
+public class MainForm extends JPanel
+{
     private JPanel rootPanel;
     private JPanel titlePanel;
     private JPanel listContacts;
@@ -36,13 +38,11 @@ public class MainForm extends JPanel {
     private JLabel contactsInfo;
     private JScrollPane messageTextScrollPanel;
 
-//    private BufferedImage userPhotoMask = Images.getUserPhotoMask();
-//    private BufferedImage contactsPhotoMask = Images.getUserPhotoMaskWhite();
-
     private BufferedImage mePhoto;
     private String meText;
     private BufferedImage buddyPhoto;
     private String buddyText;
+
 
     public MainForm() {
         list.add(new JPanel());
@@ -51,8 +51,6 @@ public class MainForm extends JPanel {
         searchField.setBorder(BorderFactory.createEmptyBorder());
         if (searchField.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) searchField.getDocument()).setDocumentFilter(new TextEntry());
-        HintText search = new HintText(searchField,"Поиск",new Color(200,200,200));
-        HintText message = new HintText(messageText,"Введите сообщение",new Color(200,200,200));
     }
 
     private void createUIComponents() {
@@ -60,13 +58,16 @@ public class MainForm extends JPanel {
         rootPanel = this;
         searchIcon = new ImagePanel(Images.getSearch(), false, true, 0);
         logoPanel = new ImagePanel(Images.getLogoMicro(), false, true, 0);
-//        searchField = new HintTextField("", "Поиск", false)
-//        {
-//            @Override
-//            protected void paintBorder(Graphics g) {
-//
-//            }
-//        };
+        HintTextField hintTextFieldSearch = new HintTextField("", "Поиск", false)
+        {
+            @Override
+            protected void paintBorder (Graphics g){
+
+            }
+        };
+        hintTextFieldSearch.setHintForeground(new Color(200,200,200));
+        hintTextFieldSearch.setHintFont(Fonts.getOpenSansRegular());
+        searchField = hintTextFieldSearch;
 
         userPhotoPanel = new JPanel() {
             @Override

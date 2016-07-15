@@ -1,7 +1,7 @@
 package overlays;
 
-import mics.TextEntry;
 import components.GuiHelper;
+import components.TextEntry;
 import org.javagram.dao.Me;
 import org.javagram.dao.proxy.TelegramProxy;
 
@@ -23,16 +23,16 @@ public class ProfileForm extends JPanel {
     private JPanel fastPanel;
 
     private TelegramProxy telegramProxy;
+    private int liftUp = 7;
+    private int edge = 20;
 
     public ProfileForm() {
-        close.setText("выход");
         last.setBorder(BorderFactory.createEmptyBorder());
         fast.setBorder(BorderFactory.createEmptyBorder());
         if (last.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) last.getDocument()).setDocumentFilter(new TextEntry());
         if (fast.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) fast.getDocument()).setDocumentFilter(new TextEntry());
-
     }
 
     private void createUIComponents() {
@@ -42,7 +42,7 @@ public class ProfileForm extends JPanel {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 g.setColor(new Color(35, 182, 228));
-                g.drawLine(0, 29, 70, 29);
+                g.drawLine(edge,(close.getHeight()-liftUp),(close.getWidth()-edge),(close.getHeight()-liftUp));
             }
         };
     }

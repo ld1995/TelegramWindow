@@ -1,4 +1,4 @@
-package mics;
+package components;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -7,11 +7,11 @@ import javax.swing.text.DocumentFilter;
 /**
  * Created by user on 14.06.2016.
  */
-public class Pass extends DocumentFilter
+public class MaxLengthDocumentFilter extends DocumentFilter
 {
     private int maxLength;
 
-    public Pass(int maxLength)
+    public MaxLengthDocumentFilter(int maxLength)
     {
         this.maxLength = maxLength;
     }

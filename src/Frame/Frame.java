@@ -229,21 +229,17 @@ public class Frame extends JFrame
         timer.start();
     }
 
-    protected void checkForUpdates()
-    {
-        if (telegramProxy != null)
-        {
+    protected void checkForUpdates() {
+        if (telegramProxy != null) {
             UpdateChanges updateChanges = telegramProxy.update();
 
             int photosChangedCount = updateChanges.getLargePhotosChanged().size() +
-                    updateChanges.getSmallPhotosChanged().size() + updateChanges.getStatusesChanged().size();
+                    updateChanges.getSmallPhotosChanged().size() +
+                    updateChanges.getStatusesChanged().size();
 
-            if (updateChanges.getListChanged())
-            {
+            if (updateChanges.getListChanged()) {
                 updateContacts();
-            }
-            else if (photosChangedCount != 0)
-            {
+            } else if (photosChangedCount != 0) {
                 contacts.repaint();
             }
 
@@ -252,21 +248,19 @@ public class Frame extends JFrame
 
             Dialog currentDialog = currentBuddy != null ? telegramProxy.getDialog(currentBuddy) : null;
 
-            if (!Objects.equals(targetPerson,currentBuddy) || updateChanges.getDialogsToReset().contains(currentDialog)
-                    || updateChanges.getDialogsChanged().getDeleted().contains(currentDialog))
-            {
+            if (!Objects.equals(targetPerson, currentBuddy) ||
+                    updateChanges.getDialogsToReset().contains(currentDialog) ||
+                    updateChanges.getDialogsChanged().getDeleted().contains(currentDialog)) {
                 updateMessages();
-            }
-            else if (updateChanges.getPersonsChanged().getChanged().containsKey(currentBuddy)
+            } else if(updateChanges.getPersonsChanged().getChanged().containsKey(currentBuddy)
                     || updateChanges.getSmallPhotosChanged().contains(currentBuddy)
-                    || updateChanges.getLargePhotosChanged().contains(currentBuddy))
-            {
+                    || updateChanges.getLargePhotosChanged().contains(currentBuddy)) {
                 displayBuddy(targetPerson);
             }
-            if (updateChanges.getPersonsChanged().getChanged().containsKey(telegramProxy.getMe())
+
+            if(updateChanges.getPersonsChanged().getChanged().containsKey(telegramProxy.getMe())
                     || updateChanges.getSmallPhotosChanged().contains(telegramProxy.getMe())
-                    || updateChanges.getLargePhotosChanged().contains(telegramProxy.getMe()))
-            {
+                    || updateChanges.getLargePhotosChanged().contains(telegramProxy.getMe())) {
                 displayMe(telegramProxy.getMe());
             }
         }

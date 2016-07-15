@@ -1,6 +1,8 @@
 package Frame;
 
-import mics.TextEntry;
+import components.HintTextField;
+import components.TextEntry;
+import resources.Fonts;
 import resources.Images;
 import components.GuiHelper;
 import components.ImagePanel;
@@ -29,8 +31,6 @@ public class Registration extends ImagePanel {
             ((AbstractDocument) lastName.getDocument()).setDocumentFilter(new TextEntry());
         if (fastName.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) fastName.getDocument()).setDocumentFilter(new TextEntry());
-//        HintTextField last = new HintTextField(lastName, "Имя", lastName.getCaretColor());
-//        HintTextField fast = new HintTextField(fastName, "Фамилия", fastName.getCaretColor());
     }
 
     public JPanel getRegistrationPanel() {
@@ -65,6 +65,24 @@ public class Registration extends ImagePanel {
         // TODO: place custom component creation code here
         registrationPanel = this;
         logoPanel = new ImagePanel(Images.getLogoMini(), false, true, 0);
+        HintTextField lastHint = new HintTextField("","Имя",false)
+        {
+            @Override
+            protected void paintBorder(Graphics g) {
+            }
+        };
+        lastHint.setHintForeground(new Color(200,200,200));
+        lastHint.setHintFont(Fonts.getOpenSansRegular());
+        lastName = lastHint;
+        HintTextField fastHint = new HintTextField("","Фамилия", false)
+        {
+            @Override
+            protected void paintBorder(Graphics g) {
+            }
+        };
+        fastHint.setHintForeground(new Color(200,200,200));
+        fastHint.setHintFont(Fonts.getOpenSansRegular());
+        fastName = fastHint;
     }
 
     public void clean() {

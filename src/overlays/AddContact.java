@@ -1,11 +1,11 @@
 package overlays;
 
-import mics.HintTextField;
-import mics.TextEntry;
-import resources.Images;
 import components.GuiHelper;
+import components.HintTextField;
 import components.ImagePanel;
+import components.TextEntry;
 import org.javagram.dao.proxy.TelegramProxy;
+import resources.Images;
 
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
@@ -67,13 +67,14 @@ public class AddContact extends JPanel {
 
             }
         };
-        fast = new HintTextField("", "Фамилия", false)
+        HintTextField hintTextField = new HintTextField("", "Фамилия", false)
         {
             @Override
             protected void paintBorder(Graphics g) {
 
             }
         };
+        fast = hintTextField;
     }
 
     public TelegramProxy getTelegramProxy() {

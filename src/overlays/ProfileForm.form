@@ -35,11 +35,11 @@
         <properties>
           <borderPainted value="false"/>
           <contentAreaFilled value="false"/>
-          <font size="12"/>
+          <font name="Open Sans Light" size="20"/>
           <foreground color="-14436636"/>
           <minimumSize width="36" height="36"/>
           <opaque value="false"/>
-          <preferredSize width="70" height="35"/>
+          <preferredSize width="100" height="35"/>
           <requestFocusEnabled value="false"/>
           <text value="выйти"/>
         </properties>
@@ -144,7 +144,7 @@
         </constraints>
         <properties>
           <enabled value="false"/>
-          <font name="Open Sans" size="14"/>
+          <font name="Open Sans Light" size="18"/>
           <text value="Label"/>
         </properties>
       </component>
