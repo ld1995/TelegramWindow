@@ -103,7 +103,7 @@
           <text value="ДОБАВИТЬ"/>
         </properties>
       </component>
-      <grid id="ac5fc" layout-manager="GridBagLayout">
+      <grid id="ac5fc" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.1"/>
@@ -117,10 +117,7 @@
         <border type="none"/>
         <children>
           <component id="4eb05" class="javax.swing.JTextField" binding="last" custom-create="true">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
+            <constraints/>
             <properties>
               <caretColor color="-1"/>
               <disabledTextColor color="-1"/>
@@ -141,14 +138,11 @@
             </properties>
           </component>
           <component id="a7af" class="javax.swing.JSeparator">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
+            <constraints/>
             <properties>
               <background color="-1"/>
               <minimumSize width="320" height="2"/>
-              <preferredSize width="320" height="2"/>
+              <preferredSize width="400" height="2"/>
             </properties>
           </component>
         </children>
@@ -189,7 +183,7 @@
           <text value="Добавление контакта"/>
         </properties>
       </component>
-      <grid id="1f096" layout-manager="GridBagLayout">
+      <grid id="1f096" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.1"/>
@@ -203,10 +197,7 @@
         <border type="none"/>
         <children>
           <component id="a2d9" class="javax.swing.JTextField" binding="fast" custom-create="true">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
+            <constraints/>
             <properties>
               <caretColor color="-1"/>
               <disabledTextColor color="-1"/>
@@ -224,14 +215,11 @@
             </properties>
           </component>
           <component id="2c62b" class="javax.swing.JSeparator">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
-            </constraints>
+            <constraints/>
             <properties>
               <background color="-1"/>
               <minimumSize width="320" height="2"/>
-              <preferredSize width="320" height="2"/>
+              <preferredSize width="400" height="2"/>
             </properties>
           </component>
         </children>

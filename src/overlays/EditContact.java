@@ -68,7 +68,7 @@ public class EditContact extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         Color color = Color.black;
-        g.setColor(GuiHelper.makeTranspatent(color, 0.9f));
+        g.setColor(GuiHelper.makeTransparent(color, 0.9f));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
     }
 

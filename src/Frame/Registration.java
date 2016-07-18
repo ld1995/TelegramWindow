@@ -22,6 +22,8 @@ public class Registration extends ImagePanel {
     private JPanel lastPanel;
     private JPanel fastPanel;
 
+    private Color color = new Color(200,200,200);
+
     public Registration() {
         super(Images.getBackground(), true, false, 0);
         GuiHelper.adjustTextPane(text);
@@ -71,8 +73,8 @@ public class Registration extends ImagePanel {
             protected void paintBorder(Graphics g) {
             }
         };
-        lastHint.setHintForeground(new Color(200,200,200));
-        lastHint.setHintFont(Fonts.getOpenSansRegular());
+        lastHint.setHintForeground(color);
+        lastHint.setFont(Fonts.getOpenSansLight().deriveFont(0,28));
         lastName = lastHint;
         HintTextField fastHint = new HintTextField("","Фамилия", false)
         {
@@ -80,8 +82,8 @@ public class Registration extends ImagePanel {
             protected void paintBorder(Graphics g) {
             }
         };
-        fastHint.setHintForeground(new Color(200,200,200));
-        fastHint.setHintFont(Fonts.getOpenSansRegular());
+        fastHint.setHintForeground(color);
+        fastHint.setFont(Fonts.getOpenSansLight().deriveFont(0,28));
         fastName = fastHint;
     }
 

@@ -49,6 +49,7 @@ public class MainForm extends JPanel
         message.add(new JPanel());
         GuiHelper.decorateScrollPane(messageTextScrollPanel);
         searchField.setBorder(BorderFactory.createEmptyBorder());
+        this.messageTextScrollPanel.setBorder(BorderFactory.createEmptyBorder());
         if (searchField.getDocument() instanceof AbstractDocument)
             ((AbstractDocument) searchField.getDocument()).setDocumentFilter(new TextEntry());
     }
@@ -66,7 +67,7 @@ public class MainForm extends JPanel
             }
         };
         hintTextFieldSearch.setHintForeground(new Color(200,200,200));
-        hintTextFieldSearch.setHintFont(Fonts.getOpenSansRegular());
+        hintTextFieldSearch.setFont(Fonts.getOpenSansRegular().deriveFont(0,16));
         searchField = hintTextFieldSearch;
 
         userPhotoPanel = new JPanel() {

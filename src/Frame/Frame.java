@@ -330,6 +330,7 @@ public class Frame extends JFrame
             destroyTelegramProxy();
             this.sms.clear();
             this.number.clear();
+            this.reg.clean();
             mainWindowManager.setIndex(MAIN_WINDOW);
             changeContentPanel(number);
             telegramDAO.logOut();

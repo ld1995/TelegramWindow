@@ -5,6 +5,7 @@ import components.HintTextField;
 import components.ImagePanel;
 import components.TextEntry;
 import org.javagram.dao.proxy.TelegramProxy;
+import resources.Fonts;
 import resources.Images;
 
 import javax.swing.*;
@@ -53,28 +54,29 @@ public class AddContact extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         Color color = Color.black;
-        g.setColor(GuiHelper.makeTranspatent(color, 0.9f));
+        g.setColor(GuiHelper.makeTransparent(color, 0.9f));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
     }
 
     private void createUIComponents() {
         rootPanel = this;
         phonePanel = new ImagePanel(Images.getPhone(), false, true, 0);
-        last = new HintTextField("", "Имя", false)
+        HintTextField lastHint = new HintTextField("","Имя",false)
         {
             @Override
             protected void paintBorder(Graphics g) {
-
             }
         };
-        HintTextField hintTextField = new HintTextField("", "Фамилия", false)
+        lastHint.setFont(Fonts.getOpenSansLight().deriveFont(0,28));
+        last = lastHint;
+        HintTextField fastHint = new HintTextField("","Фамилия", false)
         {
             @Override
             protected void paintBorder(Graphics g) {
-
             }
         };
-        fast = hintTextField;
+        fastHint.setFont(Fonts.getOpenSansLight().deriveFont(0,28));
+        fast = fastHint;
     }
 
     public TelegramProxy getTelegramProxy() {

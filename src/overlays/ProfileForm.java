@@ -50,7 +50,7 @@ public class ProfileForm extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         Color color = Color.black;
-        g.setColor(GuiHelper.makeTranspatent(color, 0.9f));
+        g.setColor(GuiHelper.makeTransparent(color, 0.9f));
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
     }
 
@@ -71,15 +71,6 @@ public class ProfileForm extends JPanel {
             number.setText("");
         }
         repaint();
-    }
-
-    private void saveChanges() {
-        if (telegramProxy.getMe().getLastName().equals(last.getText()) && telegramProxy.getMe().getFirstName().equals(fast.getText())) {
-            return;
-        } else {
-//            telegramProxy.
-        }
-
     }
 
     public void addActionListenerForLogout(ActionListener listener) {

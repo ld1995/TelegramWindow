@@ -36,11 +36,9 @@ public class Fonts
         return openSansSemiBold;
     }
 
-    private static Font loadFont(String name)
+    public static Font loadFont(String name)
     {
-        try
-        {
-            InputStream inputStream = Fonts.class.getResourceAsStream("fonts/" + name);
+        try(InputStream inputStream = Fonts.class.getResourceAsStream("fonts/" + name)){
             return Font.createFont(Font.TRUETYPE_FONT,inputStream);
         }
         catch (Exception e)

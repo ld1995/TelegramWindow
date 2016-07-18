@@ -288,14 +288,14 @@
                   </component>
                   <scrollpane id="b5fdf" binding="messageTextScrollPanel">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
                       <gridbag weightx="0.0" weighty="0.0"/>
                     </constraints>
                     <properties>
                       <foreground color="-329473"/>
-                      <minimumSize width="420" height="45"/>
+                      <minimumSize width="600" height="45"/>
                       <opaque value="false"/>
-                      <preferredSize width="500" height="45"/>
+                      <preferredSize width="550" height="45"/>
                     </properties>
                     <border type="none"/>
                     <children>
@@ -307,7 +307,7 @@
                           <dragEnabled value="false"/>
                           <font name="Open Sans" size="16"/>
                           <lineWrap value="true"/>
-                          <preferredSize width="450" height="45"/>
+                          <preferredSize width="500" height="45"/>
                           <selectedTextColor color="-1"/>
                           <selectionColor color="-16731159"/>
                           <text value=""/>
@@ -322,7 +322,7 @@
                 <constraints border-constraint="Center"/>
                 <properties>
                   <background color="-1"/>
-                  <preferredSize width="550" height="430"/>
+                  <preferredSize width="0" height="0"/>
                 </properties>
                 <border type="none"/>
                 <children/>

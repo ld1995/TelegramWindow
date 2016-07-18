@@ -19,14 +19,14 @@ public class MessagesForm extends JPanel {
 
     private final int width = 150;
     private final int messagesCount = 100;
-    private final DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+    private final DateFormat dateFormat = new SimpleDateFormat("HH:mm dd MMM yyyy");
 
     private TelegramProxy telegramProxy;
     private Person person;
 
     {
-        this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
         GuiHelper.decorateScrollPane(scrollPane);
+        this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
     }
 
     public MessagesForm(TelegramProxy telegramProxy) {
@@ -39,19 +39,19 @@ public class MessagesForm extends JPanel {
     }
 
     public void display(Person person) {
+
         scrollPanel.removeAll();
         this.person = person;
 
         scrollPanel.setLayout(new BoxLayout(scrollPanel, BoxLayout.Y_AXIS));
         scrollPanel.add(Box.createGlue());
 
-        if (person == null) {
+        if(person == null)
             return;
-        }
 
-        List<Message> messageList = telegramProxy.getMessages(person, messagesCount);
+        List<Message> messages = telegramProxy.getMessages(person, messagesCount);
 
-        for (int i = messageList.size() - 1; i >= 0; i--) {
+        for(int i = messages.size() - 1; i >= 0 ; i--) {
             JPanel panel = new JPanel() {
                 @Override
                 public Dimension getMaximumSize() {
@@ -60,17 +60,17 @@ public class MessagesForm extends JPanel {
                     return new Dimension(maxSize.width, prefSize.height);
                 }
             };
-            Message message = messageList.get(i);
+            Message message = messages.get(i);
             int alignment;
             Color color;
             String fontColor;
-            if (message.getReceiver() instanceof Me) {
+            if(message.getReceiver() instanceof Me) {
                 alignment = FlowLayout.LEFT;
-                color = Color.blue;
-                fontColor = "White";
-            } else if (message.getReceiver() instanceof Me) {
+                color = new Color(35, 182, 228);
+                fontColor = "white";
+            } else if(message.getSender() instanceof Me) {
                 alignment = FlowLayout.RIGHT;
-                color = Color.cyan;
+                color = new Color(74,68,168);
                 fontColor = "black";
             } else {
                 alignment = FlowLayout.CENTER;
@@ -78,15 +78,16 @@ public class MessagesForm extends JPanel {
                 fontColor = "green";
             }
             panel.setLayout(new FlowLayout(alignment));
-            panel.add(new MessageForm(message.getText(), dateFormat.format(message.getDate()), width, color,fontColor));
+            panel.add(new MessageForm(message.getText(), dateFormat.format(message.getDate()), width, color, fontColor));
             scrollPanel.add(panel);
         }
-        scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
 
+        scrollPane.getVerticalScrollBar().setValue(scrollPane.getVerticalScrollBar().getMaximum());
     }
 
+
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+// TODO: place custom component creation code here
         rootPanel = this;
     }
 
@@ -97,5 +98,4 @@ public class MessagesForm extends JPanel {
     public Person getPerson() {
         return person;
     }
-
 }

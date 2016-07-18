@@ -1,9 +1,9 @@
 package Contacts;
 
-import resources.Images;
-import org.javagram.dao.*;
 import org.javagram.dao.Dialog;
+import org.javagram.dao.Person;
 import org.javagram.dao.proxy.TelegramProxy;
+import resources.Images;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     private JTextPane lastMessage;
@@ -25,7 +26,8 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
     private boolean selected;
     private BufferedImage mask;
     private final DateFormat dateFormat = new SimpleDateFormat("dd.MM.yy");
-    private final DateFormat dayFormat = new SimpleDateFormat("HH:mm");
+    private final DateFormat hourFormat = new SimpleDateFormat("HH");
+    private final DateFormat minFormat = new SimpleDateFormat("mm");
     private int indicator = 2;
 
     public ContactsForm(TelegramProxy telegramProxy) {
@@ -87,15 +89,33 @@ public class ContactsForm extends JPanel implements ListCellRenderer<Person> {
         this.nameLabel.setText(person.getFirstName() + " " + person.getLastName());
         if (dialog != null) {
             this.lastMessage.setText(dialog.getLastMessage().getText());
-            this.date.setText(dateFormat.format(dialog.getLastMessage().getDate()));
+            Calendar calendar = Calendar.getInstance();
+            if (dateFormat.format(dialog.getLastMessage().getDate()).equals(dateFormat.format(calendar.getTime()))) {
+//                this.date.setText(dayFormat.format(dialog.getLastMessage().getDate().getTime()));
+//                System.out.println("==============");
+//                System.out.println(hourFormat.format(calendar.getTime().getTime()));
+//                System.out.println(hourFormat.format(dialog.getLastMessage().getDate().getTime()));
+//                System.out.println("==============");
+//                System.out.println("==============");
+//                System.out.println(minFormat.format(calendar.getTime().getTime()));
+//                System.out.println(minFormat.format(dialog.getLastMessage().getDate().getTime()));
+//                System.out.println("==============");
+                if (hourFormat.format(dialog.getLastMessage().getDate().getTime()).equals(hourFormat.format(calendar.getTime().getTime()))) {
+                    this.date.setText(minFormat.format((calendar.getTime().getTime()) - dialog.getLastMessage().getDate().getTime())+" мин.");
+                } else {
+                       this.date.setText(hourFormat.format(calendar.getTime().getTime() - dialog.getLastMessage().getDate().getTime())+" час.");
+                    //-3
+                }
+            } else
+                this.date.setText(dateFormat.format(dialog.getLastMessage().getDate()));
         } else {
             this.lastMessage.setText("");
             this.date.setText("");
         }
         if (selected) {
-            setBackground(Color.white);
+            this.rootPanel.setBackground(Color.white);
         } else {
-            setBackground(new Color(230, 230, 230));
+            this.rootPanel.setBackground(new Color(230, 230, 230));
         }
         this.hasFocus = hasFocus;
         return this;

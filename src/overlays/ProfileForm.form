@@ -145,6 +145,7 @@
         <properties>
           <enabled value="false"/>
           <font name="Open Sans Light" size="18"/>
+          <foreground color="-1644826"/>
           <text value="Label"/>
         </properties>
       </component>

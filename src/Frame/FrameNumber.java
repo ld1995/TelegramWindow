@@ -26,7 +26,7 @@ public class FrameNumber extends ImagePanel {
         this.logoPanel.setBorder(BorderFactory.createEmptyBorder());
         this.numberPanel.setBorder(BorderFactory.createEmptyBorder());
         try {
-            MaskFormatter maskFormatter = new MaskFormatter("+### ## ### ## ##");
+            MaskFormatter maskFormatter = new MaskFormatter("+### (##) ###-##-##");
             maskFormatter.setPlaceholder(null);
             maskFormatter.setPlaceholderCharacter(' ');
             numberField.setFormatterFactory(new DefaultFormatterFactory(maskFormatter));
