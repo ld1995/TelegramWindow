@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="by.ld1995tut.Frame.FrameNumber">
+  <grid id="27dc6" binding="numberPanel" custom-create="true" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="905" height="600"/>
+    </constraints>
+    <properties>
+      <minimumSize width="905" height="596"/>
+      <preferredSize width="800" height="600"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="8e8d9" class="javax.swing.JButton" binding="numberButton">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="0" left="0" bottom="70" right="0" weightx="0.0" weighty="0.4"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <enabled value="true"/>
+          <focusPainted value="true"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="20"/>
+          <foreground color="-1"/>
+          <horizontalTextPosition value="0"/>
+          <icon value="resources/images/button-background.png"/>
+          <maximumSize width="150" height="32"/>
+          <minimumSize width="150" height="32"/>
+          <opaque value="false"/>
+          <preferredSize width="335" height="65"/>
+          <text value="ПРОДОЛЖИТЬ"/>
+        </properties>
+      </component>
+      <grid id="42710" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <minimumSize width="320" height="30"/>
+          <opaque value="false"/>
+          <preferredSize width="400" height="55"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="e4cba" binding="phonLogoPanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <opaque value="false"/>
+              <preferredSize width="22" height="36"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <component id="86aca" class="javax.swing.JFormattedTextField" binding="numberField">
+            <constraints/>
+            <properties>
+              <background color="-1579033"/>
+              <caretColor color="-1"/>
+              <disabledTextColor color="-1"/>
+              <editable value="true"/>
+              <focusCycleRoot value="false"/>
+              <font name="Open Sans Light" size="36"/>
+              <foreground color="-1"/>
+              <opaque value="false"/>
+              <preferredSize width="350" height="37"/>
+              <selectedTextColor color="-1"/>
+              <selectionColor color="-16731159"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="3b509" class="javax.swing.JSeparator">
+            <constraints/>
+            <properties>
+              <background color="-1"/>
+              <minimumSize width="400" height="2"/>
+              <preferredSize width="400" height="3"/>
+              <visible value="true"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="a860" binding="logoPanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.4"/>
+        </constraints>
+        <properties>
+          <opaque value="false"/>
+          <preferredSize width="165" height="168"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <component id="ae318" class="javax.swing.JTextPane" binding="infoPanel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1579033"/>
+          <editable value="false"/>
+          <enabled value="false"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="16"/>
+          <opaque value="false"/>
+          <text value="Введите код страны и номер &#10;вашего мобильного телефона"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

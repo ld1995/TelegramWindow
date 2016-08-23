@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="by.ld1995tut.Frame.FrameSms">
+  <grid id="27dc6" binding="smsPanel" custom-create="true" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="905" height="596"/>
+    </constraints>
+    <properties>
+      <minimumSize width="905" height="596"/>
+      <preferredSize width="800" height="600"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="ed6d7" class="javax.swing.JLabel" binding="number">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <autoscrolls value="false"/>
+          <background color="-1579033"/>
+          <font name="Open Sans Light" size="36"/>
+          <foreground color="-4473925"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <name value=""/>
+          <text value="Label"/>
+          <toolTipText value=""/>
+        </properties>
+      </component>
+      <component id="fa324" class="javax.swing.JButton" binding="smsButton">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="0" left="0" bottom="75" right="0" weightx="0.0" weighty="0.4"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <enabled value="true"/>
+          <focusPainted value="true"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="20"/>
+          <foreground color="-1"/>
+          <horizontalTextPosition value="0"/>
+          <icon value="resources/images/button-background.png"/>
+          <maximumSize width="150" height="32"/>
+          <minimumSize width="150" height="32"/>
+          <opaque value="false"/>
+          <preferredSize width="335" height="65"/>
+          <text value="ПРОДОЛЖИТЬ"/>
+        </properties>
+      </component>
+      <grid id="40e7" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <minimumSize width="150" height="55"/>
+          <opaque value="false"/>
+          <preferredSize width="170" height="55"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="29845" binding="lockPanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints/>
+            <properties>
+              <minimumSize width="26" height="36"/>
+              <opaque value="false"/>
+              <preferredSize width="26" height="36"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <component id="fd4ad" class="javax.swing.JPasswordField" binding="passwordField">
+            <constraints/>
+            <properties>
+              <background color="-1"/>
+              <caretColor color="-1"/>
+              <disabledTextColor color="-1"/>
+              <font size="18"/>
+              <foreground color="-1"/>
+              <horizontalAlignment value="0"/>
+              <maximumSize width="50" height="23"/>
+              <minimumSize width="50" height="23"/>
+              <opaque value="false"/>
+              <preferredSize width="110" height="27"/>
+              <selectedTextColor color="-1"/>
+              <selectionColor color="-16731159"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="80c0b" class="javax.swing.JSeparator">
+            <constraints/>
+            <properties>
+              <preferredSize width="140" height="2"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="98284" binding="logoPanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.3"/>
+        </constraints>
+        <properties>
+          <minimumSize width="124" height="98"/>
+          <opaque value="false"/>
+          <preferredSize width="124" height="98"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <component id="f77d8" class="javax.swing.JTextPane" binding="infoPanel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1579033"/>
+          <editable value="false"/>
+          <enabled value="false"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="16"/>
+          <opaque value="false"/>
+          <text value="На данный номер телефона было отправлено&#10;SMS-сообщение с кодом подтверждения.&#10;Пожалуйста, введите этот код в поле ниже:"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

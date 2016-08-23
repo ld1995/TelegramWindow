@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="by.ld1995tut.Frame.Registration">
+  <grid id="27dc6" binding="registrationPanel" custom-create="true" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="905" height="596"/>
+    </constraints>
+    <properties>
+      <focusCycleRoot value="false"/>
+      <maximumSize width="2147483647" height="2147483647"/>
+      <minimumSize width="905" height="596"/>
+      <preferredSize width="905" height="596"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="5ab0" binding="fastPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <opaque value="false"/>
+          <preferredSize width="250" height="45"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="628e5" class="javax.swing.JTextField" binding="fastName" custom-create="true">
+            <constraints/>
+            <properties>
+              <caretColor color="-1"/>
+              <disabledTextColor color="-1"/>
+              <font name="Open Sans Light" size="28"/>
+              <foreground color="-1"/>
+              <minimumSize width="250" height="35"/>
+              <preferredSize width="250" height="35"/>
+              <selectedTextColor color="-16731159"/>
+              <selectionColor color="-1"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="fe7e0" class="javax.swing.JSeparator">
+            <constraints/>
+            <properties>
+              <preferredSize width="300" height="2"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="9bbfc" class="javax.swing.JButton" binding="nextReg">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="0" left="0" bottom="75" right="0" weightx="0.0" weighty="0.4"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <enabled value="true"/>
+          <focusPainted value="true"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="20"/>
+          <foreground color="-1"/>
+          <horizontalTextPosition value="0"/>
+          <icon value="resources/images/button-background.png"/>
+          <maximumSize width="150" height="32"/>
+          <minimumSize width="150" height="32"/>
+          <opaque value="false"/>
+          <preferredSize width="335" height="65"/>
+          <text value="ЗАВЕРШИТЬ"/>
+        </properties>
+      </component>
+      <grid id="30e3e" binding="logoPanel" custom-create="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.3"/>
+        </constraints>
+        <properties>
+          <minimumSize width="124" height="98"/>
+          <opaque value="false"/>
+          <preferredSize width="124" height="98"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <component id="588b" class="javax.swing.JTextPane" binding="infoPanel">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <caretColor color="-1"/>
+          <disabledTextColor color="-1579033"/>
+          <editable value="false"/>
+          <enabled value="false"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="16"/>
+          <opaque value="false"/>
+          <text value="Введите ваше имя и фамилию и установите&#10;фотографию для завершения регистрации"/>
+        </properties>
+      </component>
+      <grid id="ef9ba" binding="lastPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <opaque value="false"/>
+          <preferredSize width="250" height="45"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="370fc" class="javax.swing.JTextField" binding="lastName" custom-create="true">
+            <constraints/>
+            <properties>
+              <caretColor color="-1"/>
+              <disabledTextColor color="-1"/>
+              <font name="Open Sans Light" size="28"/>
+              <foreground color="-1"/>
+              <minimumSize width="250" height="35"/>
+              <opaque value="false"/>
+              <preferredSize width="250" height="35"/>
+              <selectedTextColor color="-16731159"/>
+              <selectionColor color="-1"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="69347" class="javax.swing.JSeparator">
+            <constraints/>
+            <properties>
+              <preferredSize width="300" height="2"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

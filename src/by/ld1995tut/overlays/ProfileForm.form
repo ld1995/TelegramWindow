@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="by.ld1995tut.overlays.ProfileForm">
+  <grid id="27dc6" binding="rootPanel" custom-create="true" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="856" height="564"/>
+    </constraints>
+    <properties>
+      <background color="-12828863"/>
+      <opaque value="false"/>
+      <preferredSize width="900" height="600"/>
+    </properties>
+    <border type="none" title=""/>
+    <children>
+      <component id="eae12" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <preferredSize width="40" height="40"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="b758b" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="e6589" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <preferredSize width="40" height="40"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="2ad5f" class="javax.swing.JButton" binding="close">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <icon value="resources/images/icon-back.png"/>
+          <minimumSize width="36" height="36"/>
+          <opaque value="false"/>
+          <preferredSize width="35" height="35"/>
+          <requestFocusEnabled value="false"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="70805" class="javax.swing.JButton" binding="logoutButton" custom-create="true">
+        <constraints>
+          <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <font name="Open Sans Light" size="20"/>
+          <foreground color="-16731159"/>
+          <minimumSize width="85" height="35"/>
+          <preferredSize width="98" height="36"/>
+          <requestFocusEnabled value="false"/>
+          <text value="выйти"/>
+        </properties>
+      </component>
+      <component id="7b415" class="javax.swing.JButton" binding="saveButton">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="1.0"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <enabled value="true"/>
+          <focusPainted value="true"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="20"/>
+          <foreground color="-1"/>
+          <horizontalTextPosition value="0"/>
+          <icon value="resources/images/button-background.png"/>
+          <maximumSize width="150" height="32"/>
+          <minimumSize width="150" height="32"/>
+          <opaque value="false"/>
+          <preferredSize width="335" height="65"/>
+          <text value="СОХРАНИТЬ"/>
+        </properties>
+      </component>
+      <grid id="a73aa" binding="fastPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag top="10" left="0" bottom="0" right="100" weightx="0.1" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <opaque value="false"/>
+          <preferredSize width="250" height="45"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="4c0ab" class="javax.swing.JTextField" binding="fastName">
+            <constraints/>
+            <properties>
+              <caretColor color="-1"/>
+              <disabledTextColor color="-1"/>
+              <font name="Open Sans Light" size="28"/>
+              <foreground color="-1"/>
+              <minimumSize width="250" height="35"/>
+              <opaque value="false"/>
+              <preferredSize width="250" height="35"/>
+              <selectedTextColor color="-16731159"/>
+              <selectionColor color="-1"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="4699d" class="javax.swing.JSeparator">
+            <constraints/>
+            <properties>
+              <preferredSize width="300" height="2"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="a7d34" binding="lastPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
+          <gridbag top="10" left="0" bottom="0" right="100" weightx="0.1" weighty="0.1"/>
+        </constraints>
+        <properties>
+          <opaque value="false"/>
+          <preferredSize width="250" height="45"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="d077e" class="javax.swing.JTextField" binding="lastName">
+            <constraints/>
+            <properties>
+              <caretColor color="-1"/>
+              <disabledTextColor color="-1"/>
+              <font name="Open Sans Light" size="28"/>
+              <foreground color="-1"/>
+              <minimumSize width="250" height="35"/>
+              <opaque value="false"/>
+              <preferredSize width="250" height="35"/>
+              <selectedTextColor color="-16731159"/>
+              <selectionColor color="-1"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="921e7" class="javax.swing.JSeparator">
+            <constraints/>
+            <properties>
+              <preferredSize width="300" height="2"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="16cf9" class="javax.swing.JTextPane" binding="text">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+          <gridbag weightx="0.0" weighty="0.5"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <caretColor color="-16731159"/>
+          <disabledTextColor color="-16731159"/>
+          <editable value="false"/>
+          <enabled value="false"/>
+          <focusable value="false"/>
+          <font name="Open Sans" size="40"/>
+          <opaque value="false"/>
+          <text value="Настройки профиля"/>
+        </properties>
+      </component>
+      <component id="b6c94" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <minimumSize width="40" height="40"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="b8ad4" class="javax.swing.JLabel" binding="number">
+        <constraints>
+          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <font size="18"/>
+          <foreground color="-1644856"/>
+          <text value="Label"/>
+        </properties>
+      </component>
+      <grid id="589b6" layout-manager="GridBagLayout">
+        <constraints>
+          <grid row="1" column="2" row-span="2" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="0" left="50" bottom="0" right="0" weightx="0.1" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+          <foreground color="-1"/>
+          <minimumSize width="158" height="158"/>
+          <opaque value="true"/>
+          <preferredSize width="158" height="158"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="4f5d5" binding="photoPanel" custom-create="true" layout-manager="GridBagLayout">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <minimumSize width="150" height="150"/>
+              <preferredSize width="150" height="150"/>
+            </properties>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </grid>
+      <component id="1a6ba" class="javax.swing.JButton" binding="EditPhotoButton">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="0" left="70" bottom="0" right="0" weightx="0.1" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <focusable value="false"/>
+          <icon value="resources/images/icon-edit.png"/>
+          <minimumSize width="18" height="18"/>
+          <opaque value="false"/>
+          <preferredSize width="22" height="22"/>
+          <text value=""/>
+          <visible value="false"/>
+        </properties>
+      </component>
+      <component id="16c67" class="javax.swing.JButton" binding="deletePhotoButton">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag top="0" left="0" bottom="0" right="20" weightx="0.1" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <focusable value="false"/>
+          <icon value="resources/images/icon-trash.png"/>
+          <minimumSize width="18" height="18"/>
+          <opaque value="false"/>
+          <preferredSize width="22" height="22"/>
+          <text value=""/>
+          <visible value="false"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="by.ld1995tut.undecorated.FrameWindow">
+  <grid id="27dc6" binding="rootPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="900" height="630"/>
+    </constraints>
+    <properties>
+      <minimumSize width="900" height="630"/>
+      <preferredSize width="900" height="630"/>
+    </properties>
+    <border type="bevel-raised"/>
+    <children>
+      <grid id="31494" binding="systemPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="2">
+        <constraints border-constraint="North"/>
+        <properties>
+          <background color="-1579033"/>
+          <foreground color="-1579033"/>
+          <preferredSize width="900" height="30"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="a8970" class="javax.swing.JButton" binding="turn" custom-create="true">
+            <constraints/>
+            <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <minimumSize width="18" height="18"/>
+              <opaque value="false"/>
+              <preferredSize width="18" height="18"/>
+              <requestFocusEnabled value="true"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="36fef" class="javax.swing.JButton" binding="exit" custom-create="true">
+            <constraints/>
+            <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <opaque value="false"/>
+              <preferredSize width="18" height="18"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="19902" binding="inputPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <minimumSize width="900" height="600"/>
+          <opaque value="true"/>
+          <preferredSize width="900" height="600"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+    </children>
+  </grid>
+</form>
